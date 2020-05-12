@@ -1,0 +1,17 @@
+*** Variables ***
+${CATALOGUE_URL}    http://localhost:8083
+${OSM1_URL}         https://10.30.8.83:9999/osm
+${OSM1_ID}          OSM1
+${OSM1_USERNAME}    admin
+${OSM1_PASSWORD}    admin
+${OSM1_PROJECT}     admin
+${OSM2_URL}         https://10.30.8.22:9999/osm
+${OSM2_ID}          OSM2
+${OSM2_USERNAME}    admin
+${OSM2_PASSWORD}    admin
+${OSM2_PROJECT}     admin
+${NS_PACKAGE_CAT}   ../../packages/ns_cat.zip
+${NS_PACKAGE_OSM}   ../../packages/ns_osm.tar.gz
+${NSD_ID}           7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0
+${VNF_PACKAGE_OSM}  ../../packages/vnf_osm.tar.gz
+${VNFD_ID}          a6f85472-7cf4-41d9-9fa8-a097a69cc3ce

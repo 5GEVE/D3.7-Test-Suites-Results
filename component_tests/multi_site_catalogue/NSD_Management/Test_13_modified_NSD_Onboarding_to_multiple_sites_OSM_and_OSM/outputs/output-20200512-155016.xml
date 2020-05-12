@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200512 15:50:16.853" generator="Robot 3.2.1 (Python 2.7.17 on linux2)">
+<suite source="/home/ubuntu/TestD3.7/NSD Management Tests/Test 13 (modified) - NSD Onboarding to multiple sites – OSM and OSM/NSDOnboardingToMultipleSites.robot" id="s1" name="NSDOnboardingToMultipleSites">
+<test id="s1-t1" name="NSD Onboarding to multiple sites – OSM and OSM">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Onboarding NSD to multiple sites - OSM and OSM</arg>
+</arguments>
+<msg timestamp="20200512 15:50:17.067" level="INFO">Onboarding NSD to multiple sites - OSM and OSM</msg>
+<status status="PASS" endtime="20200512 15:50:17.067" starttime="20200512 15:50:17.066"></status>
+</kw>
+<kw name="Create Catalogue Session" library="keywords">
+<assign>
+<var>${catalogue}</var>
+</assign>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>catalogue</arg>
+<arg>${CATALOGUE_URL}</arg>
+</arguments>
+<msg timestamp="20200512 15:50:17.068" level="INFO">Creating Session using : alias=catalogue, url=http://localhost:8083, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200512 15:50:17.069" starttime="20200512 15:50:17.068"></status>
+</kw>
+<msg timestamp="20200512 15:50:17.069" level="INFO">${catalogue} = catalogue</msg>
+<status status="PASS" endtime="20200512 15:50:17.069" starttime="20200512 15:50:17.067"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Accept</arg>
+<arg>application/json</arg>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200512 15:50:17.070" level="INFO">${headers} = {u'Accept': u'application/json', u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20200512 15:50:17.070" starttime="20200512 15:50:17.069"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>${OSM1_ID}</arg>
+<arg>yes</arg>
+<arg>${OSM2_ID}</arg>
+<arg>yes</arg>
+</arguments>
+<assign>
+<var>${site}</var>
+</assign>
+<msg timestamp="20200512 15:50:17.071" level="INFO">${site} = {u'OSM1': u'yes', u'OSM2': u'yes'}</msg>
+<status status="PASS" endtime="20200512 15:50:17.071" starttime="20200512 15:50:17.070"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>userDefinedData</arg>
+<arg>${site}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200512 15:50:17.072" level="INFO">${body} = {u'userDefinedData': {u'OSM1': u'yes', u'OSM2': u'yes'}}</msg>
+<status status="PASS" endtime="20200512 15:50:17.072" starttime="20200512 15:50:17.071"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${catalogue}</arg>
+<arg>/nsd/v1/ns_descriptors</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${body}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200512 15:50:17.119" level="INFO">POST Request : url=http://localhost:8083/nsd/v1/ns_descriptors 
+ path_url=/nsd/v1/ns_descriptors 
+ headers={'Content-Length': '51', 'Accept-Encoding': 'gzip, deflate', 'Accept': u'application/json', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', 'Content-Type': u'application/json'} 
+ body={"userDefinedData": {"OSM1": "yes", "OSM2": "yes"}} 
+ </msg>
+<msg timestamp="20200512 15:50:17.120" level="INFO">POST Response : url=http://localhost:8083/nsd/v1/ns_descriptors 
+ status=201, reason= 
+ body={"id":"2218532f-a90d-4b33-b3b1-a99b52ecc44f","nsdId":null,"nsdName":null,"nsdVersion":null,"nsdDesigner":null,"nsdInvariantId":null,"vnfPkgIds":[],"pnfdInfoIds":[],"nestedNsdInfoIds":[],"nsdOnboardingState":"CREATED","onboardingFailureDetails":null,"nsdOperationalState":"DISABLED","nsdUsageState":"NOT_IN_USE","userDefinedData":{"OSM2":"yes","OSM1":"yes"},"_links":{"self":"/nsd/v1/ns_descriptors/2218532f-a90d-4b33-b3b1-a99b52ecc44f","nsd_content":"/nsd/v1/ns_descriptors/2218532f-a90d-4b33-b3b1-a99b52ecc44f/nsd_content"},"manosOnboardingStatus":{},"c2cOnboardingState":"UNPUBLISHED","projectId":"admin"} 
+ </msg>
+<msg timestamp="20200512 15:50:17.120" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:17.120" starttime="20200512 15:50:17.072"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="keywords">
+<arguments>
+<arg>${response}</arg>
+<arg>201</arg>
+</arguments>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200512 15:50:17.123" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:17.123" starttime="20200512 15:50:17.122"></status>
+</kw>
+<status status="PASS" endtime="20200512 15:50:17.124" starttime="20200512 15:50:17.121"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200512 15:50:17.125" level="INFO">${body} = {}</msg>
+<status status="PASS" endtime="20200512 15:50:17.125" starttime="20200512 15:50:17.124"></status>
+</kw>
+<kw name="Create Multi Part" library="keywords">
+<arguments>
+<arg>${body}</arg>
+<arg>file</arg>
+<arg>${NS_PACKAGE_CAT}</arg>
+<arg>application/zip</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'''${content}''' != '''${None}'''</arg>
+<arg>Set Variable</arg>
+<arg>${content}</arg>
+<arg>ELSE</arg>
+<arg>Get Binary File</arg>
+<arg>${filePath}</arg>
+</arguments>
+<assign>
+<var>${fileData}</var>
+</assign>
+<kw name="Get Binary File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>${filePath}</arg>
+</arguments>
+<msg timestamp="20200512 15:50:17.129" html="yes" level="INFO">Getting file '&lt;a href="file:///home/ubuntu/TestD3.7/packages/ns_cat.zip"&gt;/home/ubuntu/TestD3.7/packages/ns_cat.zip&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20200512 15:50:17.129" starttime="20200512 15:50:17.128"></status>
+</kw>
+<msg timestamp="20200512 15:50:17.131" level="INFO">${fileData} = PK
+\x82\xacP\xd2\x91GOKKFiles/ChangeLog.txtUT	\xd3\xaf\xba^\xd3\xaf\xba^ux\xe8\xe805/12/20 16:21:30 - New NS Package according to ETSI GS NFV-SOL004 v 2.5.1
+PK\x...</msg>
+<status status="PASS" endtime="20200512 15:50:17.131" starttime="20200512 15:50:17.127"></status>
+</kw>
+<kw name="Split Path" library="OperatingSystem">
+<doc>Splits the given path from the last path separator (``/`` or ``\``).</doc>
+<arguments>
+<arg>${filePath}</arg>
+</arguments>
+<assign>
+<var>${fileDir}</var>
+<var>${fileName}</var>
+</assign>
+<msg timestamp="20200512 15:50:17.132" level="INFO">${fileDir} = ../../packages</msg>
+<msg timestamp="20200512 15:50:17.132" level="INFO">${fileName} = ns_cat.zip</msg>
+<status status="PASS" endtime="20200512 15:50:17.132" starttime="20200512 15:50:17.131"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${fileName}</arg>
+<arg>${fileData}</arg>
+<arg>${contentType}</arg>
+</arguments>
+<assign>
+<var>${partData}</var>
+</assign>
+<msg timestamp="20200512 15:50:17.134" level="INFO">${partData} = [u'ns_cat.zip', 'PK\x03\x04\n\x00\x00\x08\x00\x00\x1a\x82\xacP\xd2\x91GOK\x00\x00\x00K\x00\x00\x00\x13\x00\x1c\x00Files/ChangeLog.txtUT\t\x00\x03\xd3\xaf\xba^\xd3\xaf\xba^ux\x0b\x00\x01\x04\xe8\x03\x0...</msg>
+<status status="PASS" endtime="20200512 15:50:17.134" starttime="20200512 15:50:17.132"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${addTo}</arg>
+<arg>${partName}=${partData}</arg>
+</arguments>
+<status status="PASS" endtime="20200512 15:50:17.135" starttime="20200512 15:50:17.134"></status>
+</kw>
+<status status="PASS" endtime="20200512 15:50:17.135" starttime="20200512 15:50:17.125"></status>
+</kw>
+<kw name="Put Request" library="RequestsLibrary">
+<doc>Send a PUT request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${catalogue}</arg>
+<arg>${response.json()["_links"]["nsd_content"]}</arg>
+<arg>files=${body}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200512 15:50:17.357" level="INFO">PUT Request : url=http://localhost:8083/nsd/v1/ns_descriptors/2218532f-a90d-4b33-b3b1-a99b52ecc44f/nsd_content 
+ path_url=/nsd/v1/ns_descriptors/2218532f-a90d-4b33-b3b1-a99b52ecc44f/nsd_content 
+ headers={'Content-Length': '1986', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=4b2666f1fb49417b07cfe8ce704e111c'} 
+ body=--4b2666f1fb49417b07cfe8ce704e111c
+Content-Disposition: form-data; name="file"; filename="ns_cat.zip"
+Content-Type: application/zip
+
+PK
+\x82\xacP\xd2\x91GOKKFiles/ChangeLog.txtUT	\xd3\xaf\xba^\xd3\xaf\xba^ux\xe8\xe805/12/20 16:21:30 - New NS Package according to ETSI GS NFV-SOL004 v 2.5.1
+PK\xaf\x827PFiles/Licences/LICENSEPK	\x82\xacP\xc6\x84XjTOSCA-Metadata/TOSCA.metaUT	\xb2\xaf\xba^\xb2\xaf\xba^ux\xe8\xe8\xf1vv\xd4\xf5M-I\xd4u\xcb\xccI\xd5K-*\xce\xcc\xcf\xb3R0\xd43\xe0rvB1\xe4r.JM,IMq\xaa\xb4R\xf0\x8b\xe7r\xcd+)\xaa\xd4uIM\xcb\xcc\xcb,**\xb6R@\xe2\xe8\x97\xa4\x97\xe8\xe6\xebU&amp;\xe6\xe6pPK\xfd\x81\xacP\xa7\x9e\xcc!Zi
+test-ns.mfUT	\x9d\xaf\xba^\x9d\xaf\xba^ux\xe8\xe8-\xcc;
+\x800\xd0\xd9\x9e\xa2\xd0~D\x87\xc2U\xb7h\x86\x82M\xa1	\x9e\xdf\xaeox\x953*\x82Xc%\xb0J\xa2#\xcb'qn=\x95v;\xf6\x9f\xba\x94\xc6`\xc3\xe4?\xe8t
+\xa5\xe7\xa1\xa4\xe5-\xfc\xe2Bt\xd1\xdb\xb0B0{sPK
+\xaf\x827PFiles/test-ns.certUT	\xfa\xb9)^\xfa\xb9)^ux\xe8\xe8PK\xda\x82\xacP\x89\x87^\x8dDiDefinitions/test-ns.yamlUT	;\xb1\xba^;\xb1\xba^ux\xe8\xe8\x95T]o\xda0}\xe7WXy7"\x85\xe1q\xa2\x93\x90PV\xad\xdb2\xf65r\xe7\xd8\xcc\xbeI\xc7~\xfd\x9c\xd04N\xa1k\x89E\xbe\xf7\xdc\xafs\x8fC)\xa0\xf5\x9c-A*\xa3PY\xe37\xe0|\xf8.H\xd2x\xb6\xde\xea\xd1(\xddV\xa3m:J&lt;w\xea\x80'D\xfe@Z\x83u\x82\xe012\xde\xe5x8k&gt;\x80L0d\x8b\x89`+2\xcdX\x96\xddf3\xa0\xd9\x94\x8f\xe9d'\xdd\x9fS1I9\xa4,7\xaaR\x81u\xa9$\xff\xf9\xe3tn\xbbM\x87\x80\xf6`\xb5\xdd\xa18h\x86PW2V@{\xf6\xb5\x814\xfd\xd0\xca\xc8\xd3)\x9c\x8fh\xd6x?4\xb2n\xf2\xaf\xc9\xe2\xe0\xec\xaa6C\xfd\xbc\x81M\xe5\xfcv2\xbb\xa13.'t\x92\x8a\x8cf\x92\xcd)e36\xcd8sH.o\xfa#\xb4\x80P\xb1R\xa2Y_\xed\xa2\xe4\x98\xb3\xa2i\xf9e\x92\xce\xef\xad\xc4g\xe6\xe0\xfd\xb4u\xf8\xcaH\xfbn\x8a\xb3\xec\xed\xfbA\x81D\xbc\x84Y\xd4\xc8\x8eJ\x92\xa7\xf2\xa9\xec \xdar\xa6\xd5_VgY3\xb3/\xd9&gt;\xe61\xe0\xef\xf2\x98\xc9J\x8d\xebA\x8b&gt;RjV\xd9\xf2\xc4\xbe\xc7\x80\xe4[!\xcf\xdc\xfd.\xe0\xc2\xf7\xceJ\xa5\xa1\xeb\x89e\xd4\xa0:5\xe8.Z\xe9$B\xca\xe4e\xb1\xf7M\xae\x9a \xa6#\xa6\xd4:\xb1?\xff9\xf8]*\x8c\xb8\xa9\x94\xc3\x92\xe9\xb52\xbf\xe2\xe6\xc0\xf8qh\xa7\xd8\xb85\x80I\xa7j\xe3?u\xfep\x85\xa6?{-_\x83\xd5\xde\x9cK\xb6\xba,E\xe9\xcf\xf8\xce\xaeL\xc5\x9c
+\xdc_\xd9B\xcb\xc6G\xf8MG\xeag\xb88\xb5\xde\xe7\xbaK_\x90M\xd8\xf3\x85.\xfck\xbe_\h\xb3jkqA\xd2Q\xf3\xf4&lt;\x98l=}\x85]\x95\xf4\xbd\x9c\xafvn\x8d\x8e\xaaRx|\xaci\x8a\x85/\xce\xc4\xab\xd9\-\xb7\xbaW7\xdc\xdd\xd5\xfdf_\xa9\xed\xf3=CW\xd3\xb6^\xe5w\xc9\xe0PK
+\x82\xacP\xd2\x91GOKK\xa4\x81Files/ChangeLog.txtUT\xd3\xaf\xba^ux\xe8\xe8PK\xaf\x827P\x98Files/Licences/LICENSEPK	\x82\xacP\xc6\x84Xj\xa4\x81\xceTOSCA-Metadata/TOSCA.metaUT\xb2\xaf\xba^ux\xe8\xe8PK\xfd\x81\xacP\xa7\x9e\xcc!Zi
+\xa4\x81ytest-ns.mfUT\x9d\xaf\xba^ux\xe8\xe8PK
+\xaf\x827P\xa4\x81Files/test-ns.certUT\xfa\xb9)^ux\xe8\xe8PK\xda\x82\xacP\x89\x87^\x8dDi\xa4\x81cDefinitions/test-ns.yamlUT;\xb1\xba^ux\xe8\xe8PK\xf9
+--4b2666f1fb49417b07cfe8ce704e111c--
+ 
+ </msg>
+<msg timestamp="20200512 15:50:17.358" level="INFO">PUT Response : url=http://localhost:8083/nsd/v1/ns_descriptors/2218532f-a90d-4b33-b3b1-a99b52ecc44f/nsd_content 
+ status=204, reason= 
+ body=None 
+ </msg>
+<msg timestamp="20200512 15:50:17.358" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:17.358" starttime="20200512 15:50:17.136"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="keywords">
+<arguments>
+<arg>${response}</arg>
+<arg>204</arg>
+</arguments>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200512 15:50:17.360" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:17.360" starttime="20200512 15:50:17.359"></status>
+</kw>
+<status status="PASS" endtime="20200512 15:50:17.360" starttime="20200512 15:50:17.358"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Accept</arg>
+<arg>application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200512 15:50:17.361" level="INFO">${headers} = {u'Accept': u'application/json'}</msg>
+<status status="PASS" endtime="20200512 15:50:17.361" starttime="20200512 15:50:17.360"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${catalogue}</arg>
+<arg>/nsd/v1/ns_descriptors?nsdId=${NSD_ID}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200512 15:50:17.390" level="INFO">GET Request : url=http://localhost:8083/nsd/v1/ns_descriptors?nsdId=7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0 
+ path_url=/nsd/v1/ns_descriptors?nsdId=7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0 
+ headers={'Connection': 'keep-alive', 'Accept-Encoding': 'gzip, deflate', 'Accept': u'application/json', 'User-Agent': 'python-requests/2.23.0'} 
+ body=None 
+ </msg>
+<msg timestamp="20200512 15:50:17.390" level="INFO">GET Response : url=http://localhost:8083/nsd/v1/ns_descriptors?nsdId=7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0 
+ status=200, reason= 
+ body=[{"id":"2218532f-a90d-4b33-b3b1-a99b52ecc44f","nsdId":"7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0","nsdName":"test-ns","nsdVersion":"1.0","nsdDesigner":"NXW","nsdInvariantId":"7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0","vnfPkgIds":["17dbf283-cbcd-48ec-bdfe-1393eb9c777d"],"pnfdInfoIds":[],"nestedNsdInfoIds":[],"nsdOnboardingState":"LOCAL_ONBOARDED","onboardingFailureDetails":null,"nsdOperationalState":"ENABLED","nsdUsageState":"NOT_IN_USE","userDefinedData":{},"_links":{"self":"/nsd/v1/ns_descriptors/2218532f-a90d-4b33-b3b1-a99b52ecc44f","nsd_content":"/nsd/v1/ns_descriptors/2218532f-a90d-4b33-b3b1-a99b52ecc44f/nsd_content"},"manosOnboardingStatus":{"OSM2":"UPLOADING","OSM1":"UPLOADING"},"c2cOnboardingState":"UNPUBLISHED","projectId":"admin"}] 
+ </msg>
+<msg timestamp="20200512 15:50:17.391" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:17.391" starttime="20200512 15:50:17.361"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="keywords">
+<arguments>
+<arg>${response}</arg>
+<arg>200</arg>
+</arguments>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200512 15:50:17.392" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:17.392" starttime="20200512 15:50:17.392"></status>
+</kw>
+<status status="PASS" endtime="20200512 15:50:17.392" starttime="20200512 15:50:17.391"></status>
+</kw>
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20200512 15:50:17.393" level="INFO">Length is 1</msg>
+<status status="PASS" endtime="20200512 15:50:17.393" starttime="20200512 15:50:17.393"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>NSD onboarded to Catalogue</arg>
+</arguments>
+<msg timestamp="20200512 15:50:17.394" level="INFO">NSD onboarded to Catalogue</msg>
+<status status="PASS" endtime="20200512 15:50:17.394" starttime="20200512 15:50:17.394"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20200512 15:50:27.395" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20200512 15:50:27.396" starttime="20200512 15:50:17.394"></status>
+</kw>
+<kw name="Create Osm Session" library="keywords">
+<arguments>
+<arg>${OSM1_URL}</arg>
+</arguments>
+<assign>
+<var>${osm}</var>
+</assign>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>osm</arg>
+<arg>${url}</arg>
+<arg>verify=False</arg>
+<arg>disable_warnings=1</arg>
+</arguments>
+<msg timestamp="20200512 15:50:27.399" level="INFO">Creating Session using : alias=osm, url=https://10.30.8.83:9999/osm, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200512 15:50:27.400" starttime="20200512 15:50:27.398"></status>
+</kw>
+<msg timestamp="20200512 15:50:27.401" level="INFO">${osm} = osm</msg>
+<status status="PASS" endtime="20200512 15:50:27.401" starttime="20200512 15:50:27.397"></status>
+</kw>
+<kw name="Get Osm Token" library="keywords">
+<arguments>
+<arg>${osm}</arg>
+<arg>${OSM1_USERNAME}</arg>
+<arg>${OSM1_PASSWORD}</arg>
+<arg>${OSM1_PROJECT}</arg>
+</arguments>
+<assign>
+<var>${token_id}</var>
+</assign>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+<arg>Accept</arg>
+<arg>application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200512 15:50:27.404" level="INFO">${headers} = {u'Content-Type': u'application/json', u'Accept': u'application/json'}</msg>
+<status status="PASS" endtime="20200512 15:50:27.404" starttime="20200512 15:50:27.403"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${username}</arg>
+<arg>password</arg>
+<arg>${password}</arg>
+<arg>project_id</arg>
+<arg>${project}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200512 15:50:27.405" level="INFO">${body} = {u'username': u'admin', u'password': u'admin', u'project_id': u'admin'}</msg>
+<status status="PASS" endtime="20200512 15:50:27.405" starttime="20200512 15:50:27.404"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${osm}</arg>
+<arg>/admin/v1/tokens</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${body}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200512 15:50:27.438" level="INFO">POST Request : url=https://10.30.8.83:9999/osm/admin/v1/tokens 
+ path_url=/osm/admin/v1/tokens 
+ headers={'Content-Length': '65', 'Accept-Encoding': 'gzip, deflate', 'Accept': u'application/json', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', 'Content-Type': u'application/json'} 
+ body={"username": "admin", "password": "admin", "project_id": "admin"} 
+ </msg>
+<msg timestamp="20200512 15:50:27.438" level="INFO">POST Response : url=https://10.30.8.83:9999/osm/admin/v1/tokens 
+ status=200, reason=OK 
+ body={
+    "expires": 1589302227.424564,
+    "id": "KHxUnbKRCOYvKXcKr3o8XcpkopqtvL37",
+    "project_name": "admin",
+    "admin": true,
+    "remote_port": 39868,
+    "user_id": "040cf677-a10b-4e4f-8e3d-bdef8937c560",
+    "remote_host": "10.0.0.2",
+    "_id": "KHxUnbKRCOYvKXcKr3o8XcpkopqtvL37",
+    "issued_at": 1589298627.424564,
+    "username": "admin",
+    "roles": [
+        {
+            "id": "bd284e86-922e-4d34-9246-025a529f9d01",
+            "name": "system_admin"
+        }
+    ],
+    "project_id": "ef4ccc39-2ba3-4421-9796-697b6b62b5dc"
+}
+ 
+ </msg>
+<msg timestamp="20200512 15:50:27.438" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:27.438" starttime="20200512 15:50:27.406"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="keywords">
+<arguments>
+<arg>${response}</arg>
+<arg>200</arg>
+</arguments>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200512 15:50:27.440" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:27.441" starttime="20200512 15:50:27.440"></status>
+</kw>
+<status status="PASS" endtime="20200512 15:50:27.441" starttime="20200512 15:50:27.438"></status>
+</kw>
+<msg timestamp="20200512 15:50:27.442" level="INFO">${token_id} = KHxUnbKRCOYvKXcKr3o8XcpkopqtvL37</msg>
+<status status="PASS" endtime="20200512 15:50:27.442" starttime="20200512 15:50:27.401"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Accept</arg>
+<arg>application/json</arg>
+<arg>Authorization</arg>
+<arg>Bearer ${token_id}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200512 15:50:27.443" level="INFO">${headers} = {u'Accept': u'application/json', u'Authorization': u'Bearer KHxUnbKRCOYvKXcKr3o8XcpkopqtvL37'}</msg>
+<status status="PASS" endtime="20200512 15:50:27.443" starttime="20200512 15:50:27.442"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${osm}</arg>
+<arg>/nsd/v1/ns_descriptors_content?id=${NSD_ID}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200512 15:50:27.533" level="INFO">GET Request : url=https://10.30.8.83:9999/osm/nsd/v1/ns_descriptors_content?id=7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0 
+ path_url=/osm/nsd/v1/ns_descriptors_content?id=7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0 
+ headers={'Accept-Encoding': 'gzip, deflate', 'Accept': u'application/json', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', 'Cookie': 'session_id=48a653cc39a88b22aaac74aa9ce09eb0aced7853', 'Authorization': u'Bearer KHxUnbKRCOYvKXcKr3o8XcpkopqtvL37'} 
+ body=None 
+ </msg>
+<msg timestamp="20200512 15:50:27.533" level="INFO">GET Response : url=https://10.30.8.83:9999/osm/nsd/v1/ns_descriptors_content?id=7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0 
+ status=200, reason=OK 
+ body=[
+    {
+        "_id": "8dd38707-86ac-4fb5-9bf6-50ae7c22467a",
+        "short-name": "test-ns",
+        "version": "1.0",
+        "id": "7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0",
+        "constituent-vnfd": [
+            {
+                "start-by-default": false,
+                "vnfd-id-ref": "a6f85472-7cf4-41d9-9fa8-a097a69cc3ce",
+                "member-vnf-index": "1"
+            }
+        ],
+        "name": "test-ns",
+        "vendor": "NXW",
+        "_admin": {
+            "storage": {
+                "zipfile": "package.tar.gz",
+                "folder": "8dd38707-86ac-4fb5-9bf6-50ae7c22467a",
+                "path": "/app/storage/",
+                "fs": "local",
+                "descriptor": "7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0/7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0_nsd.yaml",
+                "pkg-dir": "7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0"
+            },
+            "projects_write": [
+                "ef4ccc39-2ba3-4421-9796-697b6b62b5dc"
+            ],
+            "modified": 1589298617.5242443,
+            "onboardingState": "ONBOARDED",
+            "userDefinedData": null,
+            "operationalState": "ENABLED",
+            "created": 1589298617.5242443,
+            "projects_read": [
+                "ef4ccc39-2ba3-4421-9796-697b6b62b5dc"
+            ],
+            "usageState": "NOT_IN_USE"
+        },
+        "vld": [
+            {
+                "type": "ELAN",
+                "short-name": "mgmt_net",
+                "id": "mgmt_net",
+                "vnfd-connection-point-ref": [
+                    {
+                        "vnfd-connection-point-ref": "ens3",
+                        "vnfd-id-ref": "a6f85472-7cf4-41d9-9fa8-a097a69cc3ce",
+                        "member-vnf-index-ref": "1"
+                    }
+                ],
+                "name": "mgmt_net",
+                "mgmt-network": true
+            }
+        ],
+        "logo": "5geve_logo.png",
+        "description": "NS descriptor: test descriptor for D3.7 tests"
+    }
+]
+ 
+ </msg>
+<msg timestamp="20200512 15:50:27.533" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:27.534" starttime="20200512 15:50:27.444"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="keywords">
+<arguments>
+<arg>${response}</arg>
+<arg>200</arg>
+</arguments>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200512 15:50:27.535" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:27.535" starttime="20200512 15:50:27.535"></status>
+</kw>
+<status status="PASS" endtime="20200512 15:50:27.535" starttime="20200512 15:50:27.534"></status>
+</kw>
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20200512 15:50:27.536" level="INFO">Length is 1</msg>
+<status status="PASS" endtime="20200512 15:50:27.536" starttime="20200512 15:50:27.536"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>NSD onboarded to OSM1</arg>
+</arguments>
+<msg timestamp="20200512 15:50:27.537" level="INFO">NSD onboarded to OSM1</msg>
+<status status="PASS" endtime="20200512 15:50:27.537" starttime="20200512 15:50:27.537"></status>
+</kw>
+<kw name="Create Osm Session" library="keywords">
+<arguments>
+<arg>${OSM2_URL}</arg>
+</arguments>
+<assign>
+<var>${osm}</var>
+</assign>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>osm</arg>
+<arg>${url}</arg>
+<arg>verify=False</arg>
+<arg>disable_warnings=1</arg>
+</arguments>
+<msg timestamp="20200512 15:50:27.538" level="INFO">Creating Session using : alias=osm, url=https://10.30.8.22:9999/osm, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200512 15:50:27.538" starttime="20200512 15:50:27.538"></status>
+</kw>
+<msg timestamp="20200512 15:50:27.539" level="INFO">${osm} = osm</msg>
+<status status="PASS" endtime="20200512 15:50:27.539" starttime="20200512 15:50:27.537"></status>
+</kw>
+<kw name="Get Osm Token" library="keywords">
+<arguments>
+<arg>${osm}</arg>
+<arg>${OSM2_USERNAME}</arg>
+<arg>${OSM2_PASSWORD}</arg>
+<arg>${OSM2_PROJECT}</arg>
+</arguments>
+<assign>
+<var>${token_id}</var>
+</assign>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+<arg>Accept</arg>
+<arg>application/json</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200512 15:50:27.540" level="INFO">${headers} = {u'Content-Type': u'application/json', u'Accept': u'application/json'}</msg>
+<status status="PASS" endtime="20200512 15:50:27.540" starttime="20200512 15:50:27.540"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>username</arg>
+<arg>${username}</arg>
+<arg>password</arg>
+<arg>${password}</arg>
+<arg>project_id</arg>
+<arg>${project}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200512 15:50:27.541" level="INFO">${body} = {u'username': u'admin', u'password': u'admin', u'project_id': u'admin'}</msg>
+<status status="PASS" endtime="20200512 15:50:27.541" starttime="20200512 15:50:27.541"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${osm}</arg>
+<arg>/admin/v1/tokens</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${body}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200512 15:50:27.569" level="INFO">POST Request : url=https://10.30.8.22:9999/osm/admin/v1/tokens 
+ path_url=/osm/admin/v1/tokens 
+ headers={'Content-Length': '65', 'Accept-Encoding': 'gzip, deflate', 'Accept': u'application/json', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', 'Content-Type': u'application/json'} 
+ body={"username": "admin", "password": "admin", "project_id": "admin"} 
+ </msg>
+<msg timestamp="20200512 15:50:27.569" level="INFO">POST Response : url=https://10.30.8.22:9999/osm/admin/v1/tokens 
+ status=200, reason=OK 
+ body={
+    "issued_at": 1589298627.5504656,
+    "expires": 1589302227.5504656,
+    "_id": "ZvBSudWvHAJMNdC0NXwmOTxIUhW0s9Ts",
+    "id": "ZvBSudWvHAJMNdC0NXwmOTxIUhW0s9Ts",
+    "project_id": "20af293b-e26f-495e-a789-d091a16823b9",
+    "project_name": "admin",
+    "username": "admin",
+    "user_id": "7e174cb6-00f4-48a6-bfc8-07e1b2bfd580",
+    "admin": true,
+    "roles": [
+        {
+            "name": "system_admin",
+            "id": "7e763533-866e-42e3-9ef9-500894a5fc4e"
+        }
+    ],
+    "remote_port": 35598,
+    "remote_host": "10.0.0.2"
+}
+ 
+ </msg>
+<msg timestamp="20200512 15:50:27.570" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:27.570" starttime="20200512 15:50:27.541"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="keywords">
+<arguments>
+<arg>${response}</arg>
+<arg>200</arg>
+</arguments>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200512 15:50:27.571" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:27.571" starttime="20200512 15:50:27.571"></status>
+</kw>
+<status status="PASS" endtime="20200512 15:50:27.572" starttime="20200512 15:50:27.570"></status>
+</kw>
+<msg timestamp="20200512 15:50:27.572" level="INFO">${token_id} = ZvBSudWvHAJMNdC0NXwmOTxIUhW0s9Ts</msg>
+<status status="PASS" endtime="20200512 15:50:27.572" starttime="20200512 15:50:27.539"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Accept</arg>
+<arg>application/json</arg>
+<arg>Authorization</arg>
+<arg>Bearer ${token_id}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200512 15:50:27.573" level="INFO">${headers} = {u'Accept': u'application/json', u'Authorization': u'Bearer ZvBSudWvHAJMNdC0NXwmOTxIUhW0s9Ts'}</msg>
+<status status="PASS" endtime="20200512 15:50:27.573" starttime="20200512 15:50:27.572"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>${osm}</arg>
+<arg>/nsd/v1/ns_descriptors_content?id=${NSD_ID}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200512 15:50:27.663" level="INFO">GET Request : url=https://10.30.8.22:9999/osm/nsd/v1/ns_descriptors_content?id=7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0 
+ path_url=/osm/nsd/v1/ns_descriptors_content?id=7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0 
+ headers={'Accept-Encoding': 'gzip, deflate', 'Accept': u'application/json', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', 'Cookie': 'session_id=395f1532684271cea627a3cf44c84dcd1eca8dce', 'Authorization': u'Bearer ZvBSudWvHAJMNdC0NXwmOTxIUhW0s9Ts'} 
+ body=None 
+ </msg>
+<msg timestamp="20200512 15:50:27.663" level="INFO">GET Response : url=https://10.30.8.22:9999/osm/nsd/v1/ns_descriptors_content?id=7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0 
+ status=200, reason=OK 
+ body=[
+    {
+        "_id": "a6b8bb18-d67a-4e4e-a294-55ed18d0118d",
+        "id": "7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0",
+        "name": "test-ns",
+        "short-name": "test-ns",
+        "vendor": "NXW",
+        "logo": "5geve_logo.png",
+        "description": "NS descriptor: test descriptor for D3.7 tests",
+        "version": "1.0",
+        "vld": [
+            {
+                "id": "mgmt_net",
+                "name": "mgmt_net",
+                "short-name": "mgmt_net",
+                "type": "ELAN",
+                "mgmt-network": true,
+                "vnfd-connection-point-ref": [
+                    {
+                        "member-vnf-index-ref": "1",
+                        "vnfd-connection-point-ref": "ens3",
+                        "vnfd-id-ref": "a6f85472-7cf4-41d9-9fa8-a097a69cc3ce"
+                    }
+                ]
+            }
+        ],
+        "constituent-vnfd": [
+            {
+                "member-vnf-index": "1",
+                "vnfd-id-ref": "a6f85472-7cf4-41d9-9fa8-a097a69cc3ce",
+                "start-by-default": false
+            }
+        ],
+        "_admin": {
+            "userDefinedData": null,
+            "created": 1589298617.5125754,
+            "modified": 1589298617.645384,
+            "projects_read": [
+                "20af293b-e26f-495e-a789-d091a16823b9"
+            ],
+            "projects_write": [
+                "20af293b-e26f-495e-a789-d091a16823b9"
+            ],
+            "onboardingState": "ONBOARDED",
+            "operationalState": "ENABLED",
+            "usageState": "NOT_IN_USE",
+            "storage": {
+                "fs": "local",
+                "path": "/app/storage/",
+                "folder": "a6b8bb18-d67a-4e4e-a294-55ed18d0118d",
+                "pkg-dir": "7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0",
+                "descriptor": "7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0/7a99597e-96c3-4bdd-bec8-d41ce1a1d2e0_nsd.yaml",
+                "zipfile": "package.tar.gz"
+            }
+        }
+    }
+]
+ 
+ </msg>
+<msg timestamp="20200512 15:50:27.664" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:27.664" starttime="20200512 15:50:27.573"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="keywords">
+<arguments>
+<arg>${response}</arg>
+<arg>200</arg>
+</arguments>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200512 15:50:27.666" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20200512 15:50:27.666" starttime="20200512 15:50:27.665"></status>
+</kw>
+<status status="PASS" endtime="20200512 15:50:27.667" starttime="20200512 15:50:27.664"></status>
+</kw>
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${response.json()}</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20200512 15:50:27.668" level="INFO">Length is 1</msg>
+<status status="PASS" endtime="20200512 15:50:27.668" starttime="20200512 15:50:27.667"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>NSD onboarded to OSM2</arg>
+</arguments>
+<msg timestamp="20200512 15:50:27.669" level="INFO">NSD onboarded to OSM2</msg>
+<status status="PASS" endtime="20200512 15:50:27.669" starttime="20200512 15:50:27.668"></status>
+</kw>
+<doc>Test title: Test 13 (modified) - NSD Onboarding to multiple sites – OSM and OSM
+Test purpose: This test aimed originally (i.e. as per D3.6) at verifying that an NSD modelling a vertical experiment (in TOSCA format) can be successfully onboarded in the Multi- Site Catalogue from its NBI and delivered simultaneously to specific per-site OSM and ONAP orchestrators. However, as the Multi-Site Catalogue full support of ONAP local site orchestrators is planned to be completed not before late Q2-2020, the test purpose has been temporarily updated to simultaneous onboard an NSD to two different per-site OSM orchestrators. This version of the test is anyway sufficient to validate the NSD onboarding to multiple sites.</doc>
+<status status="PASS" endtime="20200512 15:50:27.669" critical="yes" starttime="20200512 15:50:17.063"></status>
+</test>
+<status status="PASS" endtime="20200512 15:50:27.670" starttime="20200512 15:50:16.855"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="NSDOnboardingToMultipleSites" pass="1">NSDOnboardingToMultipleSites</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
