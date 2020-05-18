@@ -1,0 +1,10 @@
+- hosts: src_server
+  become: false
+  gather_facts: no
+  tasks:
+    - name: Print Hello World
+      shell: echo "Hello World"
+      register: hello_world
+    - name: Print Hello World
+      debug:
+        var: hello_world.stdout
