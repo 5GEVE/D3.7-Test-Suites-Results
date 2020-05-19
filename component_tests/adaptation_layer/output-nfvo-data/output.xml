@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2 (Python 3.6.10 on linux)" generated="20200519 14:22:33.774" rpa="false">
+<suite id="s1" name="MSO-LO-NFVO-Workflow" source="/home/thewall/Coding/5G-EVE/mso-lo/adaptation_layer/robotframework/MSO-LO-NFVO-Workflow.robot">
+<test id="s1-t1" name="GET NFVO List">
+<kw name="GET NFVO List" library="NFVOOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Retrive NFVO list</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.692" level="INFO">Retrive NFVO list</msg>
+<status status="PASS" starttime="20200519 14:22:35.692" endtime="20200519 14:22:35.692"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.692" endtime="20200519 14:22:35.693"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.693" endtime="20200519 14:22:35.693"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.694" endtime="20200519 14:22:35.695"></status>
+</kw>
+<status status="PASS" starttime="20200519 14:22:35.694" endtime="20200519 14:22:35.695"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.695" endtime="20200519 14:22:35.828"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200519 14:22:35.829" level="INFO">
+{
+    "seconds": 0.111764,
+    "status": 200,
+    "body": [
+        {
+            "id": 1,
+            "name": "osm-turin-cnit",
+            "site": "ITALY_TURIN",
+            "type": "OSM"
+        },
+        {
+            "id": 2,
+            "name": "onap-nice",
+            "site": "FRANCE_NICE",
+            "type": "ONAP"
+        },
+        {
+            "id": 3,
+            "name": "onap-paris",
+            "site": "FRANCE_PARIS",
+            "type": "ONAP"
+        },
+        {
+            "id": 4,
+            "name": "onap-rennes",
+            "site": "FRANCE_RENNES",
+            "type": "ONAP"
+        },
+        {
+            "id": 5,
+            "name": "osm-madrid",
+            "site": "SPAIN_5TONIC",
+            "type": "OSM"
+        },
+        {
+            "id": 6,
+            "name": "osm-athens-wings",
+            "site": "GREECE_ATHENS",
+            "type": "OSM"
+        }
+    ],
+    "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "603",
+        "Server": "Werkzeug/1.0.1 Python/3.6.10",
+        "Date": "Tue, 19 May 2020 12:22:35 GMT"
+    }
+}</msg>
+<msg timestamp="20200519 14:22:35.836" level="INFO">${outputResponse} = {'seconds': 0.111764, 'status': 200, 'body': [{'id': 1, 'name': 'osm-turin-cnit', 'site': 'ITALY_TURIN', 'type': 'OSM'}, {'id': 2, 'name': 'onap-nice', 'site': 'FRANCE_NICE', 'type': 'ONAP'}, {'id': 3...</msg>
+<status status="PASS" starttime="20200519 14:22:35.828" endtime="20200519 14:22:35.836"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.837" level="INFO">@{response} = [ {'seconds': 0.111764, 'status': 200, 'body': [{'id': 1, 'name': 'osm-turin-cnit', 'site': 'ITALY_TURIN', 'type': 'OSM'}, {'id': 2, 'name': 'onap-nice', 'site': 'FRANCE_NICE', 'type': 'ONAP'}, {'id':...</msg>
+<status status="PASS" starttime="20200519 14:22:35.837" endtime="20200519 14:22:35.837"></status>
+</kw>
+<status status="PASS" starttime="20200519 14:22:35.691" endtime="20200519 14:22:35.838"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>200</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.839" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20200519 14:22:35.838" endtime="20200519 14:22:35.839"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.839" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200519 14:22:35.839" endtime="20200519 14:22:35.839"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.840" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20200519 14:22:35.839" endtime="20200519 14:22:35.840"></status>
+</kw>
+<status status="PASS" starttime="20200519 14:22:35.838" endtime="20200519 14:22:35.840"></status>
+</kw>
+<kw name="Check HTTP Response Body Json Schema Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${nfvo_list_schema}</arg>
+</arguments>
+<kw name="Validate" library="jsonschema">
+<doc>Validate an instance under the given schema.</doc>
+<arguments>
+<arg>instance=${response[0]['body']}</arg>
+<arg>schema=${input_schema}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.840" endtime="20200519 14:22:35.842"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response[0]['body']}</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.843" level="INFO">[{'id': 1, 'name': 'osm-turin-cnit', 'site': 'ITALY_TURIN', 'type': 'OSM'}, {'id': 2, 'name': 'onap-nice', 'site': 'FRANCE_NICE', 'type': 'ONAP'}, {'id': 3, 'name': 'onap-paris', 'site': 'FRANCE_PARIS', 'type': 'ONAP'}, {'id': 4, 'name': 'onap-rennes', 'site': 'FRANCE_RENNES', 'type': 'ONAP'}, {'id': 5, 'name': 'osm-madrid', 'site': 'SPAIN_5TONIC', 'type': 'OSM'}, {'id': 6, 'name': 'osm-athens-wings', 'site': 'GREECE_ATHENS', 'type': 'OSM'}]</msg>
+<status status="PASS" starttime="20200519 14:22:35.842" endtime="20200519 14:22:35.843"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Json Schema Validation OK</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.843" level="INFO">Json Schema Validation OK</msg>
+<status status="PASS" starttime="20200519 14:22:35.843" endtime="20200519 14:22:35.843"></status>
+</kw>
+<status status="PASS" starttime="20200519 14:22:35.840" endtime="20200519 14:22:35.843"></status>
+</kw>
+<doc>Test ID: mso-lo-test-
+Test title: GET NFVO List
+Test objective: The objective is to test the workflow for retriving the NFVO list
+Pre-conditions: none
+Post-Conditions: none</doc>
+<status status="PASS" starttime="20200519 14:22:35.690" endtime="20200519 14:22:35.843" critical="yes"></status>
+</test>
+<test id="s1-t2" name="GET Individual NFVO informations">
+<kw name="GET IndividualNFVO" library="NFVOOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Retrive NFVO</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.845" level="INFO">Retrive NFVO</msg>
+<status status="PASS" starttime="20200519 14:22:35.845" endtime="20200519 14:22:35.845"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.846" endtime="20200519 14:22:35.846"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.846" endtime="20200519 14:22:35.847"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.847" endtime="20200519 14:22:35.847"></status>
+</kw>
+<status status="PASS" starttime="20200519 14:22:35.847" endtime="20200519 14:22:35.848"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.848" endtime="20200519 14:22:35.881"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200519 14:22:35.881" level="INFO">
+{
+    "seconds": 0.030207,
+    "status": 200,
+    "body": {
+        "id": 1,
+        "name": "osm-turin-cnit",
+        "site": "ITALY_TURIN",
+        "type": "OSM"
+    },
+    "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "87",
+        "Server": "Werkzeug/1.0.1 Python/3.6.10",
+        "Date": "Tue, 19 May 2020 12:22:35 GMT"
+    }
+}</msg>
+<msg timestamp="20200519 14:22:35.882" level="INFO">${outputResponse} = {'seconds': 0.030207, 'status': 200, 'body': {'id': 1, 'name': 'osm-turin-cnit', 'site': 'ITALY_TURIN', 'type': 'OSM'}, 'headers': {'Content-Type': 'application/json', 'Content-Length': '87', 'Server'...</msg>
+<status status="PASS" starttime="20200519 14:22:35.881" endtime="20200519 14:22:35.882"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.883" level="INFO">@{response} = [ {'seconds': 0.030207, 'status': 200, 'body': {'id': 1, 'name': 'osm-turin-cnit', 'site': 'ITALY_TURIN', 'type': 'OSM'}, 'headers': {'Content-Type': 'application/json', 'Content-Length': '87', 'Serve...</msg>
+<status status="PASS" starttime="20200519 14:22:35.882" endtime="20200519 14:22:35.883"></status>
+</kw>
+<status status="PASS" starttime="20200519 14:22:35.845" endtime="20200519 14:22:35.883"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>200</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.884" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20200519 14:22:35.884" endtime="20200519 14:22:35.884"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.884" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200519 14:22:35.884" endtime="20200519 14:22:35.885"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.885" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20200519 14:22:35.885" endtime="20200519 14:22:35.885"></status>
+</kw>
+<status status="PASS" starttime="20200519 14:22:35.883" endtime="20200519 14:22:35.885"></status>
+</kw>
+<kw name="Check HTTP Response Body Json Schema Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${nfvo_schema}</arg>
+</arguments>
+<kw name="Validate" library="jsonschema">
+<doc>Validate an instance under the given schema.</doc>
+<arguments>
+<arg>instance=${response[0]['body']}</arg>
+<arg>schema=${input_schema}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.886" endtime="20200519 14:22:35.887"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response[0]['body']}</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.888" level="INFO">{'id': 1, 'name': 'osm-turin-cnit', 'site': 'ITALY_TURIN', 'type': 'OSM'}</msg>
+<status status="PASS" starttime="20200519 14:22:35.887" endtime="20200519 14:22:35.888"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Json Schema Validation OK</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.888" level="INFO">Json Schema Validation OK</msg>
+<status status="PASS" starttime="20200519 14:22:35.888" endtime="20200519 14:22:35.888"></status>
+</kw>
+<status status="PASS" starttime="20200519 14:22:35.885" endtime="20200519 14:22:35.888"></status>
+</kw>
+<doc>Test ID: mso-lo-test-
+Test title: GET Individual NFVO informations
+Test objective: The objective is to test the workflow for retriving the NFVO informations
+Pre-conditions: none
+Post-Conditions: none</doc>
+<status status="PASS" starttime="20200519 14:22:35.844" endtime="20200519 14:22:35.889" critical="yes"></status>
+</test>
+<test id="s1-t3" name="GET Individual NFVO informations inexistent">
+<kw name="GET IndividualNFVO inexistent" library="NFVOOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Retrive NFVO</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.891" level="INFO">Retrive NFVO</msg>
+<status status="PASS" starttime="20200519 14:22:35.890" endtime="20200519 14:22:35.891"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.891" endtime="20200519 14:22:35.891"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.891" endtime="20200519 14:22:35.892"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.892" endtime="20200519 14:22:35.893"></status>
+</kw>
+<status status="PASS" starttime="20200519 14:22:35.892" endtime="20200519 14:22:35.893"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoIdinexistent}</arg>
+</arguments>
+<status status="PASS" starttime="20200519 14:22:35.893" endtime="20200519 14:22:35.907"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200519 14:22:35.908" level="INFO">
+{
+    "seconds": 0.011266,
+    "status": 404,
+    "body": {
+        "error": "NFVO 80 not found."
+    },
+    "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "36",
+        "Server": "Werkzeug/1.0.1 Python/3.6.10",
+        "Date": "Tue, 19 May 2020 12:22:35 GMT"
+    }
+}</msg>
+<msg timestamp="20200519 14:22:35.909" level="INFO">${outputResponse} = {'seconds': 0.011266, 'status': 404, 'body': {'error': 'NFVO 80 not found.'}, 'headers': {'Content-Type': 'application/json', 'Content-Length': '36', 'Server': 'Werkzeug/1.0.1 Python/3.6.10', 'Date': ...</msg>
+<status status="PASS" starttime="20200519 14:22:35.908" endtime="20200519 14:22:35.909"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.910" level="INFO">@{response} = [ {'seconds': 0.011266, 'status': 404, 'body': {'error': 'NFVO 80 not found.'}, 'headers': {'Content-Type': 'application/json', 'Content-Length': '36', 'Server': 'Werkzeug/1.0.1 Python/3.6.10', 'Date'...</msg>
+<status status="PASS" starttime="20200519 14:22:35.910" endtime="20200519 14:22:35.910"></status>
+</kw>
+<status status="PASS" starttime="20200519 14:22:35.890" endtime="20200519 14:22:35.911"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>404</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.912" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20200519 14:22:35.911" endtime="20200519 14:22:35.912"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.912" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200519 14:22:35.912" endtime="20200519 14:22:35.912"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200519 14:22:35.913" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20200519 14:22:35.913" endtime="20200519 14:22:35.913"></status>
+</kw>
+<status status="PASS" starttime="20200519 14:22:35.911" endtime="20200519 14:22:35.913"></status>
+</kw>
+<doc>Test ID: mso-lo-test-
+Test title: GET Individual NFVO informations inexistent
+Test objective: The objective is to test the workflow for retriving the NFVO informations
+Pre-conditions: none
+Post-Conditions: none</doc>
+<status status="PASS" starttime="20200519 14:22:35.889" endtime="20200519 14:22:35.913" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200519 14:22:33.775" endtime="20200519 14:22:35.914"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" id="s1" name="MSO-LO-NFVO-Workflow">MSO-LO-NFVO-Workflow</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
