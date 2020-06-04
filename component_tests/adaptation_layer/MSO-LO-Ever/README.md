@@ -7,14 +7,14 @@ Full list of tests, including their description, is provided in Deliverable D3.7
 
 tests will done using docker compose so to execute it just install docker -compose enad execute the file "docker-compose-test-ever.yml.
 
-*Build the the docker apps*
+**Build the the docker apps**
 
-docker-compose --file docker-compose.test-ever.yml --project-name test-ever build
+*docker-compose --file docker-compose.test-ever.yml --project-name test-ever build*
 
-*Run the the docker apps*
+**Run the the docker apps**
 
-docker-compose --file docker-compose.test-ever.yml --project-name test-ever up
+*docker-compose --file docker-compose.test-ever.yml --project-name test-ever up*
 
-*Stop the the docker apps*
+**Stop the the docker apps**
 
-docker-compose --file docker-compose.test-ever.yml --project-name test-ever down
+*docker-compose --file docker-compose.test-ever.yml --project-name test-ever down*
