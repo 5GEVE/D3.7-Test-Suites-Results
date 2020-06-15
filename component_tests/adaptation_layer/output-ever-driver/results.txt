@@ -1,0 +1,119 @@
+﻿osboxes@osboxes:~/Desktop/ever/driver/mso-lo$ docker-compose --file docker-compose.test-ever.yml --project-name test-ever up
+Starting prism-ever ... 
+Starting prism-ever ... done
+Recreating test-ever ... 
+Recreating test-ever ... done
+Attaching to prism-ever, test-ever
+test-ever     | wait-for-it.sh: waiting 15 seconds for prism-onap:9999
+prism-ever    | [CLI] …  awaiting  Starting Prism…
+prism-ever    | [HTTP SERVER] ℹ  info      Server listening at http://0.0.0.0:9999
+prism-ever    | [CLI] ●  note      GET        http://0.0.0.0:9999/instances
+prism-ever    | [CLI] ●  note      GET        http://0.0.0.0:9999/instances/{ns_db_id}
+prism-ever    | [CLI] ●  note      POST       http://0.0.0.0:9999/create
+prism-ever    | [CLI] ●  note      POST       http://0.0.0.0:9999/instantiate/{ns_db_id}
+prism-ever    | [CLI] ●  note      POST       http://0.0.0.0:9999/terminate/{ns_db_id}
+prism-ever    | [CLI] ●  note      DELETE     http://0.0.0.0:9999/delete/{ns_db_id}
+prism-ever    | [CLI] ●  note      GET        http://0.0.0.0:9999/ns_lcm_op_occs
+prism-ever    | [CLI] ●  note      GET        http://0.0.0.0:9999/ns_lcm_op_occs/{lcm_id}
+prism-ever    | [CLI] ▶  start     Prism is listening on http://0.0.0.0:9999
+test-ever     | wait-for-it.sh: timeout occurred after waiting 15 seconds for prism-onap:9999
+test-ever     | ============================= test session starts ==============================
+test-ever     | platform linux -- Python 3.6.10, pytest-5.4.1, py-1.8.1, pluggy-0.13.1 -- /usr/src/app/.venv/bin/python
+test-ever     | cachedir: .pytest_cache
+test-ever     | rootdir: /usr/src/app
+test-ever     | collecting ... collected 15 items
+test-ever     | 
+prism-ever    | [HTTP SERVER] post /create ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: application/json
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for application/json
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 201
+test-ever     | tests/test_ever.py::EverTestCase::test_create_ns_201 PASSED              [  6%]
+prism-ever    | [HTTP SERVER] post /create ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: application/json
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for application/json
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 400
+test-ever     | tests/test_ever.py::EverTestCase::test_create_ns_400 PASSED              [ 13%]
+prism-ever    | [HTTP SERVER] delete /delete/49ccb6a2-5bcd-4f35-a2cf-7728c54e48b7 ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: */*
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ℹ  info      Unable to find content for */*. Sending an empty response.
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 204
+test-ever     | tests/test_ever.py::EverTestCase::test_delete_ns_204 PASSED              [ 20%]
+prism-ever    | [HTTP SERVER] delete /delete/49ccb6a2-5bcd-4f35-a2cf-7728c54e48b7 ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: */*
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for */*
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 404
+test-ever     | tests/test_ever.py::EverTestCase::test_delete_ns_404 PASSED              [ 26%]
+prism-ever    | [HTTP SERVER] get /instances/49ccb6a2-5bcd-4f35-a2cf-7728c54e48b7 ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: application/json
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for application/json
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+test-ever     | tests/test_ever.py::EverTestCase::test_get_ns_200 PASSED                 [ 33%]
+prism-ever    | [HTTP SERVER] get /instances/49ccb6a2-5bcd-4f35-a2cf-7728c54e48b7 ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: application/json
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for application/json
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 404
+test-ever     | tests/test_ever.py::EverTestCase::test_get_ns_404 PASSED                 [ 40%]
+prism-ever    | [HTTP SERVER] get /ns_lcm_op_occs/49ccb6a2-5bcd-4f35-a2cf-7728c54c48b7 ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: application/json
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for application/json
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+test-ever     | tests/test_ever.py::EverTestCase::test_get_ns_lcm_op_occs_200 PASSED     [ 46%]
+prism-ever    | [HTTP SERVER] get /ns_lcm_op_occs/49ccb6a2-5bcd-4f35-a2cf-7728c54c48b7 ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: application/json
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for application/json
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 404
+test-ever     | tests/test_ever.py::EverTestCase::test_get_ns_lcm_op_occs_404 PASSED     [ 53%]
+prism-ever    | [HTTP SERVER] get /ns_lcm_op_occs ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: application/json
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for application/json
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+test-ever     | tests/test_ever.py::EverTestCase::test_get_ns_lcm_op_occs_list_200 PASSED [ 60%]
+prism-ever    | [HTTP SERVER] get /instances ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: application/json
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for application/json
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 200
+test-ever     | tests/test_ever.py::EverTestCase::test_get_ns_list_200 PASSED            [ 66%]
+prism-ever    | [HTTP SERVER] post /instantiate/49ccb6a2-5bcd-4f35-a2cf-7728c54e48b7 ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: */*
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ℹ  info      Unable to find content for */*. Sending an empty response.
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 202
+test-ever     | tests/test_ever.py::EverTestCase::test_instantiate_ns_202 PASSED         [ 73%]
+prism-ever    | [HTTP SERVER] post /instantiate/49ccb6a2-5bcd-4f35-a2cf-7728c54e48b7 ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: */*
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for */*
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 400
+test-ever     | tests/test_ever.py::EverTestCase::test_instantiate_ns_400 PASSED         [ 80%]
+prism-ever    | [HTTP SERVER] post /instantiate/49ccb6a2-5bcd-4f35-a2cf-7728c54e48b7 ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: */*
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for */*
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 404
+test-ever     | tests/test_ever.py::EverTestCase::test_instantiate_ns_404 PASSED         [ 86%]
+prism-ever    | [HTTP SERVER] post /terminate/49ccb6a2-5bcd-4f35-a2cf-7728c54e48b7 ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: */*
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ℹ  info      Unable to find content for */*. Sending an empty response.
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 202
+test-ever     | tests/test_ever.py::EverTestCase::test_terminate_ns_202 PASSED           [ 93%]
+prism-ever    | [HTTP SERVER] post /terminate/49ccb6a2-5bcd-4f35-a2cf-7728c54e48b7 ℹ  info      Request received
+prism-ever    |     [NEGOTIATOR] ℹ  info      Request contains an accept header: */*
+prism-ever    |     [VALIDATOR] ✔  success   The request passed the validation rules. Looking for the best response
+prism-ever    |     [NEGOTIATOR] ✔  success   Found a compatible content for */*
+prism-ever    |     [NEGOTIATOR] ✔  success   Responding with the requested status code 404
+test-ever     | tests/test_ever.py::EverTestCase::test_terminate_ns_404 PASSED           [100%]
+test-ever     | 
+test-ever     | ============================= 15 passed in 20.16s ==============================
+test-ever exited with code 0
+
