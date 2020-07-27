@@ -5,11 +5,8 @@ This script just prints the "Hello World" message. It is based on the example pr
 In order to test it:
 
 ```sh
-# 1. Make sure you download the repository which contains the files (the original one) in both Robot Framework (EEM) and Runtime Configurator servers.
-git clone git@github.com:5GEVE/5geve-rc.git
+# 1. Modify the variables defined in robot/hello_world.robot to fit in your scenario.
 
-# 2. Modify the variables defined in 5geve-rc/hello_world/robot/hello_world.robot to fit in your scenario.
-
-# 3. Execute the Robot Framework script.
+# 2. Execute the Robot Framework script.
 robot hello_world.robot
 ```

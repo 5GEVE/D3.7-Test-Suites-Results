@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200727 17:34:48.383" generator="Robot 3.1.2 (Python 2.7.17 on linux2)">
+<suite source="/home/telcaria/5g-eve/github/D3.7-Test-Suites-Results/component_tests/runtime_configurator/Runtime_Configurator/Test_3_Complete_workflow/robot/measureDelay.robot" id="s1" name="measureDelay">
+<test id="s1-t1" name="Launch script at RC to measure two-way delay between two probes">
+<kw name="Open Connection to Runtime Configurator and Log In">
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<arguments>
+<arg>${RC_MGMT_ADDRESS}</arg>
+</arguments>
+<status status="PASS" endtime="20200727 17:34:49.713" starttime="20200727 17:34:49.713"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<arguments>
+<arg>${RC_USERNAME}</arg>
+<arg>${RC_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20200727 17:34:49.714" level="INFO">Logging into '10.9.8.204:22' as 'user'.</msg>
+<msg timestamp="20200727 17:34:51.507" level="INFO">Read output: Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.15.18-10-pve x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+New release '18.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Mon Jul 27 15:34:02 2020 from 10.254.0.41
+user@5geve-runtime-configurator:~$</msg>
+<status status="PASS" endtime="20200727 17:34:51.507" starttime="20200727 17:34:49.713"></status>
+</kw>
+<status status="PASS" endtime="20200727 17:34:51.507" starttime="20200727 17:34:49.712"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>${BUILD_HOSTS_FILE}</arg>
+</arguments>
+<msg timestamp="20200727 17:34:51.508" level="INFO">Executing command 'cd /home/user/5geve-rc/delay/ansible; touch hosts; echo "src_server ansible_host=10.9.8.205 ansible_user=user ansible_ssh_pass=root" | tee -a hosts &gt; /dev/null'.</msg>
+<msg timestamp="20200727 17:34:51.654" level="INFO">Command exited with return code 0.</msg>
+<status status="PASS" endtime="20200727 17:34:51.654" starttime="20200727 17:34:51.508"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>${RUN_SCRIPT}</arg>
+</arguments>
+<msg timestamp="20200727 17:34:51.655" level="INFO">Executing command 'cd /home/user/5geve-rc/delay/ansible; touch ansible_output; ansible-playbook -i hosts measureDelay.yml -e "src_server_ip=172.16.1.205 dst_server_ip=172.16.1.206" &gt; ansible_output'.</msg>
+<msg timestamp="20200727 17:34:58.616" level="INFO">Command exited with return code 0.</msg>
+<status status="PASS" endtime="20200727 17:34:58.616" starttime="20200727 17:34:51.655"></status>
+</kw>
+<status status="PASS" endtime="20200727 17:34:58.617" critical="yes" starttime="20200727 17:34:49.711"></status>
+</test>
+<kw type="teardown" name="Close All Connections" library="SSHLibrary">
+<doc>Closes all open connections.</doc>
+<status status="PASS" endtime="20200727 17:34:58.732" starttime="20200727 17:34:58.618"></status>
+</kw>
+<status status="PASS" endtime="20200727 17:34:58.732" starttime="20200727 17:34:48.385"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="measureDelay" pass="1">measureDelay</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
