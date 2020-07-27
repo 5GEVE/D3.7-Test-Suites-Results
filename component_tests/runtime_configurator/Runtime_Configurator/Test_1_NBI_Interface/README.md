@@ -1,6 +1,6 @@
 # Test 1 - NBI Interface
 
-This script just prints the "Hello World" message. It is based on the example provided in the (following repository)[https://github.com/5GEVE/5geve-rc].
+This script just prints the "Hello World" message. It is based on the example provided in the [following repository](https://github.com/5GEVE/5geve-rc/tree/master/hello_world).
 
 In order to test it:
 
