@@ -23,4 +23,4 @@ Other `.robot` files include re-usable Robot Framework keywords.
 - [output-osm-driver](output-osm-driver): results executed with an OSM instance
 - [output-onap-driver](output-onap-driver): results executed with an ONAP instance
 - [output-nfvo-data](output-nfvo-data): results for NFVO information retrieval.
-
+- [output-subscriptions](output-subscriptions): results for subscriptions' operations.
