@@ -1,6 +1,6 @@
-# Runtime Configurator Robot Framework Tests
+# Multi-Site Network Orchestrator-Catalogue Robot Framework Tests
 
-This folder contains the Robot Framework tests for the Runtime Configurator, including the results.
+This folder contains the Robot Framework tests for the integration between 5G-EVE Multi-Site Network Orchestrator and Multi-Site Catalogue, including the results.
 
 Full list of tests, including their description, are provided in Deliverable D3.7.
 
@@ -11,5 +11,3 @@ Only Robot Framework is needed for executing all the test cases, which can be ea
 ```sh
 pip install robotframework
 ```
-
-In each test executed, there is a specific README.md file including more useful information related to the test.

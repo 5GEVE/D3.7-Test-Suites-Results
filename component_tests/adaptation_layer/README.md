@@ -1,4 +1,4 @@
-# Robot Framework Tests for adaptation layer
+# Adaptation Layer Robot Framework Tests
 
 ## Description of tests
 
