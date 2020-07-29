@@ -1,0 +1,2740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.7.0 on win32)" generated="20200609 15:56:06.863" rpa="false">
+<suite id="s1" name="CreateNSInstance" source="C:\Users\emacmoo\5G-EVE\src\testing\tests\MSNO\CreateNSInstance.robot">
+<test id="s1-t1" name="Get all NS">
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0"}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:08.409" endtime="20200609 15:56:08.411"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/nslcm/v1/ns_instances</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:08.412" endtime="20200609 15:56:09.062"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>request</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.064" level="INFO">
+{
+    "method": "GET",
+    "url": "http://localhost:8000/nslcm/v1/ns_instances",
+    "scheme": "http",
+    "netloc": "localhost:8000",
+    "path": "/nslcm/v1/ns_instances",
+    "query": {},
+    "body": null,
+    "headers": {
+        "Accept": "application/json, */*",
+        "Content-Type": "application/json",
+        "User-Agent": "RESTinstance/1.0.2",
+        "Version": "1.0"
+    },
+    "proxies": {},
+    "timeout": [
+        null,
+        null
+    ],
+    "cert": null,
+    "sslVerify": true,
+    "allowRedirects": true,
+    "timestamp": {
+        "utc": "2020-06-09T13:56:08.529915+00:00",
+        "local": "2020-06-09T15:56:08.529915+02:00"
+    }
+}</msg>
+<status status="PASS" starttime="20200609 15:56:09.063" endtime="20200609 15:56:09.105"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.110" level="INFO">
+{
+    "seconds": 0.10972799999999999,
+    "status": 200,
+    "body": [
+        {
+            "id": "6271aec6-901c-4de1-9364-22d977e317de",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "fb4e494f-42d1-41b2-bb64-99141d08e8d2",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "a14e374d-cf19-40b5-8db6-bb75d5fcab40",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "164c6833-0e9d-419f-96f3-586b7de6be14",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "4343ea88-35ec-42d4-a5e8-48c9d563cacb",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "bbfb754f-08cb-4fe1-a7b8-330f9f77aa97",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d7bae67a-06cb-45fb-8f84-7469abb94912",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "61d07901-b8ad-4dec-b0b2-7aaa278caf44",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c43e6cbd-d559-4d2b-be36-4dd055c6036d",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "952d390f-5337-443b-adb6-718f4337833e",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "03df7239-bccd-44de-b2f0-754c213e341a",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "1d3ab14e-da6e-4733-a5ce-7e0308e585b3",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d1287582-6a0c-4746-a50e-d39b708844d5",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "1f3f93e0-f570-4c72-8016-821abede5c5d",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "60dd0d13-d041-4392-9f79-e2166dac8709",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "73fe7b79-56e5-48f9-966c-ae579b4e4df8",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "19214a74-81fd-4081-812c-e4d060436f63",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "5b6d84fd-f069-4522-b8f1-080715eecb55",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "5014a769-9a0e-406f-84c7-d2e268e135e7",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "73dd6767-d821-45d0-ae45-7a63e1649bda",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "ef52debd-9e68-43b6-94b8-0bb1d52ca0bd",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8acf2956-891a-4ac1-86c4-6f55b463e41b",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c9c61104-ba47-4ec0-8263-334b00134aeb",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "a208651e-b167-40c3-b43e-d634bdec592b",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "1b4e38a8-08be-49f9-98e4-eb2cb04ee829",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "1fbe77a3-148e-4d37-9037-912adb04e1af",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "70aefce5-1442-4f6e-85ec-6de8807c96fe",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "772c5c15-ecbe-42a9-bf44-dbcaff36b42f",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "3301626f-f30b-437d-bde6-777011389a75",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "b87c6634-996d-401b-8fa7-7924ed76a193",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c6b66312-3379-4463-b3ab-5a71bb8c6feb",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8e952e34-2c69-41d2-b9dc-8f950dbda917",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "1b38caba-645e-4581-9cca-ae0b2292b83c",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "35f9f134-78fd-4554-b935-5bd2118d9f56",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "bb6cd360-1b78-4101-959e-807965957c90",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "3f22b04b-69cc-4c18-9d70-ec9d517a32cd",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "dd5c66e9-2084-4831-92e0-55178f07a86d",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "30ccc6e0-3d93-42cc-a39f-e585b7c9de0d",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "bb5a2028-99b1-4001-ac6f-cf4a0a36720a",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8d275b90-e704-4bff-90d2-6b292e89cb16",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "48eac5e8-a3b7-4a1d-b764-5b617af07b07",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "6821b76a-5818-4047-822b-a5c90a5de729",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "44e36f8e-92cc-4702-b0ef-c97eafd18697",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7e483276-90c1-4b82-afbe-728dd3388469",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "3e70f677-aa58-4ab3-a213-9a8db3d3f0d9",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "42c04a2a-c5bb-4808-a5b8-680659d71dbf",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "52fb7b4d-7c1e-45a1-a35d-be3517a5414a",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "0ed86966-7900-4258-bf6f-f1a08f4413ac",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8a0fb83f-de8a-4f05-b94b-49ed8d99d8e7",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "3266778b-5e59-41ae-a1ff-e57b30b7baa4",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "4756d330-7c14-430d-8a99-af3f3a9154a7",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d148ac30-90fc-4a16-96ad-955bc54ec23b",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c5fa620a-b651-4953-8118-12e1657f08a8",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f1fd69a3-bdbd-4256-aa6b-a237ae384723",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "9019202f-a1ce-4aa8-b1f6-c8914fd9d60c",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "4b696325-8e26-48c1-852f-37510799b331",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "ddfb0bf1-aee1-4cb2-8045-919107991d32",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "e2d10c29-f6be-490c-a1b6-5f69e2b10024",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "e49bae88-7818-4ceb-aa02-e083e953b83f",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "fb70f3e5-3672-470e-9786-4bf57e35595d",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "18fbb61c-4207-4492-a1ea-22decce834e3",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "34b78fad-22f7-4324-994f-2854989746e9",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8680cee3-f6be-4970-9014-43ef844c751c",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "56990d01-c3b7-43de-b493-ac24bbb2ca00",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c05c1b79-cc64-4149-b994-f15402efa2cb",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "092e243e-e67d-4f56-8a30-5a5dfacf2e8b",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8152a34a-509f-4770-938a-01e4a98c9917",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d6f08555-0f2b-4074-8e10-bb93d0588296",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "0662a070-3f7d-4ea4-ba24-85c0f0bd9980",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "542ddad0-dc12-4087-9909-a497bc21cc2d",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "528f7868-45ac-446b-b924-53939ffe40b2",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "0252678f-3d4b-4f2e-aefc-14d79c116569",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "39b0d045-1998-4d53-af17-5d2b064054d6",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "45f68f6e-3ed0-4501-8b3a-5fdb63e3ce92",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "e21eb5b8-a147-4f20-8a61-3594a44305be",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "28978b7b-21a7-42d6-a52a-54316dde0b43",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "623a63dc-1ee6-40d4-8b37-bc231c153dda",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "6cea8654-4eea-4243-a338-c1a24e514d8b",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d7ddb045-9744-46b7-bf7e-5c4b38ee3c0c",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "53a9a224-3b30-4c61-8aa5-ee01876121bf",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d19048c1-84f9-4e89-9727-25e8dd5a0fb5",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "ef7bdfdd-efb3-42c1-9874-a325d52ddf16",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "e2e602d6-13b6-49cf-a31d-cc5358435c9b",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "5c551d21-4d9d-48d9-a6a7-ef364e74db35",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "869b0def-b852-46f7-92c2-49e8aec059f5",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d6d19d9d-c450-4961-9afb-9d894a493acb",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "a2843945-79b6-4e7b-815f-a31c42fb205a",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c29cce03-dc58-4228-8044-fa23e2f9eddc",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f185bd86-6039-46dd-836b-02485b8a6dcb",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8da40217-0fbe-4b43-b891-9d2f456c5ff7",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "de760b4f-2e57-4b7c-b32f-82d62b9855c6",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "3ff00893-365a-40b0-b218-507b3dea2505",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "898f153b-b7cc-49b2-aa1b-c8d60c4f78fe",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "0438f2bc-4073-4b75-ab5b-59f8af67bc80",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7ab4caae-7fe2-478a-a4a1-0388c7b09a60",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "3acbb448-626d-44cc-998b-9da04271d055",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "86257adb-c9b4-4d7f-90fd-fdc66291b416",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f7bf0fda-004a-4338-b076-a4bbc1b9cbd0",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "46b6efbb-1a05-4027-a534-6b6c4141e059",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8c8ff63e-2211-4b25-aa62-991fa1a2df8f",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "92edb2a0-737d-494d-b4a5-051278359f07",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "abe1594a-4bf3-4b47-be48-3566a7bb1c0a",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "80c1f2c7-fb26-4d63-993a-3dae85510c75",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "797797fa-0af5-44ed-93b9-802d68f1eb1f",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "aa57e5df-6f7f-44ce-9c5e-69107640aa78",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "05149b3c-80a2-4561-843d-257127fc06db",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "49c153ca-0d16-4417-8314-38b686b98873",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8d87a112-a170-497a-b166-1de9c24a71e7",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "a249ed84-9c87-4aba-b6b6-59c9068970ec",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "a08ec457-0bd1-4444-8364-65a8e8161fe7",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "bce8f489-8463-41e9-912a-621c33c394ba",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "900bf750-b7fc-48db-b99a-29f3cd151d98",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "fb7f1099-1860-464f-ae18-0363e26df5c1",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "45d72446-cdeb-434f-a666-b4305d617e57",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "10b43aed-9958-4228-8619-2e05a7bab9b8",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "850a7cb9-c45b-42d4-9d47-e6f3513b08d3",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "18a2ea4a-72ca-455b-93f0-9d187101ab4a",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "9346c1a6-17b2-4837-b489-418f3204b476",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "93941ce4-9c73-4303-9092-6ac3a10ad025",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "501b15f9-7b2f-4586-be02-da74add7a549",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7e80f050-0932-48ac-b13f-fe072053b02a",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7520b651-a798-4304-829d-9244675f7f89",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "4482fda8-9a7b-428b-a1a5-d64824330059",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "2a58e1c5-1469-49ee-bb8b-2f311e690785",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "fc01e8b7-5764-41d6-a15a-d0452a328007",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7b5ca1be-102b-477b-83a2-25046983dd0f",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "130647d4-78ef-4a39-9bc4-f414da7010e5",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "66904fbd-5b9b-4506-8c02-b16676e5db03",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f3dff548-f4cd-425a-87f8-f6846b8b56ac",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "89738710-6ed9-4a36-80ce-f3fc894a3615",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d9339352-8d89-4cec-ba51-1c6c9f2729d4",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "ba2abc25-3762-4b47-86b1-56f83f7470ca",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "ec501a46-df4c-485f-b46a-81d8db48274d",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "90055e13-8783-4441-a880-fd56744b1765",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d69a8382-4753-4e19-b249-3e53d284466e",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c5f80001-2e3f-4c04-b340-adcc5a77cbfb",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7195df82-45e8-49fd-b208-364135bed18d",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "56ddfe38-0fe1-4080-805c-af4e1a721ee3",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "293bad7d-9c17-4d0b-a370-428c8bd3c8f8",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "6a5bf83a-12f5-43e3-b329-98fd6a4b314e",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7130bf34-c620-4bb9-8f95-0e7f28b6feac",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "1915893d-a147-4bdd-889b-172bc297c88a",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "ebd41627-378e-478e-b1b9-93e7977eefd5",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "81dd9d8a-ef18-4b2d-b8f9-a0659089db4f",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "44c70892-5416-4a11-96d5-22bfa7620ee1",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f0a0efed-41d7-4eb2-9226-b63bd33e682d",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "218b2bea-578f-42e1-968e-0212b6093a15",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "269a3f8f-9352-4062-a635-5ee56ffdb729",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d1943ac9-1ee3-4c57-8394-ca095fab167f",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "bc0aafcd-bd84-4792-a6a0-c55591d0fcae",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7f7d80bd-4acc-4386-afd1-2cf5ecd21219",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "db31d48c-a064-45ab-8585-aa94eea03c0b",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "4d25f287-3b60-4cae-8e92-6fa3ead76bb8",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "45ae80b9-e9fb-4064-b7fc-88848bf3f87f",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8fd6add8-58ce-451e-8218-95fafe688628",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "2fbaf025-1c22-496f-8d71-c07287f4fe98",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "20d881fe-971a-42f3-bd6b-f5cc88fe3979",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f7980919-1ec9-4e64-9c82-51777880c541",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d3a4e96f-6c4c-427e-aa2d-e05697c216fe",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8818ed77-e904-447e-89a7-9d2b909c8893",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "577c6ac0-adb4-43ac-8b19-0894672f35d7",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "a68b7d0a-b1fa-470d-97c1-355c173bb388",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8d6a2bc8-5af0-4205-acb9-4df870ec5bbe",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "925b4c76-7863-4f53-8a79-98958e400df9",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "bd7a4b10-413d-4047-9ac9-1ce0892cd356",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "17475b66-5478-4e7b-98de-3a4434a3aedb",
+            "nsInstanceDescription": "NS for test1",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d572e217-4d81-4f7e-a372-64e42b303eb5",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7a3994d9-7fad-459e-b648-316d41db2dbd",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "1cea9421-d792-4709-84bd-899e1a02aa66",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7cc4c85e-5937-4c91-839f-fade9d8c075f",
+            "nsInstanceDescription": "NS for test3",
+            "nsInstanceName": "TEST3 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "1fa3345a-596b-4456-ba50-c54330f58e29",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "2613ab8b-0668-4a0a-aaa4-d5a0e5bab69c",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "4c019294-ebea-4fea-8998-58944d42d599",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "1a80315a-717b-4049-940b-72e5b64d418b",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "bdfc3b88-d41f-4a09-a1d0-f53b3a1de3ad",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "3051e203-3f71-4216-a49b-b659e681a514",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "68eaa831-dc44-422f-853a-5ce8ac9d4652",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c5c4d21b-7476-4278-93a7-1605bf40ef63",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "468306e0-6eaf-4401-8b8c-b6dba9ee52fe",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "e8ca1a0d-6e01-42d6-984f-091eab548cfc",
+            "nsInstanceDescription": "NS for test2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "TEST2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "30c9e54b-ff4c-427f-bd78-d4061b8b5474",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "91340803-ddae-4bfe-914e-7dab67e357af",
+            "nsInstanceDescription": "not saved",
+            "nsInstanceName": "not saved",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "not saved",
+            "nsdInfoId": ""
+        }
+    ],
+    "headers": {
+        "Content-Type": "application/json",
+        "Link": "",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Date": "Tue, 09 Jun 2020 13:56:08 GMT",
+        "Transfer-Encoding": "chunked"
+    }
+}</msg>
+<status status="PASS" starttime="20200609 15:56:09.106" endtime="20200609 15:56:09.488"></status>
+</kw>
+<kw name="Integer" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON integer.*</doc>
+<arguments>
+<arg>response status</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.540" endtime="20200609 15:56:09.542"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:08.408" endtime="20200609 15:56:09.543" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Get all NS Bad Request">
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":""}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.549" endtime="20200609 15:56:09.549"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/nslcm/v1/ns_instances</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.551" endtime="20200609 15:56:09.569"></status>
+</kw>
+<kw name="Integer" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON integer.*</doc>
+<arguments>
+<arg>response status</arg>
+<arg>400</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.570" endtime="20200609 15:56:09.572"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.547" endtime="20200609 15:56:09.573" critical="yes"></status>
+</test>
+<test id="s1-t3" name="Test 1 - Network Service ID creation. Positive test">
+<kw name="POST New nsInstance" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.587" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances</msg>
+<status status="PASS" starttime="20200609 15:56:09.586" endtime="20200609 15:56:09.587"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.587" endtime="20200609 15:56:09.588"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.588" level="INFO">${body} = {"nsdId":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status status="PASS" starttime="20200609 15:56:09.588" endtime="20200609 15:56:09.588"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.588" endtime="20200609 15:56:09.610"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.611" level="INFO">
+{
+    "seconds": 0.014661,
+    "status": 201,
+    "body": {
+        "_links": {
+            "self": {
+                "href": "http://localhost:8000/nslcm/v1/ns_instances/7ee5c510-ac83-4a64-9913-78408203e595"
+            }
+        },
+        "id": "7ee5c510-ac83-4a64-9913-78408203e595",
+        "nsInstanceDescription": "NS for test1",
+        "nsInstanceName": "TEST1 NS",
+        "nsState": "NOT_INSTANTIATED",
+        "nsdId": "TEST1",
+        "nsdInfoId": ""
+    },
+    "headers": {
+        "Content-Type": "application/json",
+        "Location": "http://localhost:8000/nslcm/v1/ns_instances/7ee5c510-ac83-4a64-9913-78408203e595",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Date": "Tue, 09 Jun 2020 13:56:09 GMT",
+        "Content-Length": "282"
+    }
+}</msg>
+<msg timestamp="20200609 15:56:09.618" level="INFO">${outputResponse} = {'seconds': 0.014661, 'status': 201, 'body': {'_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/7ee5c510-ac83-4a64-9913-78408203e595'}}, 'id': '7ee5c510-ac83-4a64-9913-78408203e...</msg>
+<status status="PASS" starttime="20200609 15:56:09.611" endtime="20200609 15:56:09.618"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.621" level="INFO">@{response} = [ {'seconds': 0.014661, 'status': 201, 'body': {'_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/7ee5c510-ac83-4a64-9913-78408203e595'}}, 'id': '7ee5c510-ac83-4a64-9913-7840820...</msg>
+<status status="PASS" starttime="20200609 15:56:09.619" endtime="20200609 15:56:09.621"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.586" endtime="20200609 15:56:09.622"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.625" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20200609 15:56:09.625" endtime="20200609 15:56:09.625"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.626" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200609 15:56:09.625" endtime="20200609 15:56:09.626"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.627" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20200609 15:56:09.626" endtime="20200609 15:56:09.627"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.623" endtime="20200609 15:56:09.627"></status>
+</kw>
+<kw name="Check HTTP Response Header Contains" library="NSLCMOperationKeywords">
+<arguments>
+<arg>Location</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${response[0]['headers']}</arg>
+<arg>${HEADER_TOCHECK}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.663" endtime="20200609 15:56:09.663"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Header is present</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.664" level="INFO">Header is present</msg>
+<status status="PASS" starttime="20200609 15:56:09.664" endtime="20200609 15:56:09.664"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.662" endtime="20200609 15:56:09.665"></status>
+</kw>
+<kw name="Get NS Identifier" library="NSLCMOperationKeywords">
+<assign>
+<var>${id}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Get NS identifier from a response</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.667" level="INFO">Get NS identifier from a response</msg>
+<status status="PASS" starttime="20200609 15:56:09.666" endtime="20200609 15:56:09.667"></status>
+</kw>
+<msg timestamp="20200609 15:56:09.668" level="INFO">${id} = 7ee5c510-ac83-4a64-9913-78408203e595</msg>
+<status status="PASS" starttime="20200609 15:56:09.666" endtime="20200609 15:56:09.668"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.671" endtime="20200609 15:56:09.671"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.672" endtime="20200609 15:56:09.694"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.695" endtime="20200609 15:56:09.697"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.670" endtime="20200609 15:56:09.697"></status>
+</kw>
+<kw name="DELETE nsInstance" library="NSLCMOperationKeywords" type="teardown">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Delete a network service instance</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.702" level="INFO">Delete a network service instance</msg>
+<status status="PASS" starttime="20200609 15:56:09.701" endtime="20200609 15:56:09.702"></status>
+</kw>
+<kw name="Delete" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a DELETE request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${id}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.702" endtime="20200609 15:56:09.729"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.731" level="INFO">
+{
+    "seconds": 0.020012000000000002,
+    "status": 204,
+    "body": "",
+    "headers": {
+        "Content-Type": "application/json",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Date": "Tue, 09 Jun 2020 13:56:09 GMT"
+    }
+}</msg>
+<msg timestamp="20200609 15:56:09.735" level="INFO">${outputResponse} = {'seconds': 0.020012000000000002, 'status': 204, 'body': '', 'headers': {'Content-Type': 'application/json', 'Version': '1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1', 'Date': 'Tue, 09 Jun 2020 13:56:09 GMT...</msg>
+<status status="PASS" starttime="20200609 15:56:09.730" endtime="20200609 15:56:09.735"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.736" level="INFO">@{response} = [ {'seconds': 0.020012000000000002, 'status': 204, 'body': '', 'headers': {'Content-Type': 'application/json', 'Version': '1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1', 'Date': 'Tue, 09 Jun 2020 13:56:09 G...</msg>
+<status status="PASS" starttime="20200609 15:56:09.735" endtime="20200609 15:56:09.737"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.699" endtime="20200609 15:56:09.737"></status>
+</kw>
+<doc>Test purpose: The purpose of this test is to validate the creation of a NS ID.
+Test type: Functional.
+Related tests: None.
+Priority: High.
+Execution time: As required for the full test execution.
+Configuration: MSNO_BASIC_CONF.
+References: NS LCM API.
+Applicability: None.
+Pre-test conditions: NSD is onboarded in the Multi-Site Catalogue.
+Nested NS are onboarded in each site NFVO.
+Expected results: MSNO returns a positive response for the NS creation.
+A notification is sent when NS creations process finishes.
+NS ID is stored in the DB with NOT_INSTANTIATED status and can be queried using
+external MSI API.</doc>
+<status status="PASS" starttime="20200609 15:56:09.578" endtime="20200609 15:56:09.738" critical="yes"></status>
+</test>
+<test id="s1-t4" name="Test 1 - Network Service ID creation. Wrong version">
+<kw name="POST New nsInstance - Wrong version" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with a wrong version parameter.</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.743" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with a wrong version parameter.</msg>
+<status status="PASS" starttime="20200609 15:56:09.743" endtime="20200609 15:56:09.744"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":""}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.744" level="INFO">${headers} = {"Version":""}</msg>
+<status status="PASS" starttime="20200609 15:56:09.744" endtime="20200609 15:56:09.745"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.745" level="INFO">${body} = {"nsdId":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status status="PASS" starttime="20200609 15:56:09.745" endtime="20200609 15:56:09.745"></status>
+</kw>
+<kw name="POST nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.747" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status status="PASS" starttime="20200609 15:56:09.746" endtime="20200609 15:56:09.747"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.748" endtime="20200609 15:56:09.749"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.749" endtime="20200609 15:56:09.771"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.773" level="INFO">
+{
+    "seconds": 0.014145,
+    "status": 400,
+    "body": {
+        "detail": "Required parameter Version not found In headers",
+        "status": 400,
+        "title": "Required parameter not found"
+    },
+    "headers": {
+        "Content-Type": "application/json",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Date": "Tue, 09 Jun 2020 13:56:09 GMT",
+        "Content-Length": "112"
+    }
+}</msg>
+<msg timestamp="20200609 15:56:09.777" level="INFO">${outputResponse} = {'seconds': 0.014145, 'status': 400, 'body': {'detail': 'Required parameter Version not found In headers', 'status': 400, 'title': 'Required parameter not found'}, 'headers': {'Content-Type': 'applica...</msg>
+<status status="PASS" starttime="20200609 15:56:09.772" endtime="20200609 15:56:09.778"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.780" level="INFO">@{response} = [ {'seconds': 0.014145, 'status': 400, 'body': {'detail': 'Required parameter Version not found In headers', 'status': 400, 'title': 'Required parameter not found'}, 'headers': {'Content-Type': 'appli...</msg>
+<status status="PASS" starttime="20200609 15:56:09.778" endtime="20200609 15:56:09.780"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.746" endtime="20200609 15:56:09.780"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.742" endtime="20200609 15:56:09.781"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.783" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20200609 15:56:09.783" endtime="20200609 15:56:09.784"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.785" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200609 15:56:09.784" endtime="20200609 15:56:09.785"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.786" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20200609 15:56:09.786" endtime="20200609 15:56:09.786"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.782" endtime="20200609 15:56:09.787"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.740" endtime="20200609 15:56:09.787" critical="yes"></status>
+</test>
+<test id="s1-t5" name="Test 1 - Network Service ID creation. Wrong accept">
+<kw name="POST New nsInstance - Wrong accept" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with a wrong accept.</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.791" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with a wrong accept.</msg>
+<status status="PASS" starttime="20200609 15:56:09.791" endtime="20200609 15:56:09.792"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Accept":"", "Version":"1.0"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.792" level="INFO">${headers} = {"Accept":"", "Version":"1.0"}</msg>
+<status status="PASS" starttime="20200609 15:56:09.792" endtime="20200609 15:56:09.792"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.793" level="INFO">${body} = {"nsdId":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status status="PASS" starttime="20200609 15:56:09.793" endtime="20200609 15:56:09.793"></status>
+</kw>
+<kw name="POST nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.795" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status status="PASS" starttime="20200609 15:56:09.794" endtime="20200609 15:56:09.795"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.795" endtime="20200609 15:56:09.795"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.796" endtime="20200609 15:56:09.811"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.813" level="INFO">
+{
+    "seconds": 0.010361,
+    "status": 400,
+    "body": {
+        "detail": "Required parameter Accept not found In headers",
+        "status": 400,
+        "title": "Required parameter not found"
+    },
+    "headers": {
+        "Content-Type": "application/json",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Date": "Tue, 09 Jun 2020 13:56:09 GMT",
+        "Content-Length": "111"
+    }
+}</msg>
+<msg timestamp="20200609 15:56:09.818" level="INFO">${outputResponse} = {'seconds': 0.010361, 'status': 400, 'body': {'detail': 'Required parameter Accept not found In headers', 'status': 400, 'title': 'Required parameter not found'}, 'headers': {'Content-Type': 'applicat...</msg>
+<status status="PASS" starttime="20200609 15:56:09.812" endtime="20200609 15:56:09.818"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.819" level="INFO">@{response} = [ {'seconds': 0.010361, 'status': 400, 'body': {'detail': 'Required parameter Accept not found In headers', 'status': 400, 'title': 'Required parameter not found'}, 'headers': {'Content-Type': 'applic...</msg>
+<status status="PASS" starttime="20200609 15:56:09.819" endtime="20200609 15:56:09.820"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.793" endtime="20200609 15:56:09.820"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.790" endtime="20200609 15:56:09.820"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.856" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20200609 15:56:09.855" endtime="20200609 15:56:09.856"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.857" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200609 15:56:09.856" endtime="20200609 15:56:09.857"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.858" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20200609 15:56:09.857" endtime="20200609 15:56:09.858"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.854" endtime="20200609 15:56:09.858"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.789" endtime="20200609 15:56:09.859" critical="yes"></status>
+</test>
+<test id="s1-t6" name="Test 1 - Network Service ID creation. Wrong content-type">
+<kw name="POST New nsInstance - Wrong content-type" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with a wrong content-type.</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.864" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with a wrong content-type.</msg>
+<status status="PASS" starttime="20200609 15:56:09.864" endtime="20200609 15:56:09.865"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Accept":"application/json", "Content-Type":"", "Version":"1.0"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.866" level="INFO">${headers} = {"Accept":"application/json", "Content-Type":"", "Version":"1.0"}</msg>
+<status status="PASS" starttime="20200609 15:56:09.865" endtime="20200609 15:56:09.866"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.867" level="INFO">${body} = {"nsdId":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status status="PASS" starttime="20200609 15:56:09.866" endtime="20200609 15:56:09.867"></status>
+</kw>
+<kw name="POST nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.868" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status status="PASS" starttime="20200609 15:56:09.868" endtime="20200609 15:56:09.868"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.869" endtime="20200609 15:56:09.869"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.886" level="WARN">Response body content is not JSON. Content-Type is: application/yaml</msg>
+<status status="PASS" starttime="20200609 15:56:09.870" endtime="20200609 15:56:09.894"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.896" level="INFO">
+{
+    "seconds": 0.010185000000000001,
+    "status": 400,
+    "body": "title: Required parameter not found\nstatus: 400\ndetail: Required parameter Content-Type not found In headers\n",
+    "headers": {
+        "Content-Type": "application/yaml",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Date": "Tue, 09 Jun 2020 13:56:09 GMT",
+        "Content-Length": "109"
+    }
+}</msg>
+<msg timestamp="20200609 15:56:09.900" level="INFO">${outputResponse} = {'seconds': 0.010185000000000001, 'status': 400, 'body': 'title: Required parameter not found\nstatus: 400\ndetail: Required parameter Content-Type not found In headers\n', 'headers': {'Content-Type':...</msg>
+<status status="PASS" starttime="20200609 15:56:09.895" endtime="20200609 15:56:09.900"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.901" level="INFO">@{response} = [ {'seconds': 0.010185000000000001, 'status': 400, 'body': 'title: Required parameter not found\nstatus: 400\ndetail: Required parameter Content-Type not found In headers\n', 'headers': {'Content-Type...</msg>
+<status status="PASS" starttime="20200609 15:56:09.900" endtime="20200609 15:56:09.901"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.867" endtime="20200609 15:56:09.901"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.863" endtime="20200609 15:56:09.901"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.903" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20200609 15:56:09.902" endtime="20200609 15:56:09.903"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.904" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200609 15:56:09.903" endtime="20200609 15:56:09.904"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.904" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20200609 15:56:09.904" endtime="20200609 15:56:09.904"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.902" endtime="20200609 15:56:09.904"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.861" endtime="20200609 15:56:09.905" critical="yes"></status>
+</test>
+<test id="s1-t7" name="Test 1 - Network Service ID creation. Wrong CreateNsRequest. Missing nsId">
+<kw name="POST New nsInstance - Wrong CreateNsRequest - Missing nsId" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with missing nsId parameter.</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.909" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with missing nsId parameter.</msg>
+<status status="PASS" starttime="20200609 15:56:09.908" endtime="20200609 15:56:09.909"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.909" level="INFO">${headers} = {"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</msg>
+<status status="PASS" starttime="20200609 15:56:09.909" endtime="20200609 15:56:09.909"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdid":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.910" level="INFO">${body} = {"nsdid":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status status="PASS" starttime="20200609 15:56:09.910" endtime="20200609 15:56:09.910"></status>
+</kw>
+<kw name="POST nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.911" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status status="PASS" starttime="20200609 15:56:09.911" endtime="20200609 15:56:09.911"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.912" endtime="20200609 15:56:09.912"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.912" endtime="20200609 15:56:09.928"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.929" level="INFO">
+{
+    "seconds": 0.009035,
+    "status": 400,
+    "body": {
+        "detail": "missing required attribute One of the required in CreateNSRequest object",
+        "status": 400,
+        "title": "Missing attribute"
+    },
+    "headers": {
+        "Content-Type": "application/json",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Date": "Tue, 09 Jun 2020 13:56:09 GMT",
+        "Content-Length": "126"
+    }
+}</msg>
+<msg timestamp="20200609 15:56:09.933" level="INFO">${outputResponse} = {'seconds': 0.009035, 'status': 400, 'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'headers': {'Content-T...</msg>
+<status status="PASS" starttime="20200609 15:56:09.928" endtime="20200609 15:56:09.933"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.936" level="INFO">@{response} = [ {'seconds': 0.009035, 'status': 400, 'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'headers': {'Content...</msg>
+<status status="PASS" starttime="20200609 15:56:09.934" endtime="20200609 15:56:09.936"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.910" endtime="20200609 15:56:09.936"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.908" endtime="20200609 15:56:09.936"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.938" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20200609 15:56:09.938" endtime="20200609 15:56:09.938"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.940" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200609 15:56:09.939" endtime="20200609 15:56:09.940"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.941" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20200609 15:56:09.940" endtime="20200609 15:56:09.941"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.937" endtime="20200609 15:56:09.941"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.907" endtime="20200609 15:56:09.942" critical="yes"></status>
+</test>
+<test id="s1-t8" name="Test 1 - Network Service ID creation. Wrong CreateNsRequest. Missing nsName">
+<kw name="POST New nsInstance - Wrong CreateNsRequest - Missing nsName" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with missing nsName</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.948" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with missing nsName</msg>
+<status status="PASS" starttime="20200609 15:56:09.947" endtime="20200609 15:56:09.948"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.949" level="INFO">${headers} = {"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</msg>
+<status status="PASS" starttime="20200609 15:56:09.948" endtime="20200609 15:56:09.949"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"TEST1","nsname":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.950" level="INFO">${body} = {"nsdId":"TEST1","nsname":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status status="PASS" starttime="20200609 15:56:09.949" endtime="20200609 15:56:09.950"></status>
+</kw>
+<kw name="POST nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.951" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status status="PASS" starttime="20200609 15:56:09.951" endtime="20200609 15:56:09.951"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.952" endtime="20200609 15:56:09.952"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:09.953" endtime="20200609 15:56:09.969"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200609 15:56:09.971" level="INFO">
+{
+    "seconds": 0.00994,
+    "status": 400,
+    "body": {
+        "detail": "missing required attribute One of the required in CreateNSRequest object",
+        "status": 400,
+        "title": "Missing attribute"
+    },
+    "headers": {
+        "Content-Type": "application/json",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Date": "Tue, 09 Jun 2020 13:56:09 GMT",
+        "Content-Length": "126"
+    }
+}</msg>
+<msg timestamp="20200609 15:56:09.976" level="INFO">${outputResponse} = {'seconds': 0.00994, 'status': 400, 'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'headers': {'Content-Ty...</msg>
+<status status="PASS" starttime="20200609 15:56:09.969" endtime="20200609 15:56:09.976"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.978" level="INFO">@{response} = [ {'seconds': 0.00994, 'status': 400, 'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'headers': {'Content-...</msg>
+<status status="PASS" starttime="20200609 15:56:09.977" endtime="20200609 15:56:09.978"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.950" endtime="20200609 15:56:09.978"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.946" endtime="20200609 15:56:09.979"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.982" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20200609 15:56:09.981" endtime="20200609 15:56:09.982"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.983" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200609 15:56:09.982" endtime="20200609 15:56:09.984"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200609 15:56:09.984" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20200609 15:56:09.984" endtime="20200609 15:56:09.984"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.980" endtime="20200609 15:56:09.984"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:09.945" endtime="20200609 15:56:10.014" critical="yes"></status>
+</test>
+<test id="s1-t9" name="Test 1 - Network Service ID creation. Wrong CreateNsRequest. Missing nsDescription">
+<kw name="POST New nsInstance - Wrong CreateNsRequest - Missing nsDescription" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with missing nsDescription</arg>
+</arguments>
+<msg timestamp="20200609 15:56:10.018" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with missing nsDescription</msg>
+<status status="PASS" starttime="20200609 15:56:10.017" endtime="20200609 15:56:10.018"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200609 15:56:10.019" level="INFO">${headers} = {"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</msg>
+<status status="PASS" starttime="20200609 15:56:10.018" endtime="20200609 15:56:10.019"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"TEST1","nsName":"TEST1 NS","nsdescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200609 15:56:10.019" level="INFO">${body} = {"nsdId":"TEST1","nsName":"TEST1 NS","nsdescription": "NS for test1"}</msg>
+<status status="PASS" starttime="20200609 15:56:10.019" endtime="20200609 15:56:10.019"></status>
+</kw>
+<kw name="POST nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200609 15:56:10.020" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status status="PASS" starttime="20200609 15:56:10.020" endtime="20200609 15:56:10.020"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:10.021" endtime="20200609 15:56:10.021"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<status status="PASS" starttime="20200609 15:56:10.021" endtime="20200609 15:56:10.036"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200609 15:56:10.037" level="INFO">
+{
+    "seconds": 0.008693,
+    "status": 400,
+    "body": {
+        "detail": "missing required attribute One of the required in CreateNSRequest object",
+        "status": 400,
+        "title": "Missing attribute"
+    },
+    "headers": {
+        "Content-Type": "application/json",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Date": "Tue, 09 Jun 2020 13:56:10 GMT",
+        "Content-Length": "126"
+    }
+}</msg>
+<msg timestamp="20200609 15:56:10.042" level="INFO">${outputResponse} = {'seconds': 0.008693, 'status': 400, 'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'headers': {'Content-T...</msg>
+<status status="PASS" starttime="20200609 15:56:10.037" endtime="20200609 15:56:10.043"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:10.044" level="INFO">@{response} = [ {'seconds': 0.008693, 'status': 400, 'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'headers': {'Content...</msg>
+<status status="PASS" starttime="20200609 15:56:10.043" endtime="20200609 15:56:10.044"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:10.019" endtime="20200609 15:56:10.044"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:10.017" endtime="20200609 15:56:10.044"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200609 15:56:10.045" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20200609 15:56:10.045" endtime="20200609 15:56:10.046"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200609 15:56:10.047" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200609 15:56:10.046" endtime="20200609 15:56:10.047"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200609 15:56:10.047" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20200609 15:56:10.047" endtime="20200609 15:56:10.047"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:10.045" endtime="20200609 15:56:10.048"></status>
+</kw>
+<status status="PASS" starttime="20200609 15:56:10.016" endtime="20200609 15:56:10.048" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200609 15:56:06.868" endtime="20200609 15:56:10.050"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="0">Critical Tests</stat>
+<stat pass="9" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="9" fail="0" id="s1" name="CreateNSInstance">CreateNSInstance</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200609 15:56:09.886" level="WARN">Response body content is not JSON. Content-Type is: application/yaml</msg>
+</errors>
+</robot>

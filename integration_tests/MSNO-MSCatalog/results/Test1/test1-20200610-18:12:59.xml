@@ -1,0 +1,4326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.5.2 on linux)" generated="20200610 18:13:00.141" rpa="false">
+<suite source="/home/vepc/5GEVE/integration_tests/testing/tests/5tonic_integration/CreateNSInstance.robot" name="CreateNSInstance" id="s1">
+<test name="Get all NS" id="s1-t1">
+<kw library="REST" name="Set Headers">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0"}</arg>
+</arguments>
+<status starttime="20200610 18:13:00.429" status="PASS" endtime="20200610 18:13:00.430"></status>
+</kw>
+<kw library="REST" name="Get">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/nslcm/v1/ns_instances</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.435" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<status starttime="20200610 18:13:00.430" status="PASS" endtime="20200610 18:13:00.539"></status>
+</kw>
+<kw library="REST" name="Output">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>request</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.540" level="INFO">
+{
+    "body": null,
+    "timestamp": {
+        "local": "2020-06-10T18:13:00.514927+02:00",
+        "utc": "2020-06-10T16:13:00.514927+00:00"
+    },
+    "cert": null,
+    "scheme": "http",
+    "method": "GET",
+    "timeout": [
+        null,
+        null
+    ],
+    "proxies": {},
+    "netloc": "localhost:8000",
+    "query": {},
+    "headers": {
+        "Version": "1.0",
+        "Content-Type": "application/json",
+        "Accept": "application/json, */*",
+        "User-Agent": "RESTinstance/1.0.2"
+    },
+    "sslVerify": true,
+    "path": "/nslcm/v1/ns_instances",
+    "allowRedirects": true,
+    "url": "http://localhost:8000/nslcm/v1/ns_instances"
+}</msg>
+<status starttime="20200610 18:13:00.540" status="PASS" endtime="20200610 18:13:00.548"></status>
+</kw>
+<kw library="REST" name="Output">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.557" level="INFO">
+{
+    "body": [
+        {
+            "id": "fb16ccc7-3968-4fe0-89af-8f9ad8d5a861",
+            "nsInstanceName": "TEST1 NS",
+            "nsState": "INSTANTIATED",
+            "nsdId": "1c60241d-cbc6-458a-b9a0-b1aa804fc971",
+            "nsInstanceDescription": "NS for test1 at MS8 integration testing",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.33"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:d8:66:d2"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "8d6430d9-0f62-479e-aee2-ce244e0796a2",
+                    "vnfdId": "bccb27ca-5b28-4335-9473-53a7bd6b4800",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "17962b4c-7dd1-4a0c-a967-189e1384ace8",
+            "nsInstanceName": "NS_exp_40",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "721c3dbd-b65b-3096-9299-1dae8886016d",
+            "nsInstanceDescription": "NFV NS instance for experiment 40",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "db79bdd8-28c1-4b9d-a557-d0a605698880",
+            "nsInstanceName": "NS_exp_42",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "721c3dbd-b65b-3096-9299-1dae8886016d",
+            "nsInstanceDescription": "NFV NS instance for experiment 42",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "a6df0aa6-abb6-46be-bfc8-35d3f59b8c58",
+            "nsInstanceName": "NS_exp_44",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 44",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "12fcd31b-d1dd-45b6-9764-d6079dac0968",
+            "nsInstanceName": "NS_exp_45",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 45",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "90224b1a-27c1-4405-b303-a43d041cdf5f",
+            "nsInstanceName": "NS_exp_46",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 46",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "1d5e7e4d-aca0-4e87-a7b5-6ce447c7dd56",
+            "nsInstanceName": "NS_exp_47",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 47",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8fc3e0ed-2500-4bcb-8c86-85c3d9cb3afe",
+            "nsInstanceName": "NS_exp_48",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 48",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "5d0ef9ea-82c2-4212-8fc4-f72c99e99fb6",
+            "nsInstanceName": "NS_exp_49",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 49",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f4b0e4af-54dd-4573-901e-6d741a671065",
+            "nsInstanceName": "NS_exp_50",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 50",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "24f0fc77-42ea-42a7-8565-bd01e94715ee",
+            "nsInstanceName": "NS_exp_82",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 82",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "384b6164-ed0b-41a3-99b4-eabc99f825fe",
+            "nsInstanceName": "NS_exp_83",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 83",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "e06b508f-a877-4bd3-91f5-c7255af9f0bf",
+            "nsInstanceName": "NS_exp_84",
+            "nsState": "INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 84",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.156.28"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:a2:a1:d4"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "dea0b3c5-a3ea-4f7f-837d-1ef2391dbe77",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.32"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:62:52:af"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.156.12"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:aa:69:47"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "d5224523-2b5a-40b5-9ddd-5e9eeca7c51f",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "13dc1fd1-ea3c-4b23-b9af-663342c263bf",
+            "nsInstanceName": "NS_exp_86",
+            "nsState": "INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 86",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.189.28"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:57:53:e6"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "c979901d-fd09-4f88-b818-9c81da284704",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.29"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:51:58:10"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.189.7"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:29:ed:60"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "27702386-b886-40f4-97df-9d8de3995ae5",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "af75018e-ae37-4722-b4be-5d23e5883921",
+            "nsInstanceName": "NS_exp_88",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 88",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f642961d-8d32-4e1b-a79a-860eb8956e2a",
+            "nsInstanceName": "NS_exp_89",
+            "nsState": "INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 89",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.236.1"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:b1:e1:be"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "c2e851f7-18b1-46cc-b657-37fc1bb82157",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.23"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:79:9d:fd"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.236.7"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:cb:28:7f"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "3ec35315-f539-42b9-866d-ee3f562302f2",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "a9e9e4c1-2ef3-4698-a0f2-f8d6a05709a0",
+            "nsInstanceName": "NS_exp_4",
+            "nsState": "INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 4",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.147.21"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:2b:a6:79"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "80208633-29a6-4346-a6b4-405d053a65d2",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.31"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:9a:77:30"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.147.4"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:fa:d5:81"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "e24bb176-8f97-416a-a3cc-4655618c22d6",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "90e31218-b128-4f58-830d-9e2bb8af67f6",
+            "nsInstanceName": "NS_exp_10",
+            "nsState": "INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 10",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.115.16"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:fb:73:9b"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "26928f5a-38e8-4d07-9ce2-9babaad2f9fd",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.28"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:04:5a:1b"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.115.20"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:01:98:9e"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "c1c15255-c624-46a3-8088-4ce845aeadb0",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "1db733e0-46d8-4868-a743-7d78c949a201",
+            "nsInstanceName": "NS_exp_28",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "3c65d716-1fa8-3202-a45a-cceafd3662e2",
+            "nsInstanceDescription": "NFV NS instance for experiment 28",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "4cb429a9-adaf-4622-a23f-ca4a1c6d049f",
+            "nsInstanceName": "NS_exp_29",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "3c65d716-1fa8-3202-a45a-cceafd3662e2",
+            "nsInstanceDescription": "NFV NS instance for experiment 29",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "b2a10843-0740-4e2b-848e-c4c80ddec4a6",
+            "nsInstanceName": "NS_exp_30",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "3c65d716-1fa8-3202-a45a-cceafd3662e2",
+            "nsInstanceDescription": "NFV NS instance for experiment 30",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "586ebbd3-1791-49fa-b203-404624854a00",
+            "nsInstanceName": "NS_exp_31",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "3c65d716-1fa8-3202-a45a-cceafd3662e2",
+            "nsInstanceDescription": "NFV NS instance for experiment 31",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "0143a90c-067b-4c3b-9465-4f49d8a4b14d",
+            "nsInstanceName": "NS_exp_32",
+            "nsState": "INSTANTIATED",
+            "nsdId": "3c65d716-1fa8-3202-a45a-cceafd3662e2",
+            "nsInstanceDescription": "NFV NS instance for experiment 32",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.226.1"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:0b:6a:61"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "bd8bad42-ea84-4a4c-b63a-ec2351ab904a",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.50"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:8f:c0:65"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.226.12"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:62:a9:e9"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "f38701e4-f57e-40f1-9439-3a6f7e0a22ec",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "9b2d45ec-32a1-4f8c-b1c6-0074104eb7e0",
+            "nsInstanceName": "NS_exp_36",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "3c65d716-1fa8-3202-a45a-cceafd3662e2",
+            "nsInstanceDescription": "NFV NS instance for experiment 36",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "4e69e304-8fc7-4a9b-b4f8-6d686bda6314",
+            "nsInstanceName": "NS_exp_37",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "587e23d0-953a-36f7-8b34-bda794f38d94",
+            "nsInstanceDescription": "NFV NS instance for experiment 37",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "23ab59e6-590d-4e83-97ea-fa64ec8664ca",
+            "nsInstanceName": "NS_exp_38",
+            "nsState": "INSTANTIATED",
+            "nsdId": "3c65d716-1fa8-3202-a45a-cceafd3662e2",
+            "nsInstanceDescription": "NFV NS instance for experiment 38",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.96.16"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:91:02:71"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "10cf2e03-b8a5-4d5d-84e4-f8966cdcb8b4",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.50"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:8b:ea:46"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.96.12"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:9e:a7:90"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "3718fcee-06dd-4169-a308-7692a8c6992e",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "56932fc9-fc94-4cc6-9eb8-069d0bfa375a",
+            "nsInstanceName": "NS_exp_40",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "3c65d716-1fa8-3202-a45a-cceafd3662e2",
+            "nsInstanceDescription": "NFV NS instance for experiment 40",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "994764f3-8e76-4fac-8082-16d1ecd4ecb4",
+            "nsInstanceName": "NS_exp_41",
+            "nsState": "INSTANTIATED",
+            "nsdId": "8efc1682-5010-3e57-b708-57fd50833e4f",
+            "nsInstanceDescription": "NFV NS instance for experiment 41",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.107.19"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:b7:77:86"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "27941c85-ec71-492c-93a6-538899832247",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.50"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:5d:9b:cd"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.107.4"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:7e:7e:c2"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "37887925-94c7-4d02-823f-1f79604c0327",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "5d1a9e5b-779d-4319-8e66-f091efc5b0ac",
+            "nsInstanceName": "NS_exp_44",
+            "nsState": "INSTANTIATED",
+            "nsdId": "8efc1682-5010-3e57-b708-57fd50833e4f",
+            "nsInstanceDescription": "NFV NS instance for experiment 44",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.224.17"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:3b:e7:ab"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "1c3216a0-693c-4e8c-92cc-3bb59247ade9",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.50"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:ce:67:4c"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.224.2"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:1c:e6:be"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "fb5a143b-4f31-4d99-ac17-a022542dd453",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "1dcd43c7-dc02-4724-98ca-08286590a5f0",
+            "nsInstanceName": "NS_exp_42",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "8efc1682-5010-3e57-b708-57fd50833e4f",
+            "nsInstanceDescription": "NFV NS instance for experiment 42",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8ccee544-7c72-4e6b-87d9-b20f5a768ff5",
+            "nsInstanceName": "NS_exp_48",
+            "nsState": "INSTANTIATED",
+            "nsdId": "8efc1682-5010-3e57-b708-57fd50833e4f",
+            "nsInstanceDescription": "NFV NS instance for experiment 48",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.165.21"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:a1:8e:51"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "984be6a3-4e2b-4913-84f1-48260d02676b",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.50"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:6c:f0:fc"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.165.12"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:f7:36:cc"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "dfa78c63-c81b-41b4-8e54-abe5f31229de",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "9157c8c5-ef32-4e50-8f3d-bc0e6d4e0c3c",
+            "nsInstanceName": "NS_exp_1",
+            "nsState": "INSTANTIATED",
+            "nsdId": "a08c19d6-7563-39df-9052-17cda1176c32",
+            "nsInstanceDescription": "NFV NS instance for experiment 1",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.237.1"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:22:56:32"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "624504dd-7919-4228-bc6a-771254bd15be",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.237.5"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:d1:dc:34"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.166.25"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:52:c8:a5"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "5cf3ac42-c305-4815-8435-412d020f1a13",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "1d4d70ba-2bbc-489a-9949-c57b348d348d",
+            "nsInstanceName": "NS_exp_3",
+            "nsState": "INSTANTIATED",
+            "nsdId": "931c3146-5e84-3524-8d62-c492e4e632ce",
+            "nsInstanceDescription": "NFV NS instance for experiment 3",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.237.3"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:a4:bc:ec"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "d39cf2e5-a9d8-4489-ae29-240869954d64",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.237.15"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:ce:3e:09"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.79.5"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:24:1c:f7"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "34428946-e2d0-41e3-b5fe-5653dcee004e",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "b9d80ea7-24f4-46d2-8eae-c863a63b19cb",
+            "nsInstanceName": "NS_exp_1",
+            "nsState": "INSTANTIATED",
+            "nsdId": "050ea608-9f19-3209-9dd9-c53c1bb61c1f",
+            "nsInstanceDescription": "NFV NS instance for experiment 1",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.99.12"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:08:db:56"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "783aa666-8c56-4e98-bde1-966599566cd2",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.99.4"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:2d:66:08"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": ""
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.80.30.2"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:f4:57:ed"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": ""
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "1c963b8c-356f-482c-8eae-4d8ed43de293",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "58cb22eb-9b2e-46de-9e49-0da1b22d35d9",
+            "nsInstanceName": "NS_exp_5",
+            "nsState": "INSTANTIATED",
+            "nsdId": "050ea608-9f19-3209-9dd9-c53c1bb61c1f",
+            "nsInstanceDescription": "NFV NS instance for experiment 5",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.172.2"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:5d:9e:ad"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "8d1911fe-8211-4cae-9d6e-a9548502d064",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.172.23"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:35:03:bb"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.41"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:0c:11:7a"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": "eth1"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "0f9f82bd-8ba9-4cdb-88ac-ed62853bf12f",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "96153cc7-b8ed-49dd-be30-fd56d9b1cc14",
+            "nsInstanceName": "NS_exp_11",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "392e7bed-b9da-3214-8aa6-eff684fd4e03",
+            "nsInstanceDescription": "NFV NS instance for experiment 11",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c67d9753-14f7-4798-a013-f6b5bd4637a5",
+            "nsInstanceName": "NS_exp_1",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "80d4d3cc-bc65-3ed7-b453-162b63ec23fb",
+            "nsInstanceDescription": "NFV NS instance for experiment 1",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "9a660e3f-71e7-457c-b071-a809137e039c",
+            "nsInstanceName": "NS_exp_2",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "80d4d3cc-bc65-3ed7-b453-162b63ec23fb",
+            "nsInstanceDescription": "NFV NS instance for experiment 2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "37339dea-bfe9-4016-8dd6-d6cf0877e2ab",
+            "nsInstanceName": "NS_exp_3",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "80d4d3cc-bc65-3ed7-b453-162b63ec23fb",
+            "nsInstanceDescription": "NFV NS instance for experiment 3",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "bc514bff-df22-428f-9a19-0cda8ab8546a",
+            "nsInstanceName": "NS_exp_4",
+            "nsState": "INSTANTIATED",
+            "nsdId": "80d4d3cc-bc65-3ed7-b453-162b63ec23fb",
+            "nsInstanceDescription": "NFV NS instance for experiment 4",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.80.30.11"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:ac:52:0d"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.80.4"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:55:18:89"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": "eth1"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "fd748098-4a43-46c1-ae5c-ee44e31ce352",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.80.30.5"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:e7:e8:8e"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.80.11"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:7d:e0:33"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": "eth1"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "ee5d4d27-2de0-4cbe-9f37-adc034249737",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "95e631f0-50c5-4ccf-b6a2-2173bd57cf99",
+            "nsInstanceName": "NS_exp_20",
+            "nsState": "INSTANTIATED",
+            "nsdId": "dbe0b036-9fbb-3627-89c4-19a8eeeabda8",
+            "nsInstanceDescription": "NFV NS instance for experiment 20",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.52"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:e9:5a:56"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.104.10"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:e4:7c:47"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": "eth1"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "990fb850-c7ed-41e8-92f8-dc3d73fb3ce2",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.28"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:87:ad:02"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.104.8"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:23:57:13"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": "eth1"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "8bd3bef3-7a2d-45d8-90fb-26b01deef122",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "c3c2d075-2c99-48ed-9c33-d7e14ccc3b9b",
+            "nsInstanceName": "test",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "a20e3163-bfa7-4dcf-a11a-e9cb752d84fe",
+            "nsInstanceDescription": "test",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "815db1ac-4677-49b6-9906-a12d276a2d25",
+            "nsInstanceName": "NS_exp_40",
+            "nsState": "INSTANTIATED",
+            "nsdId": "dbe0b036-9fbb-3627-89c4-19a8eeeabda8",
+            "nsInstanceDescription": "NFV NS instance for experiment 40",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.33"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:8f:0e:f6"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.196.3"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:d1:01:6c"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": "eth1"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "801ede64-99eb-4bd4-9530-87f6540f538a",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.46"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:68:bf:65"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.196.6"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:82:b8:ef"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": "eth1"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "5a5eed80-fa3a-4e03-945d-f635ba31eede",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "d48479f1-ed01-499a-885f-a1de778edd1e",
+            "nsInstanceName": "NS_exp_86",
+            "nsState": "INSTANTIATED",
+            "nsdId": "dbe0b036-9fbb-3627-89c4-19a8eeeabda8",
+            "nsInstanceDescription": "NFV NS instance for experiment 86",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.21"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:19:41:ed"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.135.7"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:8f:6b:bd"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": "eth1"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "47e19f10-c12c-4efb-a3ae-9eef0d656578",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "10.20.5.27"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:27:b0:78"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        "192.168.135.18"
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": "fa:16:3e:03:56:13"
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": "eth1"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "b3a59708-589e-450d-b43c-ae3e5cc3c313",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "29de57b6-2ecc-4595-aac7-3f6162e0cee8",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "88c183f8-22c5-46e4-828e-4510f89105ad",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "28b1bd67-a290-4558-9c1e-81edcc862d9c",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "aa946ac3-0ae5-46e7-82da-11ec5d3a645b",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "808923b1-0957-416a-9dc5-a4795e8b5096",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f61167a7-9ab3-4d8e-a290-87e4d135f395",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "88c1b7a9-e1ee-407f-becc-6b64e1e03a64",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "49fc77cc-34f2-426b-a60b-4f1652b2b4b3",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "722196f6-f720-40b6-a64e-cee236497707",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "6fbb4a67-7de5-410f-b51a-532d267cc35e",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "b1bcc95d-aaea-461f-9b70-f454f31cc021",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "454e407c-6482-4afa-a7e0-dd8c76c1eb32",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7f1eefe5-3e7b-4a29-abff-62ce51a5ec85",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "12d66140-bb04-4d48-aa65-6c5d080ece5a",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "849af305-6f4e-43d2-b735-ffd9e7e79dae",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d87760b5-82aa-4bc6-96a0-adceb61368ee",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f64c5710-a4cf-4219-a18a-9e7d11cc4323",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "7fded343-4c03-4512-b908-aac9de37795a",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "94b44dd1-767c-40fd-8c22-7698ff9f259e",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "6bcca4bc-7187-470c-9208-4cd16d4f8986",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "ce20a419-1107-481c-a004-901b25a1df27",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c0723f5f-5ebe-4562-9968-4fb6c80faebb",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c07e9f98-f6c4-477b-a346-c5c13588bfdd",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f658fc6b-446e-46c5-8727-597aaf1a8b0b",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "173abf34-f39a-4939-9e7e-86aedf6d4393",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8acd802d-7e59-4f5e-8456-768d11b15000",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "411ab64d-3886-43f0-a400-e53aa92fae58",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "f132c6e2-373a-41b7-8301-cafb56d82767",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c7f7eee6-e7c4-411f-acc1-3b87e0c2c4fa",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "99d97bb7-9196-42c3-b91c-4e4905b15487",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "b32ace7f-b086-481b-8450-3d8099af658b",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "5912c26c-fe00-42fb-a519-0dc0e7e8061c",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "e11e6a2d-d4a4-41de-ad0a-a3ceb02c5685",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c93ba608-0a2f-4bf7-9296-88b3a57186ac",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d1a6244c-0f8d-4b43-b36d-bea90c78d00d",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "5aad8d66-d1d5-42bc-88b9-0f52f9d54423",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "2cd2900c-8ee2-46b2-b95a-88d05e2e9260",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "92305135-ab60-42c0-a7ae-eb18abaa6649",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "8137110c-fd63-4b24-847e-ed2d91d6729a",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "860028ca-4460-4a75-af9b-260e6936a431",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "ab81ef9d-0a8d-4225-8913-878e851b2cf2",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "729d1b84-5f9a-4d54-9634-6cef1bc755a8",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d3badaca-99b7-4397-b30d-c8016bd9de87",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "86365b28-632e-4cac-beff-4b129bb78bff",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "32e2694d-c8f6-4fbc-9f6f-5baebaa4d8e0",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "579e227f-ab39-4492-a2ba-be1ddc6340ab",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "c35d0ecc-943f-4ca3-a712-377fbe15def7",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "1e34d975-b77d-4883-82b0-7e749b2758ce",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "04dd04fe-dc36-472f-a789-891b5e7a4121",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "INSTANTIATED",
+            "nsdId": "dbe0b036-9fbb-3627-89c4-19a8eeeabda8",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        ""
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": ""
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        ""
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": ""
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": "eth1"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "31a5e910-40f8-4bb6-abef-ec0560c2bfe9",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "instantiatedVnfInfo": {
+                        "flavourId": "",
+                        "vnfState": "STARTED",
+                        "extCpInfo": [
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        ""
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": ""
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth0",
+                                "cpdId": "eth0"
+                            },
+                            {
+                                "cpProtocolInfo": [
+                                    {
+                                        "ipOverEthernet": {
+                                            "ipAddresses": [
+                                                {
+                                                    "addresses": [
+                                                        ""
+                                                    ],
+                                                    "type": "IPV4"
+                                                }
+                                            ],
+                                            "addressRange": {
+                                                "minAddress": "",
+                                                "maxAddress": ""
+                                            },
+                                            "macAddress": ""
+                                        },
+                                        "layerProtocol": "IP_OVER_ETHERNET"
+                                    }
+                                ],
+                                "id": "eth1",
+                                "cpdId": "eth1"
+                            }
+                        ]
+                    },
+                    "vnfSoftwareVersion": "",
+                    "id": "05108426-48c4-4c8f-89e0-2a9a703d74dc",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "8b8db440-eeff-43f9-97e0-2d5ab2584636",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "dbe0b036-9fbb-3627-89c4-19a8eeeabda8",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": ""
+        },
+        {
+            "id": "d00fe1d0-f7ea-4563-982f-8d80a87c1fd8",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "dbe0b036-9fbb-3627-89c4-19a8eeeabda8",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "vnfSoftwareVersion": "",
+                    "id": "a7192d21-02f3-40d1-9716-e9f7e3e4aea8",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "NOT_INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "vnfSoftwareVersion": "",
+                    "id": "57104a33-c81e-47c4-8724-92f40a0316b7",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "NOT_INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        },
+        {
+            "id": "3fefff8b-f6e8-4ed9-883d-e52d1281889e",
+            "nsInstanceName": "TEST2 NS",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "dbe0b036-9fbb-3627-89c4-19a8eeeabda8",
+            "nsInstanceDescription": "NS for test2",
+            "nsdInfoId": "",
+            "vnfInstance": [
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "vnfSoftwareVersion": "",
+                    "id": "808b0555-7ba2-458f-b340-e92b65a598ae",
+                    "vnfdId": "ef5faf76-895b-11ea-bc55-0242ac130003",
+                    "instantiationState": "NOT_INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                },
+                {
+                    "vnfProductName": "",
+                    "vnfProvider": "",
+                    "vnfSoftwareVersion": "",
+                    "id": "bd19489b-a98c-4362-9acc-bc863779febc",
+                    "vnfdId": "be55660e-8961-11ea-bc55-0242ac130003",
+                    "instantiationState": "NOT_INSTANTIATED",
+                    "vnfdVersion": "",
+                    "vimId": "abf0948e-1c5a-4423-bee8-451e0a2c4a38",
+                    "vnfPkgId": ""
+                }
+            ]
+        }
+    ],
+    "status": 200,
+    "seconds": 0.08004,
+    "headers": {
+        "Link": "",
+        "Date": "Wed, 10 Jun 2020 16:13:00 GMT",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Content-Type": "application/json",
+        "Transfer-Encoding": "chunked"
+    }
+}</msg>
+<status starttime="20200610 18:13:00.549" status="PASS" endtime="20200610 18:13:00.716"></status>
+</kw>
+<kw library="REST" name="Integer">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON integer.*</doc>
+<arguments>
+<arg>response status</arg>
+<arg>200</arg>
+</arguments>
+<status starttime="20200610 18:13:00.717" status="PASS" endtime="20200610 18:13:00.718"></status>
+</kw>
+<status starttime="20200610 18:13:00.428" status="PASS" critical="yes" endtime="20200610 18:13:00.719"></status>
+</test>
+<test name="Get all NS Bad Request" id="s1-t2">
+<kw library="REST" name="Set Headers">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":""}</arg>
+</arguments>
+<status starttime="20200610 18:13:00.720" status="PASS" endtime="20200610 18:13:00.720"></status>
+</kw>
+<kw library="REST" name="Get">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/nslcm/v1/ns_instances</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.722" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<status starttime="20200610 18:13:00.720" status="PASS" endtime="20200610 18:13:00.724"></status>
+</kw>
+<kw library="REST" name="Integer">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON integer.*</doc>
+<arguments>
+<arg>response status</arg>
+<arg>400</arg>
+</arguments>
+<status starttime="20200610 18:13:00.725" status="PASS" endtime="20200610 18:13:00.725"></status>
+</kw>
+<status starttime="20200610 18:13:00.719" status="PASS" critical="yes" endtime="20200610 18:13:00.726"></status>
+</test>
+<test name="Test 1 - Network Service ID creation. Positive test" id="s1-t3">
+<kw library="NSLCMOperationKeywords" name="POST New nsInstance">
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.729" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances</msg>
+<status starttime="20200610 18:13:00.729" status="PASS" endtime="20200610 18:13:00.729"></status>
+</kw>
+<kw library="REST" name="Set Headers">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<status starttime="20200610 18:13:00.729" status="PASS" endtime="20200610 18:13:00.730"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsName":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.730" level="INFO">${body} = {"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsName":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status starttime="20200610 18:13:00.730" status="PASS" endtime="20200610 18:13:00.730"></status>
+</kw>
+<kw library="REST" name="Post">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.732" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<status starttime="20200610 18:13:00.731" status="PASS" endtime="20200610 18:13:00.737"></status>
+</kw>
+<kw library="REST" name="Output">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.738" level="INFO">
+{
+    "body": {
+        "_links": {
+            "self": {
+                "href": "http://localhost:8000/nslcm/v1/ns_instances/aa12111b-8833-46d7-a421-daa74b219f27"
+            }
+        },
+        "id": "aa12111b-8833-46d7-a421-daa74b219f27",
+        "nsInstanceName": "TEST1 NS",
+        "nsInstanceDescription": "NS for test1",
+        "nsdInfoId": "",
+        "nsdId": "dbe0b036-9fbb-3627-89c4-19a8eeeabda8",
+        "nsState": "NOT_INSTANTIATED"
+    },
+    "status": 201,
+    "seconds": 0.0038050000000000002,
+    "headers": {
+        "Location": "http://localhost:8000/nslcm/v1/ns_instances/aa12111b-8833-46d7-a421-daa74b219f27",
+        "Date": "Wed, 10 Jun 2020 16:13:00 GMT",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Content-Type": "application/json",
+        "Content-Length": "313"
+    }
+}</msg>
+<msg timestamp="20200610 18:13:00.739" level="INFO">${outputResponse} = {'body': {'_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/aa12111b-8833-46d7-a421-daa74b219f27'}}, 'id': 'aa12111b-8833-46d7-a421-daa74b219f27', 'nsInstanceName': 'TEST1 NS', ...</msg>
+<status starttime="20200610 18:13:00.737" status="PASS" endtime="20200610 18:13:00.739"></status>
+</kw>
+<kw library="BuiltIn" name="Set Global Variable">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.740" level="INFO">@{response} = [ {'body': {'_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/aa12111b-8833-46d7-a421-daa74b219f27'}}, 'id': 'aa12111b-8833-46d7-a421-daa74b219f27', 'nsInstanceName': 'TEST1 NS'...</msg>
+<status starttime="20200610 18:13:00.739" status="PASS" endtime="20200610 18:13:00.741"></status>
+</kw>
+<status starttime="20200610 18:13:00.728" status="PASS" endtime="20200610 18:13:00.741"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="Check HTTP Response Status Code Is">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.742" level="INFO">Validate Status code</msg>
+<status starttime="20200610 18:13:00.742" status="PASS" endtime="20200610 18:13:00.742"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal As Strings">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.743" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status starttime="20200610 18:13:00.742" status="PASS" endtime="20200610 18:13:00.743"></status>
+</kw>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.743" level="INFO">Status code validated</msg>
+<status starttime="20200610 18:13:00.743" status="PASS" endtime="20200610 18:13:00.743"></status>
+</kw>
+<status starttime="20200610 18:13:00.741" status="PASS" endtime="20200610 18:13:00.743"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="Check HTTP Response Header Contains">
+<arguments>
+<arg>Location</arg>
+</arguments>
+<kw library="BuiltIn" name="Should Contain">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${response[0]['headers']}</arg>
+<arg>${HEADER_TOCHECK}</arg>
+</arguments>
+<status starttime="20200610 18:13:00.744" status="PASS" endtime="20200610 18:13:00.745"></status>
+</kw>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Header is present</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.745" level="INFO">Header is present</msg>
+<status starttime="20200610 18:13:00.745" status="PASS" endtime="20200610 18:13:00.745"></status>
+</kw>
+<status starttime="20200610 18:13:00.744" status="PASS" endtime="20200610 18:13:00.745"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="Get NS Identifier">
+<assign>
+<var>${id}</var>
+</assign>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Get NS identifier from a response</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.746" level="INFO">Get NS identifier from a response</msg>
+<status starttime="20200610 18:13:00.746" status="PASS" endtime="20200610 18:13:00.746"></status>
+</kw>
+<msg timestamp="20200610 18:13:00.747" level="INFO">${id} = aa12111b-8833-46d7-a421-daa74b219f27</msg>
+<status starttime="20200610 18:13:00.746" status="PASS" endtime="20200610 18:13:00.747"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="Check resource not_instantiated">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw library="REST" name="Set Headers">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Accept":"application/json"}</arg>
+</arguments>
+<status starttime="20200610 18:13:00.748" status="PASS" endtime="20200610 18:13:00.748"></status>
+</kw>
+<kw library="REST" name="Get">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.750" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<status starttime="20200610 18:13:00.748" status="PASS" endtime="20200610 18:13:00.755"></status>
+</kw>
+<kw library="REST" name="String">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status starttime="20200610 18:13:00.755" status="PASS" endtime="20200610 18:13:00.756"></status>
+</kw>
+<status starttime="20200610 18:13:00.747" status="PASS" endtime="20200610 18:13:00.756"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="DELETE nsInstance" type="teardown">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Delete a network service instance</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.757" level="INFO">Delete a network service instance</msg>
+<status starttime="20200610 18:13:00.757" status="PASS" endtime="20200610 18:13:00.758"></status>
+</kw>
+<kw library="REST" name="Delete">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a DELETE request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${id}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.761" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<status starttime="20200610 18:13:00.758" status="PASS" endtime="20200610 18:13:00.766"></status>
+</kw>
+<kw library="REST" name="Output">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.766" level="INFO">
+{
+    "body": "",
+    "status": 204,
+    "seconds": 0.004385,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 16:13:00 GMT",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Content-Type": "application/json"
+    }
+}</msg>
+<msg timestamp="20200610 18:13:00.767" level="INFO">${outputResponse} = {'body': '', 'status': 204, 'seconds': 0.004385, 'headers': {'Date': 'Wed, 10 Jun 2020 16:13:00 GMT', 'Version': '1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1', 'Content-Type': 'application/json'}}</msg>
+<status starttime="20200610 18:13:00.766" status="PASS" endtime="20200610 18:13:00.767"></status>
+</kw>
+<kw library="BuiltIn" name="Set Global Variable">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.768" level="INFO">@{response} = [ {'body': '', 'status': 204, 'seconds': 0.004385, 'headers': {'Date': 'Wed, 10 Jun 2020 16:13:00 GMT', 'Version': '1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1', 'Content-Type': 'application/json'}} ]</msg>
+<status starttime="20200610 18:13:00.767" status="PASS" endtime="20200610 18:13:00.768"></status>
+</kw>
+<status starttime="20200610 18:13:00.757" status="PASS" endtime="20200610 18:13:00.768"></status>
+</kw>
+<doc>Test purpose: The purpose of this test is to validate the creation of a NS ID.
+Test type: Functional.
+Related tests: None.
+Priority: High.
+Execution time: As required for the full test execution.
+Configuration: MSNO_BASIC_CONF.
+References: NS LCM API.
+Applicability: None.
+Pre-test conditions: NSD is onboarded in the Multi-Site Catalogue.
+Nested NS are onboarded in each site NFVO.
+Expected results: MSNO returns a positive response for the NS creation.
+A notification is sent when NS creations process finishes.
+NS ID is stored in the DB with NOT_INSTANTIATED status and can be queried using
+external MSI API.</doc>
+<status starttime="20200610 18:13:00.726" status="PASS" critical="yes" endtime="20200610 18:13:00.768"></status>
+</test>
+<test name="Test 1 - Network Service ID creation. Wrong version" id="s1-t4">
+<kw library="NSLCMOperationKeywords" name="POST New nsInstance - Wrong version">
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with a wrong version parameter.</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.770" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with a wrong version parameter.</msg>
+<status starttime="20200610 18:13:00.770" status="PASS" endtime="20200610 18:13:00.770"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":""}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.771" level="INFO">${headers} = {"Version":""}</msg>
+<status starttime="20200610 18:13:00.770" status="PASS" endtime="20200610 18:13:00.771"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsName":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.771" level="INFO">${body} = {"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsName":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status starttime="20200610 18:13:00.771" status="PASS" endtime="20200610 18:13:00.771"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="POST nsInstance">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.772" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status starttime="20200610 18:13:00.772" status="PASS" endtime="20200610 18:13:00.773"></status>
+</kw>
+<kw library="REST" name="Set Headers">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status starttime="20200610 18:13:00.773" status="PASS" endtime="20200610 18:13:00.773"></status>
+</kw>
+<kw library="REST" name="Post">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.775" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<status starttime="20200610 18:13:00.773" status="PASS" endtime="20200610 18:13:00.777"></status>
+</kw>
+<kw library="REST" name="Output">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.778" level="INFO">
+{
+    "body": {
+        "detail": "Required parameter Version not found In headers",
+        "status": 400,
+        "title": "Required parameter not found"
+    },
+    "status": 400,
+    "seconds": 0.001553,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 16:13:00 GMT",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Content-Type": "application/json",
+        "Content-Length": "112"
+    }
+}</msg>
+<msg timestamp="20200610 18:13:00.779" level="INFO">${outputResponse} = {'body': {'detail': 'Required parameter Version not found In headers', 'status': 400, 'title': 'Required parameter not found'}, 'status': 400, 'seconds': 0.001553, 'headers': {'Date': 'Wed, 10 Jun 202...</msg>
+<status starttime="20200610 18:13:00.777" status="PASS" endtime="20200610 18:13:00.779"></status>
+</kw>
+<kw library="BuiltIn" name="Set Global Variable">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.780" level="INFO">@{response} = [ {'body': {'detail': 'Required parameter Version not found In headers', 'status': 400, 'title': 'Required parameter not found'}, 'status': 400, 'seconds': 0.001553, 'headers': {'Date': 'Wed, 10 Jun 2...</msg>
+<status starttime="20200610 18:13:00.779" status="PASS" endtime="20200610 18:13:00.780"></status>
+</kw>
+<status starttime="20200610 18:13:00.771" status="PASS" endtime="20200610 18:13:00.780"></status>
+</kw>
+<status starttime="20200610 18:13:00.769" status="PASS" endtime="20200610 18:13:00.780"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="Check HTTP Response Status Code Is">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.781" level="INFO">Validate Status code</msg>
+<status starttime="20200610 18:13:00.781" status="PASS" endtime="20200610 18:13:00.781"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal As Strings">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.782" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status starttime="20200610 18:13:00.781" status="PASS" endtime="20200610 18:13:00.782"></status>
+</kw>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.782" level="INFO">Status code validated</msg>
+<status starttime="20200610 18:13:00.782" status="PASS" endtime="20200610 18:13:00.782"></status>
+</kw>
+<status starttime="20200610 18:13:00.780" status="PASS" endtime="20200610 18:13:00.783"></status>
+</kw>
+<status starttime="20200610 18:13:00.769" status="PASS" critical="yes" endtime="20200610 18:13:00.783"></status>
+</test>
+<test name="Test 1 - Network Service ID creation. Wrong accept" id="s1-t5">
+<kw library="NSLCMOperationKeywords" name="POST New nsInstance - Wrong accept">
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with a wrong accept.</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.785" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with a wrong accept.</msg>
+<status starttime="20200610 18:13:00.785" status="PASS" endtime="20200610 18:13:00.785"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Accept":"", "Version":"1.0"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.785" level="INFO">${headers} = {"Accept":"", "Version":"1.0"}</msg>
+<status starttime="20200610 18:13:00.785" status="PASS" endtime="20200610 18:13:00.786"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsName":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.786" level="INFO">${body} = {"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsName":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status starttime="20200610 18:13:00.786" status="PASS" endtime="20200610 18:13:00.786"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="POST nsInstance">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.787" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status starttime="20200610 18:13:00.787" status="PASS" endtime="20200610 18:13:00.787"></status>
+</kw>
+<kw library="REST" name="Set Headers">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status starttime="20200610 18:13:00.788" status="PASS" endtime="20200610 18:13:00.788"></status>
+</kw>
+<kw library="REST" name="Post">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.790" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<status starttime="20200610 18:13:00.788" status="PASS" endtime="20200610 18:13:00.793"></status>
+</kw>
+<kw library="REST" name="Output">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.794" level="INFO">
+{
+    "body": {
+        "detail": "Required parameter Accept not found In headers",
+        "status": 400,
+        "title": "Required parameter not found"
+    },
+    "status": 400,
+    "seconds": 0.001996,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 16:13:00 GMT",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Content-Type": "application/json",
+        "Content-Length": "111"
+    }
+}</msg>
+<msg timestamp="20200610 18:13:00.795" level="INFO">${outputResponse} = {'body': {'detail': 'Required parameter Accept not found In headers', 'status': 400, 'title': 'Required parameter not found'}, 'status': 400, 'seconds': 0.001996, 'headers': {'Date': 'Wed, 10 Jun 2020...</msg>
+<status starttime="20200610 18:13:00.793" status="PASS" endtime="20200610 18:13:00.795"></status>
+</kw>
+<kw library="BuiltIn" name="Set Global Variable">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.797" level="INFO">@{response} = [ {'body': {'detail': 'Required parameter Accept not found In headers', 'status': 400, 'title': 'Required parameter not found'}, 'status': 400, 'seconds': 0.001996, 'headers': {'Date': 'Wed, 10 Jun 20...</msg>
+<status starttime="20200610 18:13:00.796" status="PASS" endtime="20200610 18:13:00.797"></status>
+</kw>
+<status starttime="20200610 18:13:00.786" status="PASS" endtime="20200610 18:13:00.797"></status>
+</kw>
+<status starttime="20200610 18:13:00.784" status="PASS" endtime="20200610 18:13:00.797"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="Check HTTP Response Status Code Is">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.798" level="INFO">Validate Status code</msg>
+<status starttime="20200610 18:13:00.798" status="PASS" endtime="20200610 18:13:00.798"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal As Strings">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.799" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status starttime="20200610 18:13:00.799" status="PASS" endtime="20200610 18:13:00.799"></status>
+</kw>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.800" level="INFO">Status code validated</msg>
+<status starttime="20200610 18:13:00.799" status="PASS" endtime="20200610 18:13:00.800"></status>
+</kw>
+<status starttime="20200610 18:13:00.798" status="PASS" endtime="20200610 18:13:00.800"></status>
+</kw>
+<status starttime="20200610 18:13:00.783" status="PASS" critical="yes" endtime="20200610 18:13:00.800"></status>
+</test>
+<test name="Test 1 - Network Service ID creation. Wrong content-type" id="s1-t6">
+<kw library="NSLCMOperationKeywords" name="POST New nsInstance - Wrong content-type">
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with a wrong content-type.</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.803" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with a wrong content-type.</msg>
+<status starttime="20200610 18:13:00.803" status="PASS" endtime="20200610 18:13:00.803"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Accept":"application/json", "Content-Type":"", "Version":"1.0"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.804" level="INFO">${headers} = {"Accept":"application/json", "Content-Type":"", "Version":"1.0"}</msg>
+<status starttime="20200610 18:13:00.804" status="PASS" endtime="20200610 18:13:00.804"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsName":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.805" level="INFO">${body} = {"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsName":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status starttime="20200610 18:13:00.804" status="PASS" endtime="20200610 18:13:00.805"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="POST nsInstance">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.807" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status starttime="20200610 18:13:00.806" status="PASS" endtime="20200610 18:13:00.807"></status>
+</kw>
+<kw library="REST" name="Set Headers">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status starttime="20200610 18:13:00.807" status="PASS" endtime="20200610 18:13:00.808"></status>
+</kw>
+<kw library="REST" name="Post">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.810" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<msg timestamp="20200610 18:13:00.823" level="WARN">Response body content is not JSON. Content-Type is: application/yaml</msg>
+<status starttime="20200610 18:13:00.808" status="PASS" endtime="20200610 18:13:00.824"></status>
+</kw>
+<kw library="REST" name="Output">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.825" level="INFO">
+{
+    "body": "title: Required parameter not found\nstatus: 400\ndetail: Required parameter Content-Type not found In headers\n",
+    "status": 400,
+    "seconds": 0.001444,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 16:13:00 GMT",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Content-Type": "application/yaml",
+        "Content-Length": "109"
+    }
+}</msg>
+<msg timestamp="20200610 18:13:00.825" level="INFO">${outputResponse} = {'body': 'title: Required parameter not found\nstatus: 400\ndetail: Required parameter Content-Type not found In headers\n', 'status': 400, 'seconds': 0.001444, 'headers': {'Date': 'Wed, 10 Jun 2020 1...</msg>
+<status starttime="20200610 18:13:00.824" status="PASS" endtime="20200610 18:13:00.825"></status>
+</kw>
+<kw library="BuiltIn" name="Set Global Variable">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.826" level="INFO">@{response} = [ {'body': 'title: Required parameter not found\nstatus: 400\ndetail: Required parameter Content-Type not found In headers\n', 'status': 400, 'seconds': 0.001444, 'headers': {'Date': 'Wed, 10 Jun 2020...</msg>
+<status starttime="20200610 18:13:00.826" status="PASS" endtime="20200610 18:13:00.826"></status>
+</kw>
+<status starttime="20200610 18:13:00.805" status="PASS" endtime="20200610 18:13:00.827"></status>
+</kw>
+<status starttime="20200610 18:13:00.802" status="PASS" endtime="20200610 18:13:00.827"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="Check HTTP Response Status Code Is">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.828" level="INFO">Validate Status code</msg>
+<status starttime="20200610 18:13:00.828" status="PASS" endtime="20200610 18:13:00.828"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal As Strings">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.829" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status starttime="20200610 18:13:00.828" status="PASS" endtime="20200610 18:13:00.829"></status>
+</kw>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.829" level="INFO">Status code validated</msg>
+<status starttime="20200610 18:13:00.829" status="PASS" endtime="20200610 18:13:00.829"></status>
+</kw>
+<status starttime="20200610 18:13:00.827" status="PASS" endtime="20200610 18:13:00.829"></status>
+</kw>
+<status starttime="20200610 18:13:00.801" status="PASS" critical="yes" endtime="20200610 18:13:00.830"></status>
+</test>
+<test name="Test 1 - Network Service ID creation. Wrong CreateNsRequest. Missing nsId" id="s1-t7">
+<kw library="NSLCMOperationKeywords" name="POST New nsInstance - Wrong CreateNsRequest - Missing nsId">
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with missing nsId parameter.</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.833" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with missing nsId parameter.</msg>
+<status starttime="20200610 18:13:00.831" status="PASS" endtime="20200610 18:13:00.833"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.833" level="INFO">${headers} = {"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</msg>
+<status starttime="20200610 18:13:00.833" status="PASS" endtime="20200610 18:13:00.833"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdid":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.834" level="INFO">${body} = {"nsdid":"TEST1","nsName":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status starttime="20200610 18:13:00.833" status="PASS" endtime="20200610 18:13:00.834"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="POST nsInstance">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.835" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status starttime="20200610 18:13:00.835" status="PASS" endtime="20200610 18:13:00.835"></status>
+</kw>
+<kw library="REST" name="Set Headers">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status starttime="20200610 18:13:00.835" status="PASS" endtime="20200610 18:13:00.836"></status>
+</kw>
+<kw library="REST" name="Post">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.838" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<status starttime="20200610 18:13:00.836" status="PASS" endtime="20200610 18:13:00.840"></status>
+</kw>
+<kw library="REST" name="Output">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.840" level="INFO">
+{
+    "body": {
+        "detail": "missing required attribute One of the required in CreateNSRequest object",
+        "status": 400,
+        "title": "Missing attribute"
+    },
+    "status": 400,
+    "seconds": 0.001623,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 16:13:00 GMT",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Content-Type": "application/json",
+        "Content-Length": "126"
+    }
+}</msg>
+<msg timestamp="20200610 18:13:00.841" level="INFO">${outputResponse} = {'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'status': 400, 'seconds': 0.001623, 'headers': {'Date': 'W...</msg>
+<status starttime="20200610 18:13:00.840" status="PASS" endtime="20200610 18:13:00.841"></status>
+</kw>
+<kw library="BuiltIn" name="Set Global Variable">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.842" level="INFO">@{response} = [ {'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'status': 400, 'seconds': 0.001623, 'headers': {'Date': ...</msg>
+<status starttime="20200610 18:13:00.842" status="PASS" endtime="20200610 18:13:00.842"></status>
+</kw>
+<status starttime="20200610 18:13:00.834" status="PASS" endtime="20200610 18:13:00.843"></status>
+</kw>
+<status starttime="20200610 18:13:00.831" status="PASS" endtime="20200610 18:13:00.843"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="Check HTTP Response Status Code Is">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.844" level="INFO">Validate Status code</msg>
+<status starttime="20200610 18:13:00.844" status="PASS" endtime="20200610 18:13:00.844"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal As Strings">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.845" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status starttime="20200610 18:13:00.844" status="PASS" endtime="20200610 18:13:00.845"></status>
+</kw>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.845" level="INFO">Status code validated</msg>
+<status starttime="20200610 18:13:00.845" status="PASS" endtime="20200610 18:13:00.845"></status>
+</kw>
+<status starttime="20200610 18:13:00.843" status="PASS" endtime="20200610 18:13:00.846"></status>
+</kw>
+<status starttime="20200610 18:13:00.830" status="PASS" critical="yes" endtime="20200610 18:13:00.846"></status>
+</test>
+<test name="Test 1 - Network Service ID creation. Wrong CreateNsRequest. Missing nsName" id="s1-t8">
+<kw library="NSLCMOperationKeywords" name="POST New nsInstance - Wrong CreateNsRequest - Missing nsName">
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with missing nsName</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.848" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with missing nsName</msg>
+<status starttime="20200610 18:13:00.848" status="PASS" endtime="20200610 18:13:00.848"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.849" level="INFO">${headers} = {"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</msg>
+<status starttime="20200610 18:13:00.848" status="PASS" endtime="20200610 18:13:00.849"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsname":"TEST1 NS","nsDescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.849" level="INFO">${body} = {"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsname":"TEST1 NS","nsDescription": "NS for test1"}</msg>
+<status starttime="20200610 18:13:00.849" status="PASS" endtime="20200610 18:13:00.849"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="POST nsInstance">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.850" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status starttime="20200610 18:13:00.850" status="PASS" endtime="20200610 18:13:00.851"></status>
+</kw>
+<kw library="REST" name="Set Headers">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status starttime="20200610 18:13:00.851" status="PASS" endtime="20200610 18:13:00.851"></status>
+</kw>
+<kw library="REST" name="Post">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.853" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<status starttime="20200610 18:13:00.851" status="PASS" endtime="20200610 18:13:00.856"></status>
+</kw>
+<kw library="REST" name="Output">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.856" level="INFO">
+{
+    "body": {
+        "detail": "missing required attribute One of the required in CreateNSRequest object",
+        "status": 400,
+        "title": "Missing attribute"
+    },
+    "status": 400,
+    "seconds": 0.001942,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 16:13:00 GMT",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Content-Type": "application/json",
+        "Content-Length": "126"
+    }
+}</msg>
+<msg timestamp="20200610 18:13:00.857" level="INFO">${outputResponse} = {'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'status': 400, 'seconds': 0.001942, 'headers': {'Date': 'W...</msg>
+<status starttime="20200610 18:13:00.856" status="PASS" endtime="20200610 18:13:00.857"></status>
+</kw>
+<kw library="BuiltIn" name="Set Global Variable">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.858" level="INFO">@{response} = [ {'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'status': 400, 'seconds': 0.001942, 'headers': {'Date': ...</msg>
+<status starttime="20200610 18:13:00.857" status="PASS" endtime="20200610 18:13:00.858"></status>
+</kw>
+<status starttime="20200610 18:13:00.849" status="PASS" endtime="20200610 18:13:00.858"></status>
+</kw>
+<status starttime="20200610 18:13:00.847" status="PASS" endtime="20200610 18:13:00.859"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="Check HTTP Response Status Code Is">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.860" level="INFO">Validate Status code</msg>
+<status starttime="20200610 18:13:00.859" status="PASS" endtime="20200610 18:13:00.860"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal As Strings">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.860" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status starttime="20200610 18:13:00.860" status="PASS" endtime="20200610 18:13:00.860"></status>
+</kw>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.861" level="INFO">Status code validated</msg>
+<status starttime="20200610 18:13:00.861" status="PASS" endtime="20200610 18:13:00.861"></status>
+</kw>
+<status starttime="20200610 18:13:00.859" status="PASS" endtime="20200610 18:13:00.861"></status>
+</kw>
+<status starttime="20200610 18:13:00.846" status="PASS" critical="yes" endtime="20200610 18:13:00.861"></status>
+</test>
+<test name="Test 1 - Network Service ID creation. Wrong CreateNsRequest. Missing nsDescription" id="s1-t9">
+<kw library="NSLCMOperationKeywords" name="POST New nsInstance - Wrong CreateNsRequest - Missing nsDescription">
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances with missing nsDescription</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.863" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances with missing nsDescription</msg>
+<status starttime="20200610 18:13:00.863" status="PASS" endtime="20200610 18:13:00.864"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.864" level="INFO">${headers} = {"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</msg>
+<status starttime="20200610 18:13:00.864" status="PASS" endtime="20200610 18:13:00.864"></status>
+</kw>
+<kw library="BuiltIn" name="Set Variable">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsName":"TEST1 NS","nsdescription": "NS for test1"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.865" level="INFO">${body} = {"nsdId":"dbe0b036-9fbb-3627-89c4-19a8eeeabda8","nsName":"TEST1 NS","nsdescription": "NS for test1"}</msg>
+<status starttime="20200610 18:13:00.864" status="PASS" endtime="20200610 18:13:00.865"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="POST nsInstance">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.866" level="INFO">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status starttime="20200610 18:13:00.865" status="PASS" endtime="20200610 18:13:00.866"></status>
+</kw>
+<kw library="REST" name="Set Headers">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status starttime="20200610 18:13:00.866" status="PASS" endtime="20200610 18:13:00.867"></status>
+</kw>
+<kw library="REST" name="Post">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.868" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<status starttime="20200610 18:13:00.867" status="PASS" endtime="20200610 18:13:00.871"></status>
+</kw>
+<kw library="REST" name="Output">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20200610 18:13:00.871" level="INFO">
+{
+    "body": {
+        "detail": "missing required attribute One of the required in CreateNSRequest object",
+        "status": 400,
+        "title": "Missing attribute"
+    },
+    "status": 400,
+    "seconds": 0.001583,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 16:13:00 GMT",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1",
+        "Content-Type": "application/json",
+        "Content-Length": "126"
+    }
+}</msg>
+<msg timestamp="20200610 18:13:00.872" level="INFO">${outputResponse} = {'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'status': 400, 'seconds': 0.001583, 'headers': {'Date': 'W...</msg>
+<status starttime="20200610 18:13:00.871" status="PASS" endtime="20200610 18:13:00.872"></status>
+</kw>
+<kw library="BuiltIn" name="Set Global Variable">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.873" level="INFO">@{response} = [ {'body': {'detail': 'missing required attribute One of the required in CreateNSRequest object', 'status': 400, 'title': 'Missing attribute'}, 'status': 400, 'seconds': 0.001583, 'headers': {'Date': ...</msg>
+<status starttime="20200610 18:13:00.872" status="PASS" endtime="20200610 18:13:00.873"></status>
+</kw>
+<status starttime="20200610 18:13:00.865" status="PASS" endtime="20200610 18:13:00.873"></status>
+</kw>
+<status starttime="20200610 18:13:00.863" status="PASS" endtime="20200610 18:13:00.873"></status>
+</kw>
+<kw library="NSLCMOperationKeywords" name="Check HTTP Response Status Code Is">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.875" level="INFO">Validate Status code</msg>
+<status starttime="20200610 18:13:00.874" status="PASS" endtime="20200610 18:13:00.875"></status>
+</kw>
+<kw library="BuiltIn" name="Should Be Equal As Strings">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.875" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status starttime="20200610 18:13:00.875" status="PASS" endtime="20200610 18:13:00.875"></status>
+</kw>
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20200610 18:13:00.876" level="INFO">Status code validated</msg>
+<status starttime="20200610 18:13:00.876" status="PASS" endtime="20200610 18:13:00.876"></status>
+</kw>
+<status starttime="20200610 18:13:00.874" status="PASS" endtime="20200610 18:13:00.876"></status>
+</kw>
+<status starttime="20200610 18:13:00.862" status="PASS" critical="yes" endtime="20200610 18:13:00.876"></status>
+</test>
+<status starttime="20200610 18:13:00.143" status="PASS" endtime="20200610 18:13:00.877"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="0">Critical Tests</stat>
+<stat pass="9" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="CreateNSInstance" pass="9" fail="0" id="s1">CreateNSInstance</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20200610 18:13:00.823" level="WARN">Response body content is not JSON. Content-Type is: application/yaml</msg>
+</errors>
+</robot>
