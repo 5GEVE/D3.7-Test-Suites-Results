@@ -8,4 +8,6 @@ Full list of tests, including their description, are provided in Deliverable D3.
 
 A pip requirements file is provided to ease the installation of the required python libraries, as follows:
 
-$ pip install -r requirements.txt
+```sh
+pip install -r requirements.txt
+```
