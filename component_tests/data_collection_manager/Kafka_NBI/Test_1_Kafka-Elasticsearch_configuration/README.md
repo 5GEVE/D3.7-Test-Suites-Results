@@ -4,6 +4,8 @@ For this test, the Kafka-ELK Dockerized environment available [here](https://git
 
 Moreover, you have to put the metric_generator_example.py script in the $HOME directory of the targeted server.
 
+The last test step, related to check the data in Kibana, can be followed after executing this test case. The instructions are present in the Dockerized environment Github repository aforementioned.
+
 In order to test it:
 
 ```sh
