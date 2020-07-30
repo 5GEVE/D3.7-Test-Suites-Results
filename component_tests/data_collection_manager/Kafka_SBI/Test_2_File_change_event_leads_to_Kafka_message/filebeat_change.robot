@@ -8,9 +8,9 @@ Library           Dialogs
 
 *** Variables ***
 
-${ADDRESS}          10.9.8.203
-${USERNAME}         testbed
-${PASSWORD}         5g_€v$.!9
+${ADDRESS}          10.9.8.204
+${USERNAME}         user
+${PASSWORD}         root
 
 *** Test Cases ***
 Execute command

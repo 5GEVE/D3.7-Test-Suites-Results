@@ -8,7 +8,7 @@ In order to test it:
 # 1. Install modules for enabling Dialogs library in your server (for Python 2.7)
 sudo apt-get install python-tk tk-dev
 
-# 2. Modify the variables defined in filebeat_change.robot to fit in your scenario.
+# 2. Modify the variables defined in filebeat_change.robot to fit in your scenario. 
 
 # 3. Execute the Robot Framework script.
 robot filebeat_change.robot
