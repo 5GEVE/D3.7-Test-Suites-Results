@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200730 13:04:52.259" generator="Robot 3.2.1 (Python 2.7.17 on linux2)">
+<suite source="/home/telcaria/5g-eve/github/D3.7-Test-Suites-Results/component_tests/data_collection_manager/Kafka/Test_2_Subscribe_operation/subscribe.robot" id="s1" name="Subscribe">
+<test id="s1-t1" name="POST start_signalling in DCS-DV to create signalling topics">
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/portal/dcs/start_signalling</arg>
+<arg>headers={"Content-Type":"application/json"}</arg>
+</arguments>
+<status status="PASS" endtime="20200730 13:05:04.029" starttime="20200730 13:04:56.594"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response status</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20200730 13:05:04.030" level="INFO">
+201</msg>
+<msg timestamp="20200730 13:05:04.129" level="INFO">${output} = 201</msg>
+<status status="PASS" endtime="20200730 13:05:04.129" starttime="20200730 13:05:04.030"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<assign>
+<var>${output_string}</var>
+</assign>
+<msg timestamp="20200730 13:05:04.130" level="INFO">${output_string} = 201</msg>
+<status status="PASS" endtime="20200730 13:05:04.130" starttime="20200730 13:05:04.129"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${output_string}</arg>
+<arg>201</arg>
+</arguments>
+<status status="PASS" endtime="20200730 13:05:04.130" starttime="20200730 13:05:04.130"></status>
+</kw>
+<status status="PASS" endtime="20200730 13:05:04.130" critical="yes" starttime="20200730 13:04:56.594"></status>
+</test>
+<test id="s1-t2" name="Execute command">
+<kw name="Open Connection to DCM and Log In">
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<arguments>
+<arg>${ADDRESS}</arg>
+</arguments>
+<status status="PASS" endtime="20200730 13:05:04.132" starttime="20200730 13:05:04.131"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<arguments>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20200730 13:05:04.132" level="INFO">Logging into '10.9.8.150:22' as 'ubuntu'.</msg>
+<msg timestamp="20200730 13:05:05.936" level="INFO">Read output: Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.4.0-131-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+201 packages can be updated.
+142 updates are security updates.
+
+New release '18.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Thu Jul 30 12:26:41 2020 from 10.254.0.41
+ubuntu@5geve-dcm-test:~$</msg>
+<status status="PASS" endtime="20200730 13:05:05.936" starttime="20200730 13:05:04.132"></status>
+</kw>
+<status status="PASS" endtime="20200730 13:05:05.937" starttime="20200730 13:05:04.131"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>/opt/kafka/bin/kafka-topics.sh --list --zookeeper 127.0.0.1:2181</arg>
+</arguments>
+<assign>
+<var>${stdout}</var>
+</assign>
+<msg timestamp="20200730 13:05:05.938" level="INFO">Executing command '/opt/kafka/bin/kafka-topics.sh --list --zookeeper 127.0.0.1:2181'.</msg>
+<msg timestamp="20200730 13:05:08.167" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20200730 13:05:08.167" level="INFO">${stdout} = signalling.kpi
+signalling.metric.application
+signalling.metric.infrastructure</msg>
+<status status="PASS" endtime="20200730 13:05:08.168" starttime="20200730 13:05:05.937"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${stdout}</arg>
+<arg>signalling.kpi</arg>
+</arguments>
+<status status="PASS" endtime="20200730 13:05:08.169" starttime="20200730 13:05:08.168"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${stdout}</arg>
+<arg>signalling.metric.application</arg>
+</arguments>
+<status status="PASS" endtime="20200730 13:05:08.171" starttime="20200730 13:05:08.170"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${stdout}</arg>
+<arg>signalling.metric.infrastructure</arg>
+</arguments>
+<status status="PASS" endtime="20200730 13:05:08.172" starttime="20200730 13:05:08.172"></status>
+</kw>
+<status status="PASS" endtime="20200730 13:05:08.173" critical="yes" starttime="20200730 13:05:04.131"></status>
+</test>
+<kw type="teardown" name="Close All Connections" library="SSHLibrary">
+<doc>Closes all open connections.</doc>
+<status status="PASS" endtime="20200730 13:05:08.291" starttime="20200730 13:05:08.175"></status>
+</kw>
+<status status="PASS" endtime="20200730 13:05:08.291" starttime="20200730 13:04:52.260"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Subscribe" pass="2">Subscribe</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

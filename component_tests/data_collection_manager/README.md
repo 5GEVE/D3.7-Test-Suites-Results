@@ -11,3 +11,5 @@ Only Robot Framework is needed for executing all the test cases, which can be ea
 ```sh
 pip install robotframework
 ```
+
+In each test executed, there is a specific README.md file including more useful information related to the test.
