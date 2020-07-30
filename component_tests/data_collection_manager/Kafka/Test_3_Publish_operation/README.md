@@ -2,74 +2,7 @@
 
 For this test, signalling topics must be created beforehand.
 
-Note that the topics created for this operation are different from the ones reported in D3.7, because the DCM has evolved since the test reported in the deliverable were generated. The new topics are (where action can be either subscribe or unsubscribe):
-
-```json
-{
-	"records": [
-		{
-			"value": {
-				"topic": "uc.4.france_nice.application_metric.tracked_devices",
-				"expId":"4", 
-				"action":"subscribe", 
-				"context": {
-					"metricId": "tracked_devices",
-					"metricCollectionType": "CUMULATIVE",
-					"graph": "PIE",
-					"name": "Number of total tracked devices",
-					"unit": "devices",
-					"interval": "5s"
-				}
-			}
-		},
-		{
-			"value": {
-				"topic":"uc.4.france_nice.application_metric.processed_records",
-				"expId":"4",
-				"action":"subscribe",
-				"context": {
-					"metricId": "processed_records",
-					"metricCollectionType": "CUMULATIVE",
-					"graph": "GAUGE",
-					"name": "Number of total processed records",
-					"unit": "records",
-					"interval": "5s"
-				}
-			}
-		},
-		{ 
-			"value": {
-				"topic": "uc.4.france_nice.application_metric.tracking_response_time",
-				"expId": "4",
-				"action": "subscribe",
-				"context": {
-					"metricId": "tracking_response_time",
-					"metricCollectionType": "GAUGE",
-					"graph": "LINE",
-					"name": "Max response time in milliseconds",
-					"unit": "ms",
-					"interval": "1s"
-				}
-			}
-		},
-		{
-			"value": {
-				"topic": "uc.4.france_nice.application_metric.tracking_memory_usage",
-				"expId": "4",
-				"action": "subscribe",
-				"context": {
-					"metricId": "tracking_memory_usage",
-					"metricCollectionType": "GAUGE",
-					"graph": "COUNTER",
-					"name": "Memory usage in %",
-					"unit": "%",
-					"interval": "1s"
-				}
-			}
-		}
-	]
-}
-```
+Note that the topics created for this operation are different from the ones reported in D3.7, because the DCM has evolved since the test reported in the deliverable were generated. The new topics are defined in both subscribe.json and unsubscribe.json files.
 
 In order to test it:
 
