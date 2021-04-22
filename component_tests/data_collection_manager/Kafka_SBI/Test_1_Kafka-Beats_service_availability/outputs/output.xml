@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200730 17:00:46.119" generator="Robot 3.2.1 (Python 2.7.17 on linux2)">
+<suite source="/home/telcaria/5g-eve/github/D3.7-Test-Suites-Results/component_tests/data_collection_manager/Kafka_SBI/Test_1_Kafka-Beats_service_availability/kafka_beats.robot" id="s1" name="Kafka Beats">
+<test id="s1-t1" name="Execute command">
+<kw name="Open Connection to DCM and Log In">
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<arguments>
+<arg>${ADDRESS}</arg>
+</arguments>
+<status status="PASS" endtime="20200730 17:00:47.602" starttime="20200730 17:00:47.602"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<arguments>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20200730 17:00:47.602" level="INFO">Logging into '10.9.8.203:22' as 'testbed'.</msg>
+<msg timestamp="20200730 17:00:49.358" level="INFO">Read output: Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.4.0-131-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+205 packages can be updated.
+148 updates are security updates.
+
+New release '18.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Thu Jul 30 16:36:14 2020 from 10.254.0.41
+testbed@ramon-dcm-5g-eve [32m~[33m[00m $</msg>
+<status status="PASS" endtime="20200730 17:00:49.359" starttime="20200730 17:00:47.602"></status>
+</kw>
+<status status="PASS" endtime="20200730 17:00:49.359" starttime="20200730 17:00:47.601"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>cd /home/${USERNAME}/5geve-wp4-monitoring-dockerized-env/kafka-elk &amp;&amp; sudo docker-compose up -d</arg>
+</arguments>
+<msg timestamp="20200730 17:00:49.361" level="INFO">Executing command 'cd /home/testbed/5geve-wp4-monitoring-dockerized-env/kafka-elk &amp;&amp; sudo docker-compose up -d'.</msg>
+<msg timestamp="20200730 17:00:52.391" level="INFO">Command exited with return code 0.</msg>
+<status status="PASS" endtime="20200730 17:00:52.392" starttime="20200730 17:00:49.360"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>30s</arg>
+</arguments>
+<msg timestamp="20200730 17:01:22.393" level="INFO">Slept 30 seconds</msg>
+<status status="PASS" endtime="20200730 17:01:22.394" starttime="20200730 17:00:52.392"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>cd /home/${USERNAME}/5geve-wp4-monitoring-dockerized-env/filebeat &amp;&amp; sudo docker run -d --name filebeat filebeat</arg>
+</arguments>
+<assign>
+<var>${filebeat_id}</var>
+</assign>
+<msg timestamp="20200730 17:01:22.395" level="INFO">Executing command 'cd /home/testbed/5geve-wp4-monitoring-dockerized-env/filebeat &amp;&amp; sudo docker run -d --name filebeat filebeat'.</msg>
+<msg timestamp="20200730 17:01:23.289" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20200730 17:01:23.290" level="INFO">${filebeat_id} = 3866eda287a71c0fd5b026fd554b3e955b109198b2fc51749e45e0630bf87967</msg>
+<status status="PASS" endtime="20200730 17:01:23.290" starttime="20200730 17:01:22.394"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>15s</arg>
+</arguments>
+<msg timestamp="20200730 17:01:38.292" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" endtime="20200730 17:01:38.293" starttime="20200730 17:01:23.291"></status>
+</kw>
+<kw name="Pause Execution" library="Dialogs">
+<doc>Pauses test execution until user clicks ``Ok`` button.</doc>
+<arguments>
+<arg>Go to the DCM server and execute the following: 'sudo docker exec -it kafka kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topictest --max-messages 6661 --from-beginning &gt; /tmp/kafka_beats.txt', and then, press Enter to continue</arg>
+</arguments>
+<status status="PASS" endtime="20200730 17:01:57.427" starttime="20200730 17:01:38.293"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>cat /tmp/kafka_beats.txt</arg>
+</arguments>
+<assign>
+<var>${stdout}</var>
+</assign>
+<msg timestamp="20200730 17:01:57.428" level="INFO">Executing command 'cat /tmp/kafka_beats.txt'.</msg>
+<msg timestamp="20200730 17:01:58.345" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20200730 17:01:58.349" level="INFO">${stdout} = {"metrics_data": 1.794, "resource_uuid": "agv1", "time": 0.015061, "-1": -1, "metrics_series": 1, "metric_name": "deviation"}
+{"metrics_data": 1.794, "resource_uuid": "agv1", "time": 0.034007, "-1": ...</msg>
+<status status="PASS" endtime="20200730 17:01:58.350" starttime="20200730 17:01:57.428"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${stdout}</arg>
+<arg>Processed a total of 6661 messages</arg>
+</arguments>
+<status status="PASS" endtime="20200730 17:01:58.350" starttime="20200730 17:01:58.350"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>cd /home/${USERNAME}/5geve-wp4-monitoring-dockerized-env/kafka-elk &amp;&amp; sudo docker-compose down</arg>
+</arguments>
+<msg timestamp="20200730 17:01:58.351" level="INFO">Executing command 'cd /home/testbed/5geve-wp4-monitoring-dockerized-env/kafka-elk &amp;&amp; sudo docker-compose down'.</msg>
+<msg timestamp="20200730 17:02:10.131" level="INFO">Command exited with return code 0.</msg>
+<status status="PASS" endtime="20200730 17:02:10.131" starttime="20200730 17:01:58.351"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>cd /home/${USERNAME}/5geve-wp4-monitoring-dockerized-env/filebeat &amp;&amp; sudo docker container stop ${filebeat_id} &amp;&amp; sudo docker container rm ${filebeat_id}</arg>
+</arguments>
+<msg timestamp="20200730 17:02:10.133" level="INFO">Executing command 'cd /home/testbed/5geve-wp4-monitoring-dockerized-env/filebeat &amp;&amp; sudo docker container stop 3866eda287a71c0fd5b026fd554b3e955b109198b2fc51749e45e0630bf87967 &amp;&amp; sudo docker container rm 3866eda287a71c0fd5b026fd554b3e955b109198b2fc51749e45e0630bf87967'.</msg>
+<msg timestamp="20200730 17:02:10.806" level="INFO">Command exited with return code 0.</msg>
+<status status="PASS" endtime="20200730 17:02:10.806" starttime="20200730 17:02:10.132"></status>
+</kw>
+<status status="PASS" endtime="20200730 17:02:10.807" critical="yes" starttime="20200730 17:00:47.601"></status>
+</test>
+<kw type="teardown" name="Close All Connections" library="SSHLibrary">
+<doc>Closes all open connections.</doc>
+<status status="PASS" endtime="20200730 17:02:10.923" starttime="20200730 17:02:10.808"></status>
+</kw>
+<status status="PASS" endtime="20200730 17:02:10.923" starttime="20200730 17:00:46.121"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Kafka Beats" pass="1">Kafka Beats</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,14 @@
+
+PLAY [src_server] **************************************************************
+
+TASK [Print Hello World] *******************************************************
+changed: [src_server]
+
+TASK [Print Hello World] *******************************************************
+ok: [src_server] => {
+    "hello_world.stdout": "Hello World"
+}
+
+PLAY RECAP *********************************************************************
+src_server                 : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
