@@ -1,0 +1,1537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20200610 13:50:48.097" generator="Robot 3.2.1 (Python 3.5.2 on linux)" rpa="false">
+<suite id="s1" name="NSInstantiation" source="/home/vepc/5GEVE/integration_tests/testing/tests/5tonic_integration/NSInstantiation.robot">
+<test id="s1-t1" name="Test 2 - Network Service instantiation. Positive test">
+<kw name="ms-nso-id-creation" library="NSLCMOperationKeywords">
+<assign>
+<var>${id}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:48.385">${headers} = {"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</msg>
+<status status="PASS" starttime="20200610 13:50:48.385" endtime="20200610 13:50:48.386"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"72405148-8675-4e8f-9322-49f49ff5356e","nsName":"TEST2 NS","nsDescription": "NS for test2"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:48.386">${body} = {"nsdId":"72405148-8675-4e8f-9322-49f49ff5356e","nsName":"TEST2 NS","nsDescription": "NS for test2"}</msg>
+<status status="PASS" starttime="20200610 13:50:48.386" endtime="20200610 13:50:48.386"></status>
+</kw>
+<kw name="POST nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.387">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status status="PASS" starttime="20200610 13:50:48.387" endtime="20200610 13:50:48.388"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.388" endtime="20200610 13:50:48.388"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.394">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:48.388" endtime="20200610 13:50:48.417"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:48.418">
+{
+    "body": {
+        "nsdInfoId": "",
+        "_links": {
+            "self": {
+                "href": "http://localhost:8000/nslcm/v1/ns_instances/2cd2900c-8ee2-46b2-b95a-88d05e2e9260"
+            }
+        },
+        "nsInstanceDescription": "NS for test2",
+        "nsState": "NOT_INSTANTIATED",
+        "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+        "id": "2cd2900c-8ee2-46b2-b95a-88d05e2e9260",
+        "nsInstanceName": "TEST2 NS"
+    },
+    "status": 201,
+    "seconds": 0.006188,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 11:50:48 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "313",
+        "Location": "http://localhost:8000/nslcm/v1/ns_instances/2cd2900c-8ee2-46b2-b95a-88d05e2e9260",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1"
+    }
+}</msg>
+<msg level="INFO" timestamp="20200610 13:50:48.426">${outputResponse} = {'body': {'nsdInfoId': '', '_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/2cd2900c-8ee2-46b2-b95a-88d05e2e9260'}}, 'nsInstanceDescription': 'NS for test2', 'nsState': 'NOT_IN...</msg>
+<status status="PASS" starttime="20200610 13:50:48.418" endtime="20200610 13:50:48.426"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.428">@{response} = [ {'body': {'nsdInfoId': '', '_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/2cd2900c-8ee2-46b2-b95a-88d05e2e9260'}}, 'nsInstanceDescription': 'NS for test2', 'nsState': 'NOT_...</msg>
+<status status="PASS" starttime="20200610 13:50:48.427" endtime="20200610 13:50:48.428"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.386" endtime="20200610 13:50:48.429"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.430">Validate Status code</msg>
+<status status="PASS" starttime="20200610 13:50:48.429" endtime="20200610 13:50:48.430"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.430">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200610 13:50:48.430" endtime="20200610 13:50:48.430"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.431">Status code validated</msg>
+<status status="PASS" starttime="20200610 13:50:48.431" endtime="20200610 13:50:48.431"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.429" endtime="20200610 13:50:48.431"></status>
+</kw>
+<kw name="Check HTTP Response Header Contains" library="NSLCMOperationKeywords">
+<arguments>
+<arg>Location</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${response[0]['headers']}</arg>
+<arg>${HEADER_TOCHECK}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.432" endtime="20200610 13:50:48.432"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Header is present</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.433">Header is present</msg>
+<status status="PASS" starttime="20200610 13:50:48.433" endtime="20200610 13:50:48.433"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.431" endtime="20200610 13:50:48.433"></status>
+</kw>
+<kw name="Get NS Identifier" library="NSLCMOperationKeywords">
+<assign>
+<var>${id}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Get NS identifier from a response</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.434">Get NS identifier from a response</msg>
+<status status="PASS" starttime="20200610 13:50:48.434" endtime="20200610 13:50:48.434"></status>
+</kw>
+<msg level="INFO" timestamp="20200610 13:50:48.435">${id} = 2cd2900c-8ee2-46b2-b95a-88d05e2e9260</msg>
+<status status="PASS" starttime="20200610 13:50:48.433" endtime="20200610 13:50:48.435"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.436" endtime="20200610 13:50:48.436"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.438">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:48.436" endtime="20200610 13:50:48.443"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.443" endtime="20200610 13:50:48.444"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.435" endtime="20200610 13:50:48.445"></status>
+</kw>
+<msg level="INFO" timestamp="20200610 13:50:48.445">${id} = 2cd2900c-8ee2-46b2-b95a-88d05e2e9260</msg>
+<status status="PASS" starttime="20200610 13:50:48.385" endtime="20200610 13:50:48.445"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.446" endtime="20200610 13:50:48.446"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.449">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:48.447" endtime="20200610 13:50:48.454"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.455" endtime="20200610 13:50:48.456"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.445" endtime="20200610 13:50:48.456"></status>
+</kw>
+<kw name="POST Instantiate nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Trying to Instantiate a ns Instance</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.457">Trying to Instantiate a ns Instance</msg>
+<status status="PASS" starttime="20200610 13:50:48.457" endtime="20200610 13:50:48.457"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.458" endtime="20200610 13:50:48.458"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"additionalParamsForNs":{"kvs":[{"key":"target-site","value":"SPAIN_5TONIC"}]}, "nsFlavourId":"clone_delay_vnf_flavor"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:48.458">${body} = {"additionalParamsForNs":{"kvs":[{"key":"target-site","value":"SPAIN_5TONIC"}]}, "nsFlavourId":"clone_delay_vnf_flavor"}</msg>
+<status status="PASS" starttime="20200610 13:50:48.458" endtime="20200610 13:50:48.459"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}/instantiate</arg>
+<arg>${body}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.460">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:48.459" endtime="20200610 13:50:48.739"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:48.739">
+{
+    "body": {
+        "title": "Error processing request",
+        "status": 500,
+        "detail": "request failed with error 400 and message {\n  \"error\": \"Malformed request\"\n}\n"
+    },
+    "status": 500,
+    "seconds": 0.27725700000000003,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 11:50:48 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "145",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1"
+    }
+}</msg>
+<msg level="INFO" timestamp="20200610 13:50:48.740">${outputResponse} = {'body': {'title': 'Error processing request', 'status': 500, 'detail': 'request failed with error 400 and message {\n  "error": "Malformed request"\n}\n'}, 'status': 500, 'seconds': 0.277257000000000...</msg>
+<status status="PASS" starttime="20200610 13:50:48.739" endtime="20200610 13:50:48.740"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.741">@{response} = [ {'body': {'title': 'Error processing request', 'status': 500, 'detail': 'request failed with error 400 and message {\n  "error": "Malformed request"\n}\n'}, 'status': 500, 'seconds': 0.2772570000000...</msg>
+<status status="PASS" starttime="20200610 13:50:48.740" endtime="20200610 13:50:48.741"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.457" endtime="20200610 13:50:48.741"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>202</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.742">Validate Status code</msg>
+<status status="PASS" starttime="20200610 13:50:48.742" endtime="20200610 13:50:48.743"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.743">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg level="FAIL" timestamp="20200610 13:50:48.744">500 != 202</msg>
+<status status="FAIL" starttime="20200610 13:50:48.743" endtime="20200610 13:50:48.744"></status>
+</kw>
+<status status="FAIL" starttime="20200610 13:50:48.742" endtime="20200610 13:50:48.744"></status>
+</kw>
+<doc>Test purpose: The purpose of this test is to validate the instantiation of a NS.
+Test type: Functional.
+Related tests: ms-nso-id-creation.
+Priority: High.
+Execution time: As required for the full test execution.
+Configuration: MSNO_BASIC_CONF.
+References: NS LCM API.
+Applicability: None.
+Pre-test conditions: NSD is onboarded in the Multi-Site Catalogue.
+Nested NS are onboarded in each site NFVO.
+NS ID is created (see ms-nso-id-creation test).
+Test sequence: 1. Send a instantiate request to the MSNO.
+Expected results: 1. MSNO returns a positive response for the instantiation.
+2. A notification is sent when NS creations process starts and finish.
+3. NS ID is stored in the DB with INSTANTIATED status and can be queried using external MS Inventory API.
+4. Each nested NS is instantiated in each site NFVO.</doc>
+<status critical="yes" status="FAIL" starttime="20200610 13:50:48.382" endtime="20200610 13:50:48.744">500 != 202</status>
+</test>
+<test id="s1-t2" name="Test 2 - Network Service instantiation. Conflict">
+<kw name="ms-nso-id-creation" library="NSLCMOperationKeywords">
+<assign>
+<var>${id}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:48.747">${headers} = {"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</msg>
+<status status="PASS" starttime="20200610 13:50:48.746" endtime="20200610 13:50:48.747"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"72405148-8675-4e8f-9322-49f49ff5356e","nsName":"TEST2 NS","nsDescription": "NS for test2"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:48.748">${body} = {"nsdId":"72405148-8675-4e8f-9322-49f49ff5356e","nsName":"TEST2 NS","nsDescription": "NS for test2"}</msg>
+<status status="PASS" starttime="20200610 13:50:48.747" endtime="20200610 13:50:48.748"></status>
+</kw>
+<kw name="POST nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.749">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status status="PASS" starttime="20200610 13:50:48.749" endtime="20200610 13:50:48.749"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.749" endtime="20200610 13:50:48.750"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.752">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:48.750" endtime="20200610 13:50:48.757"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:48.757">
+{
+    "body": {
+        "nsdInfoId": "",
+        "_links": {
+            "self": {
+                "href": "http://localhost:8000/nslcm/v1/ns_instances/92305135-ab60-42c0-a7ae-eb18abaa6649"
+            }
+        },
+        "nsInstanceDescription": "NS for test2",
+        "nsState": "NOT_INSTANTIATED",
+        "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+        "id": "92305135-ab60-42c0-a7ae-eb18abaa6649",
+        "nsInstanceName": "TEST2 NS"
+    },
+    "status": 201,
+    "seconds": 0.00425,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 11:50:48 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "313",
+        "Location": "http://localhost:8000/nslcm/v1/ns_instances/92305135-ab60-42c0-a7ae-eb18abaa6649",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1"
+    }
+}</msg>
+<msg level="INFO" timestamp="20200610 13:50:48.758">${outputResponse} = {'body': {'nsdInfoId': '', '_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/92305135-ab60-42c0-a7ae-eb18abaa6649'}}, 'nsInstanceDescription': 'NS for test2', 'nsState': 'NOT_IN...</msg>
+<status status="PASS" starttime="20200610 13:50:48.757" endtime="20200610 13:50:48.758"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.759">@{response} = [ {'body': {'nsdInfoId': '', '_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/92305135-ab60-42c0-a7ae-eb18abaa6649'}}, 'nsInstanceDescription': 'NS for test2', 'nsState': 'NOT_...</msg>
+<status status="PASS" starttime="20200610 13:50:48.758" endtime="20200610 13:50:48.759"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.748" endtime="20200610 13:50:48.759"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.760">Validate Status code</msg>
+<status status="PASS" starttime="20200610 13:50:48.760" endtime="20200610 13:50:48.760"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.761">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200610 13:50:48.761" endtime="20200610 13:50:48.761"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.762">Status code validated</msg>
+<status status="PASS" starttime="20200610 13:50:48.761" endtime="20200610 13:50:48.762"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.760" endtime="20200610 13:50:48.762"></status>
+</kw>
+<kw name="Check HTTP Response Header Contains" library="NSLCMOperationKeywords">
+<arguments>
+<arg>Location</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${response[0]['headers']}</arg>
+<arg>${HEADER_TOCHECK}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.763" endtime="20200610 13:50:48.763"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Header is present</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.764">Header is present</msg>
+<status status="PASS" starttime="20200610 13:50:48.763" endtime="20200610 13:50:48.764"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.762" endtime="20200610 13:50:48.764"></status>
+</kw>
+<kw name="Get NS Identifier" library="NSLCMOperationKeywords">
+<assign>
+<var>${id}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Get NS identifier from a response</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.765">Get NS identifier from a response</msg>
+<status status="PASS" starttime="20200610 13:50:48.764" endtime="20200610 13:50:48.765"></status>
+</kw>
+<msg level="INFO" timestamp="20200610 13:50:48.765">${id} = 92305135-ab60-42c0-a7ae-eb18abaa6649</msg>
+<status status="PASS" starttime="20200610 13:50:48.764" endtime="20200610 13:50:48.765"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.766" endtime="20200610 13:50:48.766"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.768">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:48.767" endtime="20200610 13:50:48.773"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.773" endtime="20200610 13:50:48.774"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.766" endtime="20200610 13:50:48.774"></status>
+</kw>
+<msg level="INFO" timestamp="20200610 13:50:48.774">${id} = 92305135-ab60-42c0-a7ae-eb18abaa6649</msg>
+<status status="PASS" starttime="20200610 13:50:48.746" endtime="20200610 13:50:48.774"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.775" endtime="20200610 13:50:48.776"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.779">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:48.776" endtime="20200610 13:50:48.783"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.783" endtime="20200610 13:50:48.784"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.775" endtime="20200610 13:50:48.784"></status>
+</kw>
+<kw name="POST Instantiate nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Trying to Instantiate a ns Instance</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.785">Trying to Instantiate a ns Instance</msg>
+<status status="PASS" starttime="20200610 13:50:48.785" endtime="20200610 13:50:48.785"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:48.785" endtime="20200610 13:50:48.785"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"additionalParamsForNs":{"kvs":[{"key":"target-site","value":"SPAIN_5TONIC"}]}, "nsFlavourId":"clone_delay_vnf_flavor"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:48.786">${body} = {"additionalParamsForNs":{"kvs":[{"key":"target-site","value":"SPAIN_5TONIC"}]}, "nsFlavourId":"clone_delay_vnf_flavor"}</msg>
+<status status="PASS" starttime="20200610 13:50:48.786" endtime="20200610 13:50:48.786"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}/instantiate</arg>
+<arg>${body}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:48.788">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:48.786" endtime="20200610 13:50:49.056"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:49.057">
+{
+    "body": {
+        "title": "Error processing request",
+        "status": 500,
+        "detail": "request failed with error 400 and message {\n  \"error\": \"Malformed request\"\n}\n"
+    },
+    "status": 500,
+    "seconds": 0.267466,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 11:50:49 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "145",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1"
+    }
+}</msg>
+<msg level="INFO" timestamp="20200610 13:50:49.058">${outputResponse} = {'body': {'title': 'Error processing request', 'status': 500, 'detail': 'request failed with error 400 and message {\n  "error": "Malformed request"\n}\n'}, 'status': 500, 'seconds': 0.267466, 'header...</msg>
+<status status="PASS" starttime="20200610 13:50:49.056" endtime="20200610 13:50:49.058"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.059">@{response} = [ {'body': {'title': 'Error processing request', 'status': 500, 'detail': 'request failed with error 400 and message {\n  "error": "Malformed request"\n}\n'}, 'status': 500, 'seconds': 0.267466, 'head...</msg>
+<status status="PASS" starttime="20200610 13:50:49.058" endtime="20200610 13:50:49.059"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:48.784" endtime="20200610 13:50:49.059"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>202</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.060">Validate Status code</msg>
+<status status="PASS" starttime="20200610 13:50:49.060" endtime="20200610 13:50:49.060"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.061">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg level="FAIL" timestamp="20200610 13:50:49.061">500 != 202</msg>
+<status status="FAIL" starttime="20200610 13:50:49.060" endtime="20200610 13:50:49.061"></status>
+</kw>
+<status status="FAIL" starttime="20200610 13:50:49.059" endtime="20200610 13:50:49.061"></status>
+</kw>
+<doc>Test purpose: The objective is to test that the operation cannot be performed due to a conflict with the state of resource (i.e. the resource is in INSTANTIATED state)
+Pre-conditions: resource is in INSTANTIATED state</doc>
+<status critical="yes" status="FAIL" starttime="20200610 13:50:48.745" endtime="20200610 13:50:49.062">500 != 202</status>
+</test>
+<test id="s1-t3" name="Test 3 - Terminate Network Service instance.">
+<kw name="ms-nso-id-creation" library="NSLCMOperationKeywords">
+<assign>
+<var>${id}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:49.064">${headers} = {"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</msg>
+<status status="PASS" starttime="20200610 13:50:49.063" endtime="20200610 13:50:49.064"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"72405148-8675-4e8f-9322-49f49ff5356e","nsName":"TEST2 NS","nsDescription": "NS for test2"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:49.064">${body} = {"nsdId":"72405148-8675-4e8f-9322-49f49ff5356e","nsName":"TEST2 NS","nsDescription": "NS for test2"}</msg>
+<status status="PASS" starttime="20200610 13:50:49.064" endtime="20200610 13:50:49.064"></status>
+</kw>
+<kw name="POST nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.065">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status status="PASS" starttime="20200610 13:50:49.065" endtime="20200610 13:50:49.066"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.066" endtime="20200610 13:50:49.066"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.068">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:49.066" endtime="20200610 13:50:49.073"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:49.074">
+{
+    "body": {
+        "nsdInfoId": "",
+        "_links": {
+            "self": {
+                "href": "http://localhost:8000/nslcm/v1/ns_instances/8137110c-fd63-4b24-847e-ed2d91d6729a"
+            }
+        },
+        "nsInstanceDescription": "NS for test2",
+        "nsState": "NOT_INSTANTIATED",
+        "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+        "id": "8137110c-fd63-4b24-847e-ed2d91d6729a",
+        "nsInstanceName": "TEST2 NS"
+    },
+    "status": 201,
+    "seconds": 0.004543999999999999,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 11:50:49 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "313",
+        "Location": "http://localhost:8000/nslcm/v1/ns_instances/8137110c-fd63-4b24-847e-ed2d91d6729a",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1"
+    }
+}</msg>
+<msg level="INFO" timestamp="20200610 13:50:49.075">${outputResponse} = {'body': {'nsdInfoId': '', '_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/8137110c-fd63-4b24-847e-ed2d91d6729a'}}, 'nsInstanceDescription': 'NS for test2', 'nsState': 'NOT_IN...</msg>
+<status status="PASS" starttime="20200610 13:50:49.074" endtime="20200610 13:50:49.075"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.076">@{response} = [ {'body': {'nsdInfoId': '', '_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/8137110c-fd63-4b24-847e-ed2d91d6729a'}}, 'nsInstanceDescription': 'NS for test2', 'nsState': 'NOT_...</msg>
+<status status="PASS" starttime="20200610 13:50:49.075" endtime="20200610 13:50:49.076"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.064" endtime="20200610 13:50:49.076"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.077">Validate Status code</msg>
+<status status="PASS" starttime="20200610 13:50:49.077" endtime="20200610 13:50:49.077"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.078">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200610 13:50:49.077" endtime="20200610 13:50:49.078"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.078">Status code validated</msg>
+<status status="PASS" starttime="20200610 13:50:49.078" endtime="20200610 13:50:49.079"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.076" endtime="20200610 13:50:49.079"></status>
+</kw>
+<kw name="Check HTTP Response Header Contains" library="NSLCMOperationKeywords">
+<arguments>
+<arg>Location</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${response[0]['headers']}</arg>
+<arg>${HEADER_TOCHECK}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.079" endtime="20200610 13:50:49.080"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Header is present</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.080">Header is present</msg>
+<status status="PASS" starttime="20200610 13:50:49.080" endtime="20200610 13:50:49.080"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.079" endtime="20200610 13:50:49.081"></status>
+</kw>
+<kw name="Get NS Identifier" library="NSLCMOperationKeywords">
+<assign>
+<var>${id}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Get NS identifier from a response</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.081">Get NS identifier from a response</msg>
+<status status="PASS" starttime="20200610 13:50:49.081" endtime="20200610 13:50:49.082"></status>
+</kw>
+<msg level="INFO" timestamp="20200610 13:50:49.082">${id} = 8137110c-fd63-4b24-847e-ed2d91d6729a</msg>
+<status status="PASS" starttime="20200610 13:50:49.081" endtime="20200610 13:50:49.082"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.083" endtime="20200610 13:50:49.083"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.085">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:49.083" endtime="20200610 13:50:49.089"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.089" endtime="20200610 13:50:49.090"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.082" endtime="20200610 13:50:49.090"></status>
+</kw>
+<msg level="INFO" timestamp="20200610 13:50:49.091">${id} = 8137110c-fd63-4b24-847e-ed2d91d6729a</msg>
+<status status="PASS" starttime="20200610 13:50:49.063" endtime="20200610 13:50:49.091"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.092" endtime="20200610 13:50:49.092"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.094">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:49.092" endtime="20200610 13:50:49.098"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.098" endtime="20200610 13:50:49.099"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.091" endtime="20200610 13:50:49.099"></status>
+</kw>
+<kw name="POST Instantiate nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Trying to Instantiate a ns Instance</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.100">Trying to Instantiate a ns Instance</msg>
+<status status="PASS" starttime="20200610 13:50:49.100" endtime="20200610 13:50:49.100"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.100" endtime="20200610 13:50:49.100"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"additionalParamsForNs":{"kvs":[{"key":"target-site","value":"SPAIN_5TONIC"}]}, "nsFlavourId":"clone_delay_vnf_flavor"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:49.101">${body} = {"additionalParamsForNs":{"kvs":[{"key":"target-site","value":"SPAIN_5TONIC"}]}, "nsFlavourId":"clone_delay_vnf_flavor"}</msg>
+<status status="PASS" starttime="20200610 13:50:49.101" endtime="20200610 13:50:49.101"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}/instantiate</arg>
+<arg>${body}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.103">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:49.101" endtime="20200610 13:50:49.379"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:49.380">
+{
+    "body": {
+        "title": "Error processing request",
+        "status": 500,
+        "detail": "request failed with error 400 and message {\n  \"error\": \"Malformed request\"\n}\n"
+    },
+    "status": 500,
+    "seconds": 0.274891,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 11:50:49 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "145",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1"
+    }
+}</msg>
+<msg level="INFO" timestamp="20200610 13:50:49.381">${outputResponse} = {'body': {'title': 'Error processing request', 'status': 500, 'detail': 'request failed with error 400 and message {\n  "error": "Malformed request"\n}\n'}, 'status': 500, 'seconds': 0.274891, 'header...</msg>
+<status status="PASS" starttime="20200610 13:50:49.379" endtime="20200610 13:50:49.381"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.382">@{response} = [ {'body': {'title': 'Error processing request', 'status': 500, 'detail': 'request failed with error 400 and message {\n  "error": "Malformed request"\n}\n'}, 'status': 500, 'seconds': 0.274891, 'head...</msg>
+<status status="PASS" starttime="20200610 13:50:49.381" endtime="20200610 13:50:49.382"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.099" endtime="20200610 13:50:49.382"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>202</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.383">Validate Status code</msg>
+<status status="PASS" starttime="20200610 13:50:49.383" endtime="20200610 13:50:49.383"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.384">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg level="FAIL" timestamp="20200610 13:50:49.384">500 != 202</msg>
+<status status="FAIL" starttime="20200610 13:50:49.383" endtime="20200610 13:50:49.384"></status>
+</kw>
+<status status="FAIL" starttime="20200610 13:50:49.382" endtime="20200610 13:50:49.384"></status>
+</kw>
+<status critical="yes" status="FAIL" starttime="20200610 13:50:49.062" endtime="20200610 13:50:49.385">500 != 202</status>
+</test>
+<test id="s1-t4" name="Test 3 - Terminate Network Service instance with time.">
+<kw name="ms-nso-id-creation" library="NSLCMOperationKeywords">
+<assign>
+<var>${id}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<assign>
+<var>${headers}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:49.387">${headers} = {"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</msg>
+<status status="PASS" starttime="20200610 13:50:49.386" endtime="20200610 13:50:49.387"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"nsdId":"72405148-8675-4e8f-9322-49f49ff5356e","nsName":"TEST2 NS","nsDescription": "NS for test2"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:49.387">${body} = {"nsdId":"72405148-8675-4e8f-9322-49f49ff5356e","nsName":"TEST2 NS","nsDescription": "NS for test2"}</msg>
+<status status="PASS" starttime="20200610 13:50:49.387" endtime="20200610 13:50:49.387"></status>
+</kw>
+<kw name="POST nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${headers}</arg>
+<arg>${body}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to /${apiName}/${apiVersion}/ns_instances.</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.389">Create NS instance by POST to /nslcm/v1/ns_instances.</msg>
+<status status="PASS" starttime="20200610 13:50:49.388" endtime="20200610 13:50:49.389"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>${headers}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.389" endtime="20200610 13:50:49.389"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.391">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:49.389" endtime="20200610 13:50:49.396"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:49.397">
+{
+    "body": {
+        "nsdInfoId": "",
+        "_links": {
+            "self": {
+                "href": "http://localhost:8000/nslcm/v1/ns_instances/860028ca-4460-4a75-af9b-260e6936a431"
+            }
+        },
+        "nsInstanceDescription": "NS for test2",
+        "nsState": "NOT_INSTANTIATED",
+        "nsdId": "72405148-8675-4e8f-9322-49f49ff5356e",
+        "id": "860028ca-4460-4a75-af9b-260e6936a431",
+        "nsInstanceName": "TEST2 NS"
+    },
+    "status": 201,
+    "seconds": 0.00452,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 11:50:49 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "313",
+        "Location": "http://localhost:8000/nslcm/v1/ns_instances/860028ca-4460-4a75-af9b-260e6936a431",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1"
+    }
+}</msg>
+<msg level="INFO" timestamp="20200610 13:50:49.398">${outputResponse} = {'body': {'nsdInfoId': '', '_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/860028ca-4460-4a75-af9b-260e6936a431'}}, 'nsInstanceDescription': 'NS for test2', 'nsState': 'NOT_IN...</msg>
+<status status="PASS" starttime="20200610 13:50:49.397" endtime="20200610 13:50:49.398"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.399">@{response} = [ {'body': {'nsdInfoId': '', '_links': {'self': {'href': 'http://localhost:8000/nslcm/v1/ns_instances/860028ca-4460-4a75-af9b-260e6936a431'}}, 'nsInstanceDescription': 'NS for test2', 'nsState': 'NOT_...</msg>
+<status status="PASS" starttime="20200610 13:50:49.398" endtime="20200610 13:50:49.399"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.387" endtime="20200610 13:50:49.399"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.400">Validate Status code</msg>
+<status status="PASS" starttime="20200610 13:50:49.400" endtime="20200610 13:50:49.400"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.401">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20200610 13:50:49.401" endtime="20200610 13:50:49.401"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.402">Status code validated</msg>
+<status status="PASS" starttime="20200610 13:50:49.401" endtime="20200610 13:50:49.402"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.400" endtime="20200610 13:50:49.402"></status>
+</kw>
+<kw name="Check HTTP Response Header Contains" library="NSLCMOperationKeywords">
+<arguments>
+<arg>Location</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${response[0]['headers']}</arg>
+<arg>${HEADER_TOCHECK}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.403" endtime="20200610 13:50:49.403"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Header is present</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.404">Header is present</msg>
+<status status="PASS" starttime="20200610 13:50:49.403" endtime="20200610 13:50:49.404"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.402" endtime="20200610 13:50:49.404"></status>
+</kw>
+<kw name="Get NS Identifier" library="NSLCMOperationKeywords">
+<assign>
+<var>${id}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Get NS identifier from a response</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.405">Get NS identifier from a response</msg>
+<status status="PASS" starttime="20200610 13:50:49.405" endtime="20200610 13:50:49.405"></status>
+</kw>
+<msg level="INFO" timestamp="20200610 13:50:49.406">${id} = 860028ca-4460-4a75-af9b-260e6936a431</msg>
+<status status="PASS" starttime="20200610 13:50:49.404" endtime="20200610 13:50:49.406"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.407" endtime="20200610 13:50:49.407"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.409">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:49.407" endtime="20200610 13:50:49.413"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.413" endtime="20200610 13:50:49.414"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.406" endtime="20200610 13:50:49.414"></status>
+</kw>
+<msg level="INFO" timestamp="20200610 13:50:49.415">${id} = 860028ca-4460-4a75-af9b-260e6936a431</msg>
+<status status="PASS" starttime="20200610 13:50:49.386" endtime="20200610 13:50:49.415"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.416" endtime="20200610 13:50:49.416"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.418">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:49.416" endtime="20200610 13:50:49.421"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.421" endtime="20200610 13:50:49.422"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.415" endtime="20200610 13:50:49.422"></status>
+</kw>
+<kw name="POST Instantiate nsInstance" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${id}</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Trying to Instantiate a ns Instance</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.423">Trying to Instantiate a ns Instance</msg>
+<status status="PASS" starttime="20200610 13:50:49.423" endtime="20200610 13:50:49.424"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Version":"1.0", "Content-Type":"application/json", "Accept":"application/json"}</arg>
+</arguments>
+<status status="PASS" starttime="20200610 13:50:49.424" endtime="20200610 13:50:49.424"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>{"additionalParamsForNs":{"kvs":[{"key":"target-site","value":"SPAIN_5TONIC"}]}, "nsFlavourId":"clone_delay_vnf_flavor"}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:49.425">${body} = {"additionalParamsForNs":{"kvs":[{"key":"target-site","value":"SPAIN_5TONIC"}]}, "nsFlavourId":"clone_delay_vnf_flavor"}</msg>
+<status status="PASS" starttime="20200610 13:50:49.424" endtime="20200610 13:50:49.425"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>/${apiName}/${apiVersion}/ns_instances/${nsInstanceId}/instantiate</arg>
+<arg>${body}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.427">Starting new HTTP connection (1): localhost</msg>
+<status status="PASS" starttime="20200610 13:50:49.425" endtime="20200610 13:50:49.702"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg level="INFO" timestamp="20200610 13:50:49.703">
+{
+    "body": {
+        "title": "Error processing request",
+        "status": 500,
+        "detail": "request failed with error 400 and message {\n  \"error\": \"Malformed request\"\n}\n"
+    },
+    "status": 500,
+    "seconds": 0.274689,
+    "headers": {
+        "Date": "Wed, 10 Jun 2020 11:50:49 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "145",
+        "Version": "1.1.0-impl:etsi.org:ETSI_NFV_OpenAPI:1"
+    }
+}</msg>
+<msg level="INFO" timestamp="20200610 13:50:49.704">${outputResponse} = {'body': {'title': 'Error processing request', 'status': 500, 'detail': 'request failed with error 400 and message {\n  "error": "Malformed request"\n}\n'}, 'status': 500, 'seconds': 0.274689, 'header...</msg>
+<status status="PASS" starttime="20200610 13:50:49.703" endtime="20200610 13:50:49.704"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.705">@{response} = [ {'body': {'title': 'Error processing request', 'status': 500, 'detail': 'request failed with error 400 and message {\n  "error": "Malformed request"\n}\n'}, 'status': 500, 'seconds': 0.274689, 'head...</msg>
+<status status="PASS" starttime="20200610 13:50:49.704" endtime="20200610 13:50:49.705"></status>
+</kw>
+<status status="PASS" starttime="20200610 13:50:49.423" endtime="20200610 13:50:49.705"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>202</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.706">Validate Status code</msg>
+<status status="PASS" starttime="20200610 13:50:49.706" endtime="20200610 13:50:49.706"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg level="INFO" timestamp="20200610 13:50:49.707">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg level="FAIL" timestamp="20200610 13:50:49.707">500 != 202</msg>
+<status status="FAIL" starttime="20200610 13:50:49.706" endtime="20200610 13:50:49.707"></status>
+</kw>
+<status status="FAIL" starttime="20200610 13:50:49.705" endtime="20200610 13:50:49.707"></status>
+</kw>
+<status critical="yes" status="FAIL" starttime="20200610 13:50:49.385" endtime="20200610 13:50:49.708">500 != 202</status>
+</test>
+<status status="FAIL" starttime="20200610 13:50:48.098" endtime="20200610 13:50:49.709"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4">Critical Tests</stat>
+<stat pass="0" fail="4">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat id="s1" name="NSInstantiation" pass="0" fail="4">NSInstantiation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
