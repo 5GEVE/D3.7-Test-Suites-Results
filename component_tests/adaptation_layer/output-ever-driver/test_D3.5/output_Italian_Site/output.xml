@@ -1,0 +1,2214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.6.12 on linux)" generated="20211217 12:04:51.759" rpa="false">
+<suite id="s1" name="MSO-LO-LCM-EVER-Workflow" source="/home/ubuntu/5geve_sw/ever/github_eve/mso-lo/adaptation_layer/robotframework/MSO-LO-LCM-EVER-Workflow.robot">
+<test id="s1-t1" name="POST NS Instance Creation">
+<kw name="POST New nsInstance" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to ${apiRoot}/${nfvoId}/ns_instances</arg>
+</arguments>
+<msg timestamp="20211217 12:04:55.128" level="INFO">Create NS instance by POST to rano/1/ns_instances</msg>
+<status status="PASS" starttime="20211217 12:04:55.128" endtime="20211217 12:04:55.128"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:55.128" endtime="20211217 12:04:55.128"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:55.129" endtime="20211217 12:04:55.129"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:55.129" endtime="20211217 12:04:55.130"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:55.129" endtime="20211217 12:04:55.130"></status>
+</kw>
+<kw name="Load JSON From File" library="JSONLibrary">
+<doc>Load JSON from file.</doc>
+<arguments>
+<arg>jsons/CreateNsRequest.json</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20211217 12:04:55.130" level="INFO">${body} = {'nsdId': '', 'nsName': 'robot_ns_test', 'nsDescription': 'Ns robotframework test'}</msg>
+<status status="PASS" starttime="20211217 12:04:55.130" endtime="20211217 12:04:55.130"></status>
+</kw>
+<kw name="Update Value To Json" library="JSONLibrary">
+<doc>Update value to JSON using JSONPath</doc>
+<arguments>
+<arg>${body}</arg>
+<arg>$.nsdId</arg>
+<arg>${nsdId}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20211217 12:04:55.157" level="INFO">${body} = {'nsdId': '4125ae83-6614-4bf6-be1a-b8aa16e7e42c', 'nsName': 'robot_ns_test', 'nsDescription': 'Ns robotframework test'}</msg>
+<status status="PASS" starttime="20211217 12:04:55.130" endtime="20211217 12:04:55.157"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances</arg>
+<arg>${body}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:55.158" endtime="20211217 12:04:55.795"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20211217 12:04:55.796" level="INFO">
+{
+    "seconds": 0.6136900000000001,
+    "status": 201,
+    "body": {
+        "id": "1ZSgjgWPCmdrTTLrAywbh",
+        "nsInstanceDescription": "instance description of Ns robotframework test",
+        "nsInstanceName": "instance of robot_ns_test",
+        "nsState": "NOT_INSTANTIATED",
+        "nsdId": "1ZSgjgWPCmdrTTLrAywbh"
+    },
+    "headers": {
+        "Server": "nginx/1.18.0",
+        "Date": "Wed, 16 Dec 2020 12:04:55 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "210",
+        "Connection": "keep-alive",
+        "Location": "http://localhost/rano/1/ns_lcm_op_occs/1ZSgjgWPCmdrTTLrAywbh"
+    }
+}</msg>
+<msg timestamp="20211217 12:04:55.808" level="INFO">${outputResponse} = {'seconds': 0.6136900000000001, 'status': 201, 'body': {'id': '1ZSgjgWPCmdrTTLrAywbh', 'nsInstanceDescription': 'instance description of Ns robotframework test', 'nsInstanceName': 'instance of robot_n...</msg>
+<status status="PASS" starttime="20211217 12:04:55.795" endtime="20211217 12:04:55.809"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20211217 12:04:55.809" level="INFO">@{response} = [ {'seconds': 0.6136900000000001, 'status': 201, 'body': {'id': '1ZSgjgWPCmdrTTLrAywbh', 'nsInstanceDescription': 'instance description of Ns robotframework test', 'nsInstanceName': 'instance of robot...</msg>
+<status status="PASS" starttime="20211217 12:04:55.809" endtime="20211217 12:04:55.809"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:55.127" endtime="20211217 12:04:55.809"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20211217 12:04:55.810" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20211217 12:04:55.810" endtime="20211217 12:04:55.810"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20211217 12:04:55.811" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211217 12:04:55.811" endtime="20211217 12:04:55.811"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20211217 12:04:55.811" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20211217 12:04:55.811" endtime="20211217 12:04:55.811"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:55.810" endtime="20211217 12:04:55.811"></status>
+</kw>
+<kw name="Check HTTP Response Header Contains" library="NSLCMOperationKeywords">
+<arguments>
+<arg>Location</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${response[0]['headers']}</arg>
+<arg>${HEADER_TOCHECK}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:55.813" endtime="20211217 12:04:55.813"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Header is present</arg>
+</arguments>
+<msg timestamp="20211217 12:04:55.814" level="INFO">Header is present</msg>
+<status status="PASS" starttime="20211217 12:04:55.813" endtime="20211217 12:04:55.814"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:55.813" endtime="20211217 12:04:55.814"></status>
+</kw>
+<kw name="Check HTTP Response Body Json Schema Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${ns_schema}</arg>
+</arguments>
+<kw name="Validate" library="jsonschema">
+<doc>Validate an instance under the given schema.</doc>
+<arguments>
+<arg>instance=${response[0]['body']}</arg>
+<arg>schema=${input_schema}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:55.818" endtime="20211217 12:04:55.822"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response[0]['body']}</arg>
+</arguments>
+<msg timestamp="20211217 12:04:55.822" level="INFO">{'id': '1ZSgjgWPCmdrTTLrAywbh', 'nsInstanceDescription': 'instance description of Ns robotframework test', 'nsInstanceName': 'instance of robot_ns_test', 'nsState': 'NOT_INSTANTIATED', 'nsdId': '1ZSgjgWPCmdrTTLrAywbh'}</msg>
+<status status="PASS" starttime="20211217 12:04:55.822" endtime="20211217 12:04:55.822"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Json Schema Validation OK</arg>
+</arguments>
+<msg timestamp="20211217 12:04:55.823" level="INFO">Json Schema Validation OK</msg>
+<status status="PASS" starttime="20211217 12:04:55.823" endtime="20211217 12:04:55.823"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:55.818" endtime="20211217 12:04:55.823"></status>
+</kw>
+<kw name="Check NS Id" library="NSLCMOperationKeywords">
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${nsInstanceId}</arg>
+<arg>${response[0]['body']['id']}</arg>
+</arguments>
+<msg timestamp="20211217 12:04:55.824" level="INFO">${nsInstanceId} = 1ZSgjgWPCmdrTTLrAywbh</msg>
+<status status="PASS" starttime="20211217 12:04:55.824" endtime="20211217 12:04:55.824"></status>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<doc>Verifies that the given item is not empty.</doc>
+<arguments>
+<arg>${nsInstanceId}</arg>
+</arguments>
+<msg timestamp="20211217 12:04:55.825" level="INFO">Length is 21</msg>
+<status status="PASS" starttime="20211217 12:04:55.824" endtime="20211217 12:04:55.825"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:55.823" endtime="20211217 12:04:55.825"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${apiRoot}" == "nfvo"</arg>
+<arg>Check VNF Ids</arg>
+<arg>ELSE IF</arg>
+<arg>"${apiRoot}" == "rano"</arg>
+<arg>Log</arg>
+<arg>No vnfInstance with rano</arg>
+<arg>ELSE</arg>
+<arg>Fatal Error</arg>
+<arg>Unknown value for variable apiRoot</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>No vnfInstance with rano</arg>
+</arguments>
+<msg timestamp="20211217 12:04:55.826" level="INFO">No vnfInstance with rano</msg>
+<status status="PASS" starttime="20211217 12:04:55.826" endtime="20211217 12:04:55.826"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:55.825" endtime="20211217 12:04:55.826"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:55.826" endtime="20211217 12:04:55.827"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:55.827" endtime="20211217 12:04:55.827"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:55.828" endtime="20211217 12:04:55.828"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:55.827" endtime="20211217 12:04:55.828"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:55.828" endtime="20211217 12:04:56.065"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.066" endtime="20211217 12:04:56.066"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:55.826" endtime="20211217 12:04:56.066"></status>
+</kw>
+<doc>Test ID: mso-lo-test-3.2
+Test title: POST NS Instance Creation
+Test objective: The objective is to test the workflow for Creating a NS instance
+Pre-conditions: none
+Post-Conditions: The NS lifecycle management operation occurrence is in NOT_ISTANTIATED state</doc>
+<tags>
+<tag>instantiate-terminate-workflow</tag>
+</tags>
+<status status="PASS" starttime="20211217 12:04:55.126" endtime="20211217 12:04:56.067" critical="yes"></status>
+</test>
+<test id="s1-t2" name="GET NS Instance List">
+<kw name="GET NsInstances" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Query NS The GET method queries information about multiple NS instances.</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.069" level="INFO">Query NS The GET method queries information about multiple NS instances.</msg>
+<status status="PASS" starttime="20211217 12:04:56.069" endtime="20211217 12:04:56.069"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.069" endtime="20211217 12:04:56.070"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.070" endtime="20211217 12:04:56.070"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.074" endtime="20211217 12:04:56.075"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.070" endtime="20211217 12:04:56.075"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.075" endtime="20211217 12:04:56.306"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20211217 12:04:56.307" level="INFO">
+{
+    "seconds": 0.22941,
+    "status": 200,
+    "body": [
+        {
+            "id": "1ZSgjgWPCmdrTTLrAywbh",
+            "nsInstanceDescription": "instance description of Ns robotframework test",
+            "nsInstanceName": "instance of robot_ns_test",
+            "nsState": "NOT_INSTANTIATED",
+            "nsdId": "1ZSgjgWPCmdrTTLrAywbh"
+        }
+    ],
+    "headers": {
+        "Server": "nginx/1.18.0",
+        "Date": "Wed, 16 Dec 2020 12:04:56 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "212",
+        "Connection": "keep-alive"
+    }
+}</msg>
+<msg timestamp="20211217 12:04:56.310" level="INFO">${outputResponse} = {'seconds': 0.22941, 'status': 200, 'body': [{'id': '1ZSgjgWPCmdrTTLrAywbh', 'nsInstanceDescription': 'instance description of Ns robotframework test', 'nsInstanceName': 'instance of robot_ns_test', '...</msg>
+<status status="PASS" starttime="20211217 12:04:56.307" endtime="20211217 12:04:56.310"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.311" level="INFO">@{response} = [ {'seconds': 0.22941, 'status': 200, 'body': [{'id': '1ZSgjgWPCmdrTTLrAywbh', 'nsInstanceDescription': 'instance description of Ns robotframework test', 'nsInstanceName': 'instance of robot_ns_test',...</msg>
+<status status="PASS" starttime="20211217 12:04:56.310" endtime="20211217 12:04:56.311"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.069" endtime="20211217 12:04:56.311"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>200</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.312" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20211217 12:04:56.311" endtime="20211217 12:04:56.312"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.312" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211217 12:04:56.312" endtime="20211217 12:04:56.312"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.312" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20211217 12:04:56.312" endtime="20211217 12:04:56.313"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.311" endtime="20211217 12:04:56.313"></status>
+</kw>
+<kw name="Check HTTP Response Body Json Schema Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${ns_list_schema}</arg>
+</arguments>
+<kw name="Validate" library="jsonschema">
+<doc>Validate an instance under the given schema.</doc>
+<arguments>
+<arg>instance=${response[0]['body']}</arg>
+<arg>schema=${input_schema}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.319" endtime="20211217 12:04:56.322"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response[0]['body']}</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.323" level="INFO">[{'id': '1ZSgjgWPCmdrTTLrAywbh', 'nsInstanceDescription': 'instance description of Ns robotframework test', 'nsInstanceName': 'instance of robot_ns_test', 'nsState': 'NOT_INSTANTIATED', 'nsdId': '1ZSgjgWPCmdrTTLrAywbh'}]</msg>
+<status status="PASS" starttime="20211217 12:04:56.322" endtime="20211217 12:04:56.323"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Json Schema Validation OK</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.323" level="INFO">Json Schema Validation OK</msg>
+<status status="PASS" starttime="20211217 12:04:56.323" endtime="20211217 12:04:56.323"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.318" endtime="20211217 12:04:56.323"></status>
+</kw>
+<doc>Test ID: mso-lo-test-3.1
+Test title: GET NS Instance List
+Test objective: The objective is to test the workflow for retriving the NS instance list
+Pre-conditions: none
+Post-Conditions: none</doc>
+<tags>
+<tag>instantiate-terminate-workflow</tag>
+</tags>
+<status status="PASS" starttime="20211217 12:04:56.068" endtime="20211217 12:04:56.323" critical="yes"></status>
+</test>
+<test id="s1-t3" name="GET Information about an individual NS Instance">
+<kw name="GET IndividualNSInstance" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Trying to get information about an individual NS instance</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.325" level="INFO">Trying to get information about an individual NS instance</msg>
+<status status="PASS" starttime="20211217 12:04:56.325" endtime="20211217 12:04:56.325"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.326" endtime="20211217 12:04:56.326"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.326" endtime="20211217 12:04:56.326"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.327" endtime="20211217 12:04:56.327"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.326" endtime="20211217 12:04:56.327"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.327" endtime="20211217 12:04:56.522"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20211217 12:04:56.523" level="INFO">
+{
+    "seconds": 0.19335400000000003,
+    "status": 200,
+    "body": {
+        "id": "1ZSgjgWPCmdrTTLrAywbh",
+        "nsInstanceDescription": "instance description of Ns robotframework test",
+        "nsInstanceName": "instance of robot_ns_test",
+        "nsState": "NOT_INSTANTIATED",
+        "nsdId": "1ZSgjgWPCmdrTTLrAywbh"
+    },
+    "headers": {
+        "Server": "nginx/1.18.0",
+        "Date": "Wed, 16 Dec 2020 12:04:56 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "210",
+        "Connection": "keep-alive"
+    }
+}</msg>
+<msg timestamp="20211217 12:04:56.525" level="INFO">${outputResponse} = {'seconds': 0.19335400000000003, 'status': 200, 'body': {'id': '1ZSgjgWPCmdrTTLrAywbh', 'nsInstanceDescription': 'instance description of Ns robotframework test', 'nsInstanceName': 'instance of robot_...</msg>
+<status status="PASS" starttime="20211217 12:04:56.523" endtime="20211217 12:04:56.525"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.526" level="INFO">@{response} = [ {'seconds': 0.19335400000000003, 'status': 200, 'body': {'id': '1ZSgjgWPCmdrTTLrAywbh', 'nsInstanceDescription': 'instance description of Ns robotframework test', 'nsInstanceName': 'instance of robo...</msg>
+<status status="PASS" starttime="20211217 12:04:56.526" endtime="20211217 12:04:56.526"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.325" endtime="20211217 12:04:56.526"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>200</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.527" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20211217 12:04:56.527" endtime="20211217 12:04:56.528"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.528" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211217 12:04:56.528" endtime="20211217 12:04:56.528"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.528" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20211217 12:04:56.528" endtime="20211217 12:04:56.528"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.527" endtime="20211217 12:04:56.529"></status>
+</kw>
+<kw name="Check HTTP Response Body Json Schema Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${ns_schema}</arg>
+</arguments>
+<kw name="Validate" library="jsonschema">
+<doc>Validate an instance under the given schema.</doc>
+<arguments>
+<arg>instance=${response[0]['body']}</arg>
+<arg>schema=${input_schema}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.531" endtime="20211217 12:04:56.538"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response[0]['body']}</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.539" level="INFO">{'id': '1ZSgjgWPCmdrTTLrAywbh', 'nsInstanceDescription': 'instance description of Ns robotframework test', 'nsInstanceName': 'instance of robot_ns_test', 'nsState': 'NOT_INSTANTIATED', 'nsdId': '1ZSgjgWPCmdrTTLrAywbh'}</msg>
+<status status="PASS" starttime="20211217 12:04:56.539" endtime="20211217 12:04:56.539"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Json Schema Validation OK</arg>
+</arguments>
+<msg timestamp="20211217 12:04:56.539" level="INFO">Json Schema Validation OK</msg>
+<status status="PASS" starttime="20211217 12:04:56.539" endtime="20211217 12:04:56.539"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.530" endtime="20211217 12:04:56.539"></status>
+</kw>
+<doc>Test ID: mso-lo-test-3.3
+Test title: GET Information about an individual NS Instance
+Test objective: The objective is to test that GET method returns an individual NS instance
+Pre-conditions: none
+Post-Conditions: none</doc>
+<tags>
+<tag>instantiate-terminate-workflow</tag>
+</tags>
+<status status="PASS" starttime="20211217 12:04:56.324" endtime="20211217 12:04:56.540" critical="yes"></status>
+</test>
+<test id="s1-t4" name="POST NS Instance Instantiate">
+<kw name="Check resource existence" library="NSLCMOperationKeywords">
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.542" endtime="20211217 12:04:56.542"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.542" endtime="20211217 12:04:56.542"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.543" endtime="20211217 12:04:56.543"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.542" endtime="20211217 12:04:56.543"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.543" endtime="20211217 12:04:56.764"></status>
+</kw>
+<kw name="Integer" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON integer.*</doc>
+<arguments>
+<arg>response status</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.764" endtime="20211217 12:04:56.765"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.541" endtime="20211217 12:04:56.765"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.766" endtime="20211217 12:04:56.767"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.767" endtime="20211217 12:04:56.767"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.768" endtime="20211217 12:04:56.768"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.767" endtime="20211217 12:04:56.768"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:56.768" endtime="20211217 12:04:57.002"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:57.002" endtime="20211217 12:04:57.003"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:56.766" endtime="20211217 12:04:57.003"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${apiRoot}" == "nfvo"</arg>
+<arg>POST Instantiate nsInstance with vnf/vld in additionalParamsForNs</arg>
+<arg>ELSE IF</arg>
+<arg>"${apiRoot}" == "rano"</arg>
+<arg>POST Instantiate nsInstance with SapData</arg>
+<arg>ELSE</arg>
+<arg>Fatal Error</arg>
+<arg>Unknown value for variable apiRoot</arg>
+</arguments>
+<kw name="POST Instantiate nsInstance with SapData" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Trying to Instantiate a ns Instance with SapData</arg>
+</arguments>
+<msg timestamp="20211217 12:04:57.005" level="INFO">Trying to Instantiate a ns Instance with SapData</msg>
+<status status="PASS" starttime="20211217 12:04:57.005" endtime="20211217 12:04:57.005"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:57.005" endtime="20211217 12:04:57.006"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:57.006" endtime="20211217 12:04:57.006"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:57.006" endtime="20211217 12:04:57.007"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:57.006" endtime="20211217 12:04:57.007"></status>
+</kw>
+<kw name="Load JSON From File" library="JSONLibrary">
+<doc>Load JSON from file.</doc>
+<arguments>
+<arg>jsons/InstantiateNsRequestSapData.json</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20211217 12:04:57.007" level="INFO">${body} = {'SapData': [{'sapdId': 'sap_test_mobile', 'sapName': 'External Test Mobile Sap', 'description': 'Sap Test description', 'radioSliceProfile': {'site': 'ITALY_TURIN', 'coverageArea': 'ITALY.TIM_LAB', '...</msg>
+<status status="PASS" starttime="20211217 12:04:57.007" endtime="20211217 12:04:57.007"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances/${nsInstanceId}/instantiate</arg>
+<arg>${body}</arg>
+<arg>timeout=300</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:04:57.007" endtime="20211217 12:06:20.162"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20211217 12:06:20.163" level="INFO">
+{
+    "seconds": 0.152616,
+    "status": 202,
+    "body": "",
+    "headers": {
+        "Server": "nginx/1.18.0",
+        "Date": "Wed, 16 Dec 2020 12:06:20 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "0",
+        "Connection": "keep-alive",
+        "Location": "http://localhost/rano/1/ns_lcm_op_occs/B1ZSgjgWPCmdrTTLrAywbh"
+    }
+}</msg>
+<msg timestamp="20211217 12:06:20.164" level="INFO">${outputResponse} = {'seconds': 0.152616, 'status': 202, 'body': '', 'headers': {'Server': 'nginx/1.18.0', 'Date': 'Wed, 16 Dec 2020 12:06:20 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '0', 'Conn...</msg>
+<status status="PASS" starttime="20211217 12:06:20.163" endtime="20211217 12:06:20.164"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.165" level="INFO">@{response} = [ {'seconds': 0.152616, 'status': 202, 'body': '', 'headers': {'Server': 'nginx/1.18.0', 'Date': 'Wed, 16 Dec 2020 12:06:20 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '0', 'Co...</msg>
+<status status="PASS" starttime="20211217 12:06:20.165" endtime="20211217 12:06:20.165"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:57.004" endtime="20211217 12:06:20.165"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:04:57.004" endtime="20211217 12:06:20.165"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>202</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.166" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20211217 12:06:20.166" endtime="20211217 12:06:20.166"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.167" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211217 12:06:20.166" endtime="20211217 12:06:20.167"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.167" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20211217 12:06:20.167" endtime="20211217 12:06:20.167"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.166" endtime="20211217 12:06:20.167"></status>
+</kw>
+<kw name="Check HTTP Response Header Contains" library="NSLCMOperationKeywords">
+<arguments>
+<arg>Location</arg>
+</arguments>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${response[0]['headers']}</arg>
+<arg>${HEADER_TOCHECK}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.169" endtime="20211217 12:06:20.169"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Header is present</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.169" level="INFO">Header is present</msg>
+<status status="PASS" starttime="20211217 12:06:20.169" endtime="20211217 12:06:20.169"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.168" endtime="20211217 12:06:20.170"></status>
+</kw>
+<kw name="Check Operation Occurrence Id" library="NSLCMOperationKeywords">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response[0]['headers']['Location']}</arg>
+</arguments>
+<assign>
+<var>${nsLcmOpOcc}</var>
+</assign>
+<msg timestamp="20211217 12:06:20.171" level="INFO">${nsLcmOpOcc} = http://localhost/rano/1/ns_lcm_op_occs/B1ZSgjgWPCmdrTTLrAywbh</msg>
+<status status="PASS" starttime="20211217 12:06:20.170" endtime="20211217 12:06:20.171"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>re.search(r'(/${apiRoot}/.*/ns_lcm_op_occs/(.*))', '''${nsLcmOpOcc}''').group(2)</arg>
+<arg>re</arg>
+</arguments>
+<assign>
+<var>${nsLcmOpOcc}</var>
+</assign>
+<msg timestamp="20211217 12:06:20.172" level="INFO">${nsLcmOpOcc} = B1ZSgjgWPCmdrTTLrAywbh</msg>
+<status status="PASS" starttime="20211217 12:06:20.171" endtime="20211217 12:06:20.172"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${nsLcmOpOccId}</arg>
+<arg>${nsLcmOpOcc}</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.172" level="INFO">${nsLcmOpOccId} = B1ZSgjgWPCmdrTTLrAywbh</msg>
+<status status="PASS" starttime="20211217 12:06:20.172" endtime="20211217 12:06:20.172"></status>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<doc>Verifies that the given item is not empty.</doc>
+<arguments>
+<arg>${nsLcmOpOccId}</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.172" level="INFO">Length is 22</msg>
+<status status="PASS" starttime="20211217 12:06:20.172" endtime="20211217 12:06:20.172"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${nsLcmOpOccId}</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.173" level="INFO">B1ZSgjgWPCmdrTTLrAywbh</msg>
+<status status="PASS" starttime="20211217 12:06:20.173" endtime="20211217 12:06:20.173"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.170" endtime="20211217 12:06:20.173"></status>
+</kw>
+<doc>Test ID: mso-lo-test-3.4
+Test title: POST NS Instance Instantiate
+Test objective: The objective is to test the workflow for Instantiate a NS instance
+Pre-conditions: the resource is in NOT_INSTANTIATED state
+Post-Conditions: status code 202</doc>
+<tags>
+<tag>instantiate-terminate-workflow</tag>
+</tags>
+<status status="PASS" starttime="20211217 12:04:56.540" endtime="20211217 12:06:20.173" critical="yes"></status>
+</test>
+<test id="s1-t5" name="GET NS LCM OP Occurrence Instantiate COMPLETED">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>${MAX_WAIT}</arg>
+<arg>${INTERVAL_WAIT}</arg>
+<arg>Run Keywords</arg>
+<arg>GET Individual NS LCM OP Occurrence</arg>
+<arg>AND</arg>
+<arg>Check resource operationState is</arg>
+<arg>COMPLETED</arg>
+</arguments>
+<kw name="Run Keywords" library="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<arguments>
+<arg>GET Individual NS LCM OP Occurrence</arg>
+<arg>AND</arg>
+<arg>Check resource operationState is</arg>
+<arg>COMPLETED</arg>
+</arguments>
+<kw name="GET Individual NS LCM OP Occurrence" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Query status information about individual NS lifecycle management operation occurrence.</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.179" level="INFO">Query status information about individual NS lifecycle management operation occurrence.</msg>
+<status status="PASS" starttime="20211217 12:06:20.178" endtime="20211217 12:06:20.179"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.179" endtime="20211217 12:06:20.179"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.180" endtime="20211217 12:06:20.180"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.179" endtime="20211217 12:06:20.180"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Execute Query and validate response</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.180" level="INFO">Execute Query and validate response</msg>
+<status status="PASS" starttime="20211217 12:06:20.180" endtime="20211217 12:06:20.180"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_lcm_op_occs/${nsLcmOpOccId}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.180" endtime="20211217 12:06:20.316"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20211217 12:06:20.317" level="INFO">
+{
+    "seconds": 0.133532,
+    "status": 200,
+    "body": {
+        "id": "B1ZSgjgWPCmdrTTLrAywbh",
+        "lcmOperationType": "INSTANTIATE",
+        "nsInstanceId": "1ZSgjgWPCmdrTTLrAywbh",
+        "operationState": "COMPLETED",
+        "startTime": "2020-12-16T12:06:20.311858Z",
+        "stateEnteredTime": "now"
+    },
+    "headers": {
+        "Server": "nginx/1.18.0",
+        "Date": "Wed, 16 Dec 2020 12:06:20 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "200",
+        "Connection": "keep-alive"
+    }
+}</msg>
+<msg timestamp="20211217 12:06:20.319" level="INFO">${outputResponse} = {'seconds': 0.133532, 'status': 200, 'body': {'id': 'B1ZSgjgWPCmdrTTLrAywbh', 'lcmOperationType': 'INSTANTIATE', 'nsInstanceId': '1ZSgjgWPCmdrTTLrAywbh', 'operationState': 'COMPLETED', 'startTime': '2...</msg>
+<status status="PASS" starttime="20211217 12:06:20.316" endtime="20211217 12:06:20.319"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.320" level="INFO">@{response} = [ {'seconds': 0.133532, 'status': 200, 'body': {'id': 'B1ZSgjgWPCmdrTTLrAywbh', 'lcmOperationType': 'INSTANTIATE', 'nsInstanceId': '1ZSgjgWPCmdrTTLrAywbh', 'operationState': 'COMPLETED', 'startTime': ...</msg>
+<status status="PASS" starttime="20211217 12:06:20.320" endtime="20211217 12:06:20.320"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.178" endtime="20211217 12:06:20.320"></status>
+</kw>
+<kw name="Check resource operationState is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>COMPLETED</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['body']['operationState']}</arg>
+<arg>${state}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.321" endtime="20211217 12:06:20.321"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>State is ${state}</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.322" level="INFO">State is COMPLETED</msg>
+<status status="PASS" starttime="20211217 12:06:20.321" endtime="20211217 12:06:20.322"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.320" endtime="20211217 12:06:20.322"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.178" endtime="20211217 12:06:20.322"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.177" endtime="20211217 12:06:20.322"></status>
+</kw>
+<doc>Test ID: mso-lo-test-3.6
+Test title: GET NS LCM OP Occurrence Instantiate COMPLETED
+Test objective: The objective is to test the workflow for retrive NS LCM OP Occurrence
+Pre-conditions: none
+Post-Conditions: status code 200</doc>
+<tags>
+<tag>instantiate-terminate-workflow</tag>
+</tags>
+<status status="PASS" starttime="20211217 12:06:20.174" endtime="20211217 12:06:20.326" critical="yes"></status>
+</test>
+<test id="s1-t6" name="GET NS LCM OP Occurrences">
+<kw name="GET NS LCM OP Occurrences" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Query status information about multiple NS lifecycle management operation occurrences.</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.329" level="INFO">Query status information about multiple NS lifecycle management operation occurrences.</msg>
+<status status="PASS" starttime="20211217 12:06:20.328" endtime="20211217 12:06:20.329"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.329" endtime="20211217 12:06:20.329"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.329" endtime="20211217 12:06:20.330"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.329" endtime="20211217 12:06:20.330"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Execute Query and validate response</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.330" level="INFO">Execute Query and validate response</msg>
+<status status="PASS" starttime="20211217 12:06:20.330" endtime="20211217 12:06:20.330"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_lcm_op_occs</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.330" endtime="20211217 12:06:20.518"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20211217 12:06:20.518" level="INFO">
+{
+    "seconds": 0.185264,
+    "status": 200,
+    "body": [
+        {
+            "id": "B1ZSgjgWPCmdrTTLrAywbh",
+            "lcmOperationType": "INSTANTIATE",
+            "nsInstanceId": "1ZSgjgWPCmdrTTLrAywbh",
+            "operationState": "COMPLETED",
+            "startTime": "2020-12-16T12:06:20.511420Z",
+            "stateEnteredTime": "now"
+        }
+    ],
+    "headers": {
+        "Server": "nginx/1.18.0",
+        "Date": "Wed, 16 Dec 2020 12:06:20 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "202",
+        "Connection": "keep-alive"
+    }
+}</msg>
+<msg timestamp="20211217 12:06:20.521" level="INFO">${outputResponse} = {'seconds': 0.185264, 'status': 200, 'body': [{'id': 'B1ZSgjgWPCmdrTTLrAywbh', 'lcmOperationType': 'INSTANTIATE', 'nsInstanceId': '1ZSgjgWPCmdrTTLrAywbh', 'operationState': 'COMPLETED', 'startTime': '...</msg>
+<status status="PASS" starttime="20211217 12:06:20.518" endtime="20211217 12:06:20.521"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.522" level="INFO">@{response} = [ {'seconds': 0.185264, 'status': 200, 'body': [{'id': 'B1ZSgjgWPCmdrTTLrAywbh', 'lcmOperationType': 'INSTANTIATE', 'nsInstanceId': '1ZSgjgWPCmdrTTLrAywbh', 'operationState': 'COMPLETED', 'startTime':...</msg>
+<status status="PASS" starttime="20211217 12:06:20.521" endtime="20211217 12:06:20.522"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.328" endtime="20211217 12:06:20.522"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>200</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.527" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20211217 12:06:20.527" endtime="20211217 12:06:20.527"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.527" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211217 12:06:20.527" endtime="20211217 12:06:20.527"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.528" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20211217 12:06:20.528" endtime="20211217 12:06:20.528"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.526" endtime="20211217 12:06:20.528"></status>
+</kw>
+<kw name="Check HTTP Response Body Json Schema Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>${ns_lcm_op_occ_list_schema}</arg>
+</arguments>
+<kw name="Validate" library="jsonschema">
+<doc>Validate an instance under the given schema.</doc>
+<arguments>
+<arg>instance=${response[0]['body']}</arg>
+<arg>schema=${input_schema}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.529" endtime="20211217 12:06:20.530"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response[0]['body']}</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.531" level="INFO">[{'id': 'B1ZSgjgWPCmdrTTLrAywbh', 'lcmOperationType': 'INSTANTIATE', 'nsInstanceId': '1ZSgjgWPCmdrTTLrAywbh', 'operationState': 'COMPLETED', 'startTime': '2020-12-16T12:06:20.511420Z', 'stateEnteredTime': 'now'}]</msg>
+<status status="PASS" starttime="20211217 12:06:20.530" endtime="20211217 12:06:20.531"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Json Schema Validation OK</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.531" level="INFO">Json Schema Validation OK</msg>
+<status status="PASS" starttime="20211217 12:06:20.531" endtime="20211217 12:06:20.531"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.528" endtime="20211217 12:06:20.531"></status>
+</kw>
+<doc>Test ID: mso-lo-test-3.5
+Test title: GET LCM OP Occurrences
+Test objective: The objective is to test the workflow for retrive NS LCM OP Occurrences
+Pre-conditions: none
+Post-Conditions: status code 200</doc>
+<tags>
+<tag>instantiate-terminate-workflow</tag>
+</tags>
+<status status="PASS" starttime="20211217 12:06:20.327" endtime="20211217 12:06:20.532" critical="yes"></status>
+</test>
+<test id="s1-t7" name="POST NS Instance Terminate">
+<kw name="Check resource existence" library="NSLCMOperationKeywords">
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.534" endtime="20211217 12:06:20.534"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.534" endtime="20211217 12:06:20.534"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.535" endtime="20211217 12:06:20.535"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.535" endtime="20211217 12:06:20.535"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.535" endtime="20211217 12:06:20.683"></status>
+</kw>
+<kw name="Integer" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON integer.*</doc>
+<arguments>
+<arg>response status</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.683" endtime="20211217 12:06:20.684"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.533" endtime="20211217 12:06:20.684"></status>
+</kw>
+<kw name="Check resource instantiated" library="NSLCMOperationKeywords">
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.684" endtime="20211217 12:06:20.685"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.685" endtime="20211217 12:06:20.685"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.686" endtime="20211217 12:06:20.686"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.685" endtime="20211217 12:06:20.686"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.686" endtime="20211217 12:06:20.820"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.820" endtime="20211217 12:06:20.821"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.684" endtime="20211217 12:06:20.821"></status>
+</kw>
+<kw name="POST Terminate NSInstance" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Trying to Instantiate a Terminate NS Instance</arg>
+</arguments>
+<msg timestamp="20211217 12:06:20.822" level="INFO">Trying to Instantiate a Terminate NS Instance</msg>
+<status status="PASS" starttime="20211217 12:06:20.821" endtime="20211217 12:06:20.822"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.822" endtime="20211217 12:06:20.823"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.823" endtime="20211217 12:06:20.823"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.823" endtime="20211217 12:06:20.824"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.823" endtime="20211217 12:06:20.824"></status>
+</kw>
+<kw name="Load JSON From File" library="JSONLibrary">
+<doc>Load JSON from file.</doc>
+<arguments>
+<arg>jsons/TerminateNsRequest.json</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20211217 12:06:20.824" level="INFO">${body} = {'terminationTime': '2021-04-12T23:20:50.52Z'}</msg>
+<status status="PASS" starttime="20211217 12:06:20.824" endtime="20211217 12:06:20.824"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances/${nsInstanceId}/terminate</arg>
+<arg>${body}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:06:20.824" endtime="20211217 12:07:02.921"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20211217 12:07:02.921" level="INFO">
+{
+    "seconds": 0.094283,
+    "status": 202,
+    "body": "",
+    "headers": {
+        "Server": "nginx/1.18.0",
+        "Date": "Wed, 16 Dec 2020 12:07:02 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "0",
+        "Connection": "keep-alive",
+        "Location": "http://localhost/rano/1/ns_lcm_op_occs/B1ZSgjgWPCmdrTTLrAywbh"
+    }
+}</msg>
+<msg timestamp="20211217 12:07:02.922" level="INFO">${outputResponse} = {'seconds': 0.094283, 'status': 202, 'body': '', 'headers': {'Server': 'nginx/1.18.0', 'Date': 'Wed, 16 Dec 2020 12:07:02 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '0', 'Conn...</msg>
+<status status="PASS" starttime="20211217 12:07:02.921" endtime="20211217 12:07:02.922"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20211217 12:07:02.923" level="INFO">@{response} = [ {'seconds': 0.094283, 'status': 202, 'body': '', 'headers': {'Server': 'nginx/1.18.0', 'Date': 'Wed, 16 Dec 2020 12:07:02 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '0', 'Co...</msg>
+<status status="PASS" starttime="20211217 12:07:02.922" endtime="20211217 12:07:02.923"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:06:20.821" endtime="20211217 12:07:02.923"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>202</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20211217 12:07:02.924" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20211217 12:07:02.924" endtime="20211217 12:07:02.924"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20211217 12:07:02.924" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211217 12:07:02.924" endtime="20211217 12:07:02.925"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20211217 12:07:02.925" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20211217 12:07:02.925" endtime="20211217 12:07:02.925"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:02.923" endtime="20211217 12:07:02.925"></status>
+</kw>
+<kw name="Check Operation Occurrence Id" library="NSLCMOperationKeywords">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response[0]['headers']['Location']}</arg>
+</arguments>
+<assign>
+<var>${nsLcmOpOcc}</var>
+</assign>
+<msg timestamp="20211217 12:07:02.926" level="INFO">${nsLcmOpOcc} = http://localhost/rano/1/ns_lcm_op_occs/B1ZSgjgWPCmdrTTLrAywbh</msg>
+<status status="PASS" starttime="20211217 12:07:02.926" endtime="20211217 12:07:02.926"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>re.search(r'(/${apiRoot}/.*/ns_lcm_op_occs/(.*))', '''${nsLcmOpOcc}''').group(2)</arg>
+<arg>re</arg>
+</arguments>
+<assign>
+<var>${nsLcmOpOcc}</var>
+</assign>
+<msg timestamp="20211217 12:07:02.926" level="INFO">${nsLcmOpOcc} = B1ZSgjgWPCmdrTTLrAywbh</msg>
+<status status="PASS" starttime="20211217 12:07:02.926" endtime="20211217 12:07:02.926"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${nsLcmOpOccId}</arg>
+<arg>${nsLcmOpOcc}</arg>
+</arguments>
+<msg timestamp="20211217 12:07:02.927" level="INFO">${nsLcmOpOccId} = B1ZSgjgWPCmdrTTLrAywbh</msg>
+<status status="PASS" starttime="20211217 12:07:02.927" endtime="20211217 12:07:02.927"></status>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<doc>Verifies that the given item is not empty.</doc>
+<arguments>
+<arg>${nsLcmOpOccId}</arg>
+</arguments>
+<msg timestamp="20211217 12:07:02.927" level="INFO">Length is 22</msg>
+<status status="PASS" starttime="20211217 12:07:02.927" endtime="20211217 12:07:02.927"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${nsLcmOpOccId}</arg>
+</arguments>
+<msg timestamp="20211217 12:07:02.928" level="INFO">B1ZSgjgWPCmdrTTLrAywbh</msg>
+<status status="PASS" starttime="20211217 12:07:02.928" endtime="20211217 12:07:02.928"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:02.925" endtime="20211217 12:07:02.928"></status>
+</kw>
+<doc>Test ID: mso-lo-test-3.
+Test title: POST Terminate NS Instance
+Test objective: The objective is to test the workflow for Terminate a NS instance
+Pre-conditions: the resource is in INSTANTIATED state
+Post-Conditions: the resource is in NOT_INSTANTIATED state</doc>
+<tags>
+<tag>instantiate-terminate-workflow</tag>
+</tags>
+<status status="PASS" starttime="20211217 12:06:20.532" endtime="20211217 12:07:02.934" critical="yes"></status>
+</test>
+<test id="s1-t8" name="POST NS Instance Delete">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20211217 12:07:07.936" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20211217 12:07:02.936" endtime="20211217 12:07:07.936"></status>
+</kw>
+<kw name="Check resource not_instantiated" library="NSLCMOperationKeywords">
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:07.937" endtime="20211217 12:07:07.938"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:07.938" endtime="20211217 12:07:07.938"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:07.938" endtime="20211217 12:07:07.939"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:07.938" endtime="20211217 12:07:07.939"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:07.939" endtime="20211217 12:07:08.072"></status>
+</kw>
+<kw name="String" library="REST">
+<tags>
+<tag>assertions</tag>
+</tags>
+<doc>*Asserts the field as JSON string.*</doc>
+<arguments>
+<arg>response body nsState</arg>
+<arg>NOT_INSTANTIATED</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:08.072" endtime="20211217 12:07:08.073"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:07.937" endtime="20211217 12:07:08.073"></status>
+</kw>
+<kw name="DELETE IndividualNSInstance" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Trying to delete an individual NS instance</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.074" level="INFO">Trying to delete an individual NS instance</msg>
+<status status="PASS" starttime="20211217 12:07:08.074" endtime="20211217 12:07:08.074"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:08.075" endtime="20211217 12:07:08.075"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:08.074" endtime="20211217 12:07:08.075"></status>
+</kw>
+<kw name="Delete" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a DELETE request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances/${nsInstanceId}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:08.075" endtime="20211217 12:07:08.341"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20211217 12:07:08.342" level="INFO">
+{
+    "seconds": 0.264259,
+    "status": 204,
+    "body": "",
+    "headers": {
+        "Server": "nginx/1.18.0",
+        "Date": "Wed, 16 Dec 2020 12:07:08 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Connection": "keep-alive"
+    }
+}</msg>
+<msg timestamp="20211217 12:07:08.343" level="INFO">${outputResponse} = {'seconds': 0.264259, 'status': 204, 'body': '', 'headers': {'Server': 'nginx/1.18.0', 'Date': 'Wed, 16 Dec 2020 12:07:08 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Connection': 'keep-alive'}}</msg>
+<status status="PASS" starttime="20211217 12:07:08.341" endtime="20211217 12:07:08.343"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.343" level="INFO">@{response} = [ {'seconds': 0.264259, 'status': 204, 'body': '', 'headers': {'Server': 'nginx/1.18.0', 'Date': 'Wed, 16 Dec 2020 12:07:08 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Connection': 'keep-alive'...</msg>
+<status status="PASS" starttime="20211217 12:07:08.343" endtime="20211217 12:07:08.343"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:08.073" endtime="20211217 12:07:08.344"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>204</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.344" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20211217 12:07:08.344" endtime="20211217 12:07:08.344"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.345" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211217 12:07:08.344" endtime="20211217 12:07:08.345"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.345" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20211217 12:07:08.345" endtime="20211217 12:07:08.345"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:08.344" endtime="20211217 12:07:08.345"></status>
+</kw>
+<doc>Test ID: mso-lo-test-3.6
+Test title: POST NS Instance Delete
+Test objective: The objective is to test the workflow for Deleting a NS instance
+Pre-conditions: the resource is in NOT_INSTANTIATED state
+Post-Conditions: status code 204</doc>
+<tags>
+<tag>instantiate-terminate-workflow</tag>
+</tags>
+<status status="PASS" starttime="20211217 12:07:02.935" endtime="20211217 12:07:08.346" critical="yes"></status>
+</test>
+<test id="s1-t9" name="POST NS Instance Creation Bad Request">
+<kw name="POST New nsInstance with invalid request body" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create NS instance by POST to ${apiRoot}/${nfvoId}/ns_instances with bad request body</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.348" level="INFO">Create NS instance by POST to rano/1/ns_instances with bad request body</msg>
+<status status="PASS" starttime="20211217 12:07:08.347" endtime="20211217 12:07:08.348"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:08.348" endtime="20211217 12:07:08.348"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:08.348" endtime="20211217 12:07:08.348"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:08.350" endtime="20211217 12:07:08.351"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:08.349" endtime="20211217 12:07:08.351"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:08.351" endtime="20211217 12:07:08.492"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20211217 12:07:08.492" level="INFO">
+{
+    "seconds": 0.138691,
+    "status": 400,
+    "body": {
+        "code": 400,
+        "description": "The browser (or proxy) sent a request that this server could not understand.",
+        "name": "Bad Request"
+    },
+    "headers": {
+        "Server": "nginx/1.18.0",
+        "Date": "Wed, 16 Dec 2020 12:07:08 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "127",
+        "Connection": "keep-alive"
+    }
+}</msg>
+<msg timestamp="20211217 12:07:08.493" level="INFO">${outputResponse} = {'seconds': 0.138691, 'status': 400, 'body': {'code': 400, 'description': 'The browser (or proxy) sent a request that this server could not understand.', 'name': 'Bad Request'}, 'headers': {'Server': ...</msg>
+<status status="PASS" starttime="20211217 12:07:08.492" endtime="20211217 12:07:08.493"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.494" level="INFO">@{response} = [ {'seconds': 0.138691, 'status': 400, 'body': {'code': 400, 'description': 'The browser (or proxy) sent a request that this server could not understand.', 'name': 'Bad Request'}, 'headers': {'Server'...</msg>
+<status status="PASS" starttime="20211217 12:07:08.493" endtime="20211217 12:07:08.494"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:08.347" endtime="20211217 12:07:08.494"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>400</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.495" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20211217 12:07:08.495" endtime="20211217 12:07:08.495"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.496" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211217 12:07:08.495" endtime="20211217 12:07:08.496"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.496" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20211217 12:07:08.496" endtime="20211217 12:07:08.496"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:08.494" endtime="20211217 12:07:08.496"></status>
+</kw>
+<doc>Test ID: mso-lo-test-3.2.1
+Test title: POST Instance Creation Bad Request
+Test objective: The objective is to test the workflow for Creating a NS instance with a bad request
+Pre-conditions: none
+Post-Conditions: Status code 400</doc>
+<tags>
+<tag>standalone</tag>
+</tags>
+<status status="PASS" starttime="20211217 12:07:08.346" endtime="20211217 12:07:08.496" critical="yes"></status>
+</test>
+<test id="s1-t10" name="GET Information about an inexistent individual NS Instance">
+<kw name="GET IndividualNSInstance inexistent" library="NSLCMOperationKeywords">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Trying to get information about an individual NS instance</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.501" level="INFO">Trying to get information about an individual NS instance</msg>
+<status status="PASS" starttime="20211217 12:07:08.501" endtime="20211217 12:07:08.501"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Accept":"${ACCEPT}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:08.502" endtime="20211217 12:07:08.502"></status>
+</kw>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Content-Type": "${CONTENT_TYPE}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:08.503" endtime="20211217 12:07:08.503"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${AUTH_USAGE} == 1</arg>
+<arg>Set Headers</arg>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<kw name="Set Headers" library="REST">
+<tags>
+<tag>settings</tag>
+</tags>
+<doc>*Sets new request headers or updates the existing.*</doc>
+<arguments>
+<arg>{"Authorization":"${AUTHORIZATION}"}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:08.503" endtime="20211217 12:07:08.505"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:08.503" endtime="20211217 12:07:08.505"></status>
+</kw>
+<kw name="Get" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a GET request to the endpoint.*</doc>
+<arguments>
+<arg>${apiRoot}/${nfvoId}/ns_instances/${nsInstanceIdinexistent}</arg>
+</arguments>
+<status status="PASS" starttime="20211217 12:07:08.505" endtime="20211217 12:07:08.843"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<assign>
+<var>${outputResponse}</var>
+</assign>
+<msg timestamp="20211217 12:07:08.843" level="INFO">
+{
+    "seconds": 0.241101,
+    "status": 404,
+    "body": {
+        "code": 404,
+        "description": "NS instance 6fc3539c-e602-4afa-8e13-962fb5a7d81xxxxxxx not found.",
+        "name": "Not Found"
+    },
+    "headers": {
+        "Server": "nginx/1.18.0",
+        "Date": "Wed, 16 Dec 2020 12:07:08 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "114",
+        "Connection": "keep-alive"
+    }
+}</msg>
+<msg timestamp="20211217 12:07:08.844" level="INFO">${outputResponse} = {'seconds': 0.241101, 'status': 404, 'body': {'code': 404, 'description': 'NS instance 6fc3539c-e602-4afa-8e13-962fb5a7d81xxxxxxx not found.', 'name': 'Not Found'}, 'headers': {'Server': 'nginx/1.18.0...</msg>
+<status status="PASS" starttime="20211217 12:07:08.843" endtime="20211217 12:07:08.844"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{response}</arg>
+<arg>${outputResponse}</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.845" level="INFO">@{response} = [ {'seconds': 0.241101, 'status': 404, 'body': {'code': 404, 'description': 'NS instance 6fc3539c-e602-4afa-8e13-962fb5a7d81xxxxxxx not found.', 'name': 'Not Found'}, 'headers': {'Server': 'nginx/1.18...</msg>
+<status status="PASS" starttime="20211217 12:07:08.845" endtime="20211217 12:07:08.845"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:08.500" endtime="20211217 12:07:08.845"></status>
+</kw>
+<kw name="Check HTTP Response Status Code Is" library="NSLCMOperationKeywords">
+<arguments>
+<arg>404</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validate Status code</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.846" level="INFO">Validate Status code</msg>
+<status status="PASS" starttime="20211217 12:07:08.846" endtime="20211217 12:07:08.846"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${response[0]['status']}</arg>
+<arg>${expected_status}</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.847" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20211217 12:07:08.846" endtime="20211217 12:07:08.847"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Status code validated</arg>
+</arguments>
+<msg timestamp="20211217 12:07:08.847" level="INFO">Status code validated</msg>
+<status status="PASS" starttime="20211217 12:07:08.847" endtime="20211217 12:07:08.847"></status>
+</kw>
+<status status="PASS" starttime="20211217 12:07:08.845" endtime="20211217 12:07:08.847"></status>
+</kw>
+<doc>Test ID: mso-lo-test-3.3.1
+Test title: GET Information about an inexistent individual NS Instance
+Test objective: The objective is to test that GET method returns an inexistent individual NS instance
+Pre-conditions: none
+Post-Conditions: Status code 404</doc>
+<tags>
+<tag>standalone</tag>
+</tags>
+<status status="PASS" starttime="20211217 12:07:08.497" endtime="20211217 12:07:08.847" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20211217 12:04:51.760" endtime="20211217 12:07:08.848"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="10" fail="0">Critical Tests</stat>
+<stat pass="10" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="8" fail="0">instantiate-terminate-workflow</stat>
+<stat pass="2" fail="0">standalone</stat>
+</tag>
+<suite>
+<stat pass="10" fail="0" id="s1" name="MSO-LO-LCM-EVER-Workflow">MSO-LO-LCM-EVER-Workflow</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,2 +1,0 @@
-# D3.7-Test-Suites-Results
-Test Suites Results reported in deliverable D3.7, available in tag d3.7. The tests not executed for D3.7, due to the reasons commented in the deliverable, will be reported in D3.5, creating a new tag for that purpose.
